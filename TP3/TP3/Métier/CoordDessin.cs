@@ -29,7 +29,6 @@ namespace TPARCHIPERCEPTRON
         /// <param name="hauteur"></param>
         public CoordDessin(int largeur, int hauteur)
         {
-
             _baDessin = new BitArray((largeur / CstApplication.LARGEURTRAIT) * (hauteur / CstApplication.HAUTEURTRAIT));
         }
 

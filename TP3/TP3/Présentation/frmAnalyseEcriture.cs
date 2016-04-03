@@ -6,6 +6,7 @@ using System.Globalization;
 using System.Linq;
 using System.ComponentModel;
 using System.Collections.Generic;
+using System.Drawing;
 
 namespace TPARCHIPERCEPTRON
 {
@@ -52,7 +53,19 @@ namespace TPARCHIPERCEPTRON
         /// <param name="e">Les arguments de cet événement.</param>
         private void btnEntrainement_Click(object sender, EventArgs e)
         {
-            //À COMPLÉTER
+            Bitmap b = new Bitmap(ucDessin.GetChildPicBox().Image);
+            CoordDessin cDessin = new CoordDessin(16, 16);
+            for (int y = 0; y <= 64; y++)
+            {
+                for (int x = 0; x <= 64; x++)
+                {
+                    Color c = b.GetPixel(x, y);
+                    if (c != Color.White)
+                    {
+                        cDessin.AjouterCoordonnees(x, y, 2, 2);
+                    }
+                }
+            }
         }
 
         /// <summary>

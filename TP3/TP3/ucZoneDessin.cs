@@ -86,6 +86,11 @@ namespace TPARCHIPERCEPTRON
         {
             _doitDessiner = false;
         }
+
+        public PictureBox GetChildPicBox()
+        {
+            return pZoneDessin;
+        }
     }
 }
 
