@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Métier\IdxReader.cs" />
     <Compile Include="Présentation\frmAffichageDessins.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,10 +63,10 @@
     <Compile Include="Présentation\frmAnalyseEcriture.Designer.cs">
       <DependentUpon>frmAnalyseEcriture.cs</DependentUpon>
     </Compile>
-    <Compile Include="Métier\GestionClassesPerceptrons.cs" />
+    <Compile Include="Données\GestionClassesPerceptrons.cs" />
     <Compile Include="Métier\CoordDessin.cs" />
-    <Compile Include="Métier\GestionFichiersSorties.cs" />
-    <Compile Include="Données\Perceptron.cs" />
+    <Compile Include="Données\GestionFichiersSorties.cs" />
+    <Compile Include="Métier\Perceptron.cs" />
     <Compile Include="Métier\CstApplication.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -104,6 +105,10 @@
       <DependentUpon>ucZoneDessin.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
+    <None Include="Fichiers\t10k-images.idx3-ubyte" />
+    <None Include="Fichiers\t10k-labels.idx1-ubyte" />
+    <None Include="Fichiers\train-images.idx3-ubyte" />
+    <None Include="Fichiers\train-labels.idx1-ubyte" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
