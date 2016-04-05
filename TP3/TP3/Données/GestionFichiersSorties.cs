@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Data.Entity.Migrations;
 
 namespace TPARCHIPERCEPTRON
 {
@@ -11,6 +15,8 @@ namespace TPARCHIPERCEPTRON
     public class GestionFichiersSorties
     {
         private List<CoordDessin> _lstCoord;
+        BDPerceptron bd = new BDPerceptron();
+
         /// <summary>
         /// Permet d'extraire un fichier texte dans une matrice pour l'apprentissage automatique.
         /// </summary>
@@ -19,7 +25,24 @@ namespace TPARCHIPERCEPTRON
         {
             _lstCoord = new List<CoordDessin>();
 
-            //À COMPLÉTER
+            foreach (var p in bd.Perceptrons)
+            {
+                CoordDessin c = new CoordDessin(16, 16);
+
+                foreach (var s in p.BitArray)
+                {
+                    for (int y = 0; y <= 16; y++)
+                    {
+                        for (int x = 0; x < 16; x++)
+                        {
+                            if (s != '0')
+                                c.AjouterCoordonnees(x, y, 1, 1);
+                        }
+                    }
+                }
+
+            }
+
             return _lstCoord;
         }
 
@@ -29,7 +52,11 @@ namespace TPARCHIPERCEPTRON
         /// <param name="fichier">Fichier où extraire les données</param>
         public int SauvegarderCoordonnees(string fichier, List<CoordDessin> lstCoord)
         {
-            //À COMPLÉTER
+            foreach (var c in lstCoord)
+            {
+                bd.Perceptrons.AddOrUpdate(p => p.LettresPerceptron, new SavedPerceptron() { LettresPerceptron = c.Reponse, BitArray = c.BitArrayDessin.ToString() });
+            }
+
             return CstApplication.OK;
         }
 
@@ -38,7 +65,6 @@ namespace TPARCHIPERCEPTRON
         /// </summary>
         public IList<CoordDessin> ObtenirCoordonnees()
         {
-
             return _lstCoord;
         }
 

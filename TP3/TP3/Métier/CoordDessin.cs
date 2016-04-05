@@ -55,7 +55,8 @@ namespace TPARCHIPERCEPTRON
 
             //for (int i = 0; i < tailleX; i++)
             //    for (int j = 0; j < tailleY; j++)
-            _baDessin[((x / tailleX) * (CstApplication.TAILLEDESSINX / tailleX) + (y / tailleY))] = true;
+            int j = ((x / tailleX) * (CstApplication.TAILLEDESSINX / tailleX) + (y / tailleY));
+            _baDessin[j] = true;
 
         }
     }
