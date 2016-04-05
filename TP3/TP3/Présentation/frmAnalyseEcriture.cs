@@ -7,6 +7,8 @@ using System.Linq;
 using System.ComponentModel;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
+using TPARCHIPERCEPTRON.Présentation;
 
 namespace TPARCHIPERCEPTRON
 {
@@ -16,6 +18,7 @@ namespace TPARCHIPERCEPTRON
     /// </summary>
     public partial class frmAnalyseEcriture : Form
     {
+        TextWriter _writer = null;
         // Le gestionnaire des perceptrons.
         private GestionClassesPerceptrons _gcpAnalyseEcriture;
 
@@ -112,6 +115,8 @@ namespace TPARCHIPERCEPTRON
         {
             AjouterLangue(CultureInfo.GetCultureInfo("fr"));
             AjouterLangue(CultureInfo.GetCultureInfo("en"));
+            _writer = new TextBoxStreamWriter(txtConsole);
+            Console.SetOut(_writer);
             _langues[0].Checked = true;
         }
 

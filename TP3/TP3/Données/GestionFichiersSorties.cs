@@ -18,10 +18,9 @@ namespace TPARCHIPERCEPTRON
         BDPerceptron bd = new BDPerceptron();
 
         /// <summary>
-        /// Permet d'extraire un fichier texte dans une matrice pour l'apprentissage automatique.
+        /// Permet d'extraire de la base de données dans une matrice les information d'un perceptron pour l'apprentissage automatique.
         /// </summary>
-        /// <param name="fichier">Fichier où extraire les données</param>
-        public List<CoordDessin> ChargerCoordonnees(string fichier)
+        public List<CoordDessin> ChargerCoordonnees()
         {
             _lstCoord = new List<CoordDessin>();
 
@@ -47,7 +46,7 @@ namespace TPARCHIPERCEPTRON
         }
 
         /// <summary>
-        /// Permet de sauvegarder dans fichier texte dans une matrice pour l'apprentissage automatique
+        /// Permet de sauvegarder dans une base de données dans une matrice les informations des perceptrons pour l'apprentissage automatique
         /// </summary>
         /// <param name="fichier">Fichier où extraire les données</param>
         public int SauvegarderCoordonnees(string fichier, List<CoordDessin> lstCoord)
@@ -61,7 +60,7 @@ namespace TPARCHIPERCEPTRON
         }
 
         /// <summary>
-        /// Permet d'extraire un fichier texte dans une matrice pour l'apprentissage automatique.
+        /// Permet d'obtenir la liste des perceptrons.
         /// </summary>
         public IList<CoordDessin> ObtenirCoordonnees()
         {

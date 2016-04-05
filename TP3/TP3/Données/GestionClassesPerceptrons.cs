@@ -25,20 +25,18 @@ namespace TPARCHIPERCEPTRON
         }
 
         /// <summary>
-        /// Charge les échantillons d'apprentissage sauvegardé sur le disque.
+        /// Charge les échantillons d'apprentissage sauvegardé dans une base de données.
         /// </summary>
-        /// <param name="fichier">Le nom du fichier</param>
-        public void ChargerCoordonnees(string fichier)
+        public void ChargerCoordonnees()
         {
             //À COMPLÉTER
         }
 
         /// <summary>
-        /// Sauvegarde les échantillons d'apprentissage sauvegardé sur le disque.
+        /// Sauvegarde les échantillons d'apprentissage dans une base de données.
         /// </summary>
-        /// <param name="fichier">Le nom du fichier</param>
         /// <returns>En cas d'erreur retourne le code d'erreur</returns>
-        public int SauvegarderCoordonnees(string fichier)
+        public int SauvegarderCoordonnees()
         {
             int erreur = CstApplication.ERREUR;
             //À COMPLÉTER
