@@ -59,6 +59,8 @@ namespace TPARCHIPERCEPTRON
             _gcpAnalyseEcriture.Entrainement(ucDessin.Coordonnees, txtValeurEntrainee.Text);
             ucDessin.EffacerDessin();
             txtValeurEntrainee.Text = "";
+            ucDessin.Coordonnees.Reponse = txtValeurEntrainee.Text;
+            txtConsole.Text = _gcpAnalyseEcriture.Entrainement(ucDessin.Coordonnees, txtValeurEntrainee.Text);
         }
 
         /// <summary>
@@ -68,7 +70,7 @@ namespace TPARCHIPERCEPTRON
         /// <param name="e">Les arguments de cet événement.</param>
         private void btnTest_Click(object sender, EventArgs e)
         {
-            //À COMPLÉTER
+            txtValeurTestee.Text = _gcpAnalyseEcriture.TesterPerceptron(ucDessin.Coordonnees);
         }
 
         /// <summary>

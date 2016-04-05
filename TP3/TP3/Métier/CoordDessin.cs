@@ -10,7 +10,7 @@ namespace TPARCHIPERCEPTRON
     public class CoordDessin
     {
         private BitArray _baDessin = null;
-        private string _reponse = "?";
+        private string _reponse;
 
         public BitArray BitArrayDessin
         {

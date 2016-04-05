@@ -53,6 +53,16 @@ namespace TPARCHIPERCEPTRON
         {
             string sConsole = "";
 
+            if (!_lstPerceptrons.ContainsKey(reponse))
+            {
+                _lstPerceptrons.Add(reponse, new Perceptron(reponse, 0.10));
+            }
+
+            foreach (var perceptron in _lstPerceptrons)
+            {
+                sConsole = sConsole + perceptron.Key + " : " + perceptron.Value.Entrainement(new List<CoordDessin> { coordo }) + " ";
+            }
+
             return sConsole;
         }
 
@@ -66,8 +76,13 @@ namespace TPARCHIPERCEPTRON
         {
             string resultat = "";
 
-            if (resultat == "")
-                resultat = "?";
+            foreach (var perceptron in _lstPerceptrons)
+            {
+                if (perceptron.Value.TesterNeurone(coord))
+                {
+                    resultat =resultat + perceptron.Key + " ";
+                }
+            }
 
             return resultat;
         }
