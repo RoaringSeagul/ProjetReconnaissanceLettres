@@ -137,6 +137,7 @@
     <None Include="Fichiers\t10k-labels.idx1-ubyte" />
     <None Include="Fichiers\train-images.idx3-ubyte" />
     <None Include="Fichiers\train-labels.idx1-ubyte" />
+    <None Include="Fichiers\Train.dat" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
