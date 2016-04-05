@@ -21,8 +21,6 @@ namespace TPARCHIPERCEPTRON
         {
             _lstPerceptrons = new Dictionary<string, Perceptron>();
             _gestionSortie = new GestionFichiersSorties();
-
-            ChargerCoordonnees("~/Fichiers/")
             
         }
 

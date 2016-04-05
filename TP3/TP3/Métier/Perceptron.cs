@@ -54,10 +54,10 @@ namespace TPARCHIPERCEPTRON
             do
             {
                 nbErreur = 0;
-                for (int i = 0; i < ; i++)
-                {
+                //for (int i = 0; i < ; i++)
+                //{
 
-                }
+                //}
             } while (nbErreur != 0 && nbIteration < 10000);
             return sResultat;
         }

@@ -36,7 +36,7 @@
             // 
             this.pZoneDessin.Location = new System.Drawing.Point(0, 0);
             this.pZoneDessin.Name = "pZoneDessin";
-            this.pZoneDessin.Size = new System.Drawing.Size(CstApplication.TAILLEDESSINX, CstApplication.TAILLEDESSINY);
+            this.pZoneDessin.Size = new System.Drawing.Size(64, 64);
             this.pZoneDessin.TabIndex = 0;
             this.pZoneDessin.TabStop = false;
             this.pZoneDessin.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pZoneDessin_MouseDown);
