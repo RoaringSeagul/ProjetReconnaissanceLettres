@@ -80,7 +80,7 @@ namespace TPARCHIPERCEPTRON
             {
                 if (perceptron.Value.TesterNeurone(coord))
                 {
-                    resultat =resultat + perceptron.Key + " ";
+                    resultat = resultat + perceptron.Key;
                 }
             }
 

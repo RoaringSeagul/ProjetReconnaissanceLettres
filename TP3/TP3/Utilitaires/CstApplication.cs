@@ -7,8 +7,8 @@ namespace TPARCHIPERCEPTRON
     public static class CstApplication
     {
         //Taille maximale de l'interface de dessin.
-        public const int TAILLEDESSINY = 64;
-        public const int TAILLEDESSINX = 64;
+        public const int TAILLEDESSINY = 28;
+        public const int TAILLEDESSINX = 28;
         //Constante d'apprentissage pour le perceptron
         public const double CONSTANTEAPPRENTISSAGE = 0.01;
         //Critère de convergence pour le perceptron.
@@ -16,8 +16,8 @@ namespace TPARCHIPERCEPTRON
         public const int POURCENTCONVERGENCE = 96;
 
         //Taille du trait lors du dessin.
-        public const int LARGEURTRAIT = 4;
-        public const int HAUTEURTRAIT = 4;
+        public const int LARGEURTRAIT = 1;
+        public const int HAUTEURTRAIT = 1;
 
         //Valeur vrai ou fausse pour le perceptron
         public const int VRAI = 1;

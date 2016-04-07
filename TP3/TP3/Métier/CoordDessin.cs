@@ -32,6 +32,12 @@ namespace TPARCHIPERCEPTRON
             _baDessin = new BitArray((largeur / CstApplication.LARGEURTRAIT) * (hauteur / CstApplication.HAUTEURTRAIT));
         }
 
+        public CoordDessin(BitArray bits, string reponse)
+        {
+            _baDessin = bits;
+            _reponse = reponse;
+        }
+
         /// <summary>
         /// Lors de l'ajout d'un point, modifier le vecteur de bits où il y a de nouveaux points noirs.
         /// </summary>

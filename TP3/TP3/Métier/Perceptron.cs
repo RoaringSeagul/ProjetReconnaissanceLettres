@@ -29,11 +29,11 @@ namespace TPARCHIPERCEPTRON
             _cstApprentissage = cstApprentissage;
 
             // On crée notre tableau de poids synaptiques
-            _poidsSyn = new Double[16 * 16];
+            _poidsSyn = new Double[CstApplication.TAILLEDESSINX / CstApplication.HAUTEURTRAIT * CstApplication.TAILLEDESSINY / CstApplication.LARGEURTRAIT];
 
             Random rnd = new Random();
             // On assigne des poids aléatoires à chaques coordonnées
-            for (int i = 0; i < 16 * 16; i++)
+            for (int i = 0; i < _poidsSyn.Length; i++)
             {
                 _poidsSyn[i] = rnd.NextDouble();
             }
@@ -48,11 +48,8 @@ namespace TPARCHIPERCEPTRON
         /// <returns>Les paramètres de la console</returns>
         public string Entrainement(List<CoordDessin> _lstCoords)
         {
-            String sResultat = "";
             Int32 nbIteration = 0;
             Int32 nbErreur = 0;
-            Int32 iResultatEstime = 0;
-            Int32 erreurLocale = 0;
             string s = "";
 
             foreach (var coord in _lstCoords)
@@ -67,6 +64,7 @@ namespace TPARCHIPERCEPTRON
                     {
                         _poidsSyn[i] += _cstApprentissage * (coord.BitArrayDessin[i] ? 1 : -1);
                     }
+                    nbErreur++;
                 }
                 else if(!estBonneLettre && !estBonneValeurEstime)
                 {
@@ -74,7 +72,9 @@ namespace TPARCHIPERCEPTRON
                     {
                         _poidsSyn[i] += _cstApprentissage * (coord.BitArrayDessin[i] ? -1 : 1);
                     }
+                    nbErreur++;
                 }
+                nbIteration++;
             }
             
             return s;

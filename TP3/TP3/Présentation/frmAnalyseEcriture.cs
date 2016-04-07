@@ -19,6 +19,7 @@ namespace TPARCHIPERCEPTRON
     public partial class frmAnalyseEcriture : Form
     {
         TextWriter _writer = null;
+        GestionBDChiffresManuscripts _gbd = new GestionBDChiffresManuscripts();
         // Le gestionnaire des perceptrons.
         private GestionClassesPerceptrons _gcpAnalyseEcriture;
 
@@ -41,8 +42,8 @@ namespace TPARCHIPERCEPTRON
         {
             InitializeComponent();
 
-            ucDessin.Width = CstApplication.TAILLEDESSINX;
-            ucDessin.Height = CstApplication.TAILLEDESSINY;
+            //ucDessin.Width = CstApplication.TAILLEDESSINX;
+           //ucDessin.Height = CstApplication.TAILLEDESSINY;
 
             _gcpAnalyseEcriture = new GestionClassesPerceptrons();
             //À COMPLÉTER   
@@ -56,8 +57,14 @@ namespace TPARCHIPERCEPTRON
         /// <param name="e">Les arguments de cet événement.</param>
         private void btnEntrainement_Click(object sender, EventArgs e)
         {
-            ucDessin.Coordonnees.Reponse = txtValeurEntrainee.Text;
-            txtConsole.Text = _gcpAnalyseEcriture.Entrainement(ucDessin.Coordonnees, txtValeurEntrainee.Text);
+            //ucDessin.Coordonnees.Reponse = txtValeurEntrainee.Text;
+            //txtConsole.Text = _gcpAnalyseEcriture.Entrainement(ucDessin.Coordonnees, txtValeurEntrainee.Text);
+
+            for (int i = 0; i < 9000; i++)
+            {
+                var obj = _gbd.BitArrays.ElementAt(i);
+                _gcpAnalyseEcriture.Entrainement(new CoordDessin(obj.Key, obj.Value.ToString()), obj.Value.ToString());
+            }
         }
 
         /// <summary>
@@ -67,7 +74,17 @@ namespace TPARCHIPERCEPTRON
         /// <param name="e">Les arguments de cet événement.</param>
         private void btnTest_Click(object sender, EventArgs e)
         {
-            txtValeurTestee.Text = _gcpAnalyseEcriture.TesterPerceptron(ucDessin.Coordonnees);
+            int goodCount = 0;
+            //txtValeurTestee.Text = _gcpAnalyseEcriture.TesterPerceptron(ucDessin.Coordonnees);
+            for (int i = 9000; i < 10000; i++)
+            {
+                var obj = _gbd.BitArrays.ElementAt(i);
+                if (_gcpAnalyseEcriture.TesterPerceptron(new CoordDessin(obj.Key, obj.Value.ToString())) == (obj.Value.ToString()))
+                {
+                    goodCount++;
+                }
+            }
+            txtValeurTestee.Text = goodCount.ToString();
         }
 
         /// <summary>

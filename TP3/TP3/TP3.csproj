@@ -74,7 +74,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BDPerceptron.cs" />
-    <Compile Include="Métier\IdxReader.cs" />
+    <Compile Include="Données\GestionBDChiffresManuscripts.cs" />
     <Compile Include="Models\Perceptron.cs" />
     <Compile Include="Présentation\frmAffichageDessins.cs">
       <SubType>Form</SubType>
@@ -92,7 +92,7 @@
     <Compile Include="Métier\CoordDessin.cs" />
     <Compile Include="Données\GestionFichiersSorties.cs" />
     <Compile Include="Métier\Perceptron.cs" />
-    <Compile Include="Métier\CstApplication.cs" />
+    <Compile Include="Utilitaires\CstApplication.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Présentation\TextBoxStreamWriter.cs" />

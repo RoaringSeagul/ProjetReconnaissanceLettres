@@ -4,19 +4,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Collections;
 
-namespace ReseauNeuronnes
+namespace TPARCHIPERCEPTRON
 {
-    public class IdxReader
+    public class GestionBDChiffresManuscripts
     {
-
-        public IdxReader()
+        private Dictionary<BitArray, byte> _bitArrays = new Dictionary<BitArray, byte>();
+        public Dictionary<BitArray, byte> BitArrays
+        {
+            get
+            {
+                return _bitArrays;
+            }
+        }
+        
+        public GestionBDChiffresManuscripts()
         {
             try
             {
-                Console.WriteLine("\nBegin\n");
-                FileStream ifsLabels = new FileStream("t10k-labels.idx1-ubyte",FileMode.Open); // test labels
-                FileStream ifsImages = new FileStream("t10k-images.idx3-ubyte",FileMode.Open); // test images
+                FileStream ifsImages = new FileStream("Fichiers/t10k-images.idx3-ubyte", FileMode.Open); // test images
+                FileStream ifsLabels = new FileStream("Fichiers/t10k-labels.idx1-ubyte", FileMode.Open); // test labels
 
                 BinaryReader brLabels = new BinaryReader(ifsLabels);
                 BinaryReader brImages = new BinaryReader(ifsImages);
@@ -48,17 +56,14 @@ namespace ReseauNeuronnes
                     byte lbl = brLabels.ReadByte();
 
                     DigitImage dImage = new DigitImage(pixels, lbl);
-                    Console.WriteLine(dImage.ToString());
-                    Console.ReadLine();
+                    BitArrays.Add(dImage.ToBitArray(), lbl);
+
                 } // each image
 
                 ifsImages.Close();
                 brImages.Close();
                 ifsLabels.Close();
                 brLabels.Close();
-
-                Console.WriteLine("\nEnd\n");
-                Console.ReadLine();
             }
             catch (Exception ex)
             {
@@ -66,6 +71,7 @@ namespace ReseauNeuronnes
                 Console.ReadLine();
             }
         } // Main
+
     } // Program
 
     public class DigitImage
@@ -96,8 +102,6 @@ namespace ReseauNeuronnes
                 {
                     if (this.pixels[i][j] == 0)
                         s += " "; // white
-                    else if (this.pixels[i][j] == 255)
-                        s += "O"; // black
                     else
                         s += "."; // gray
                 }
@@ -106,6 +110,24 @@ namespace ReseauNeuronnes
             s += this.label.ToString();
             return s;
         } // ToString
+
+        public BitArray ToBitArray()
+        {
+            BitArray bits = new BitArray(28 * 28);
+
+            for (int i = 0; i < 28; ++i)
+            {
+                for (int j = 0; j < 28; ++j)
+                {
+                    if (this.pixels[i][j] == 0)
+                        bits[(i * CstApplication.TAILLEDESSINX + j)] = false;
+                    else
+                        bits[(i * CstApplication.TAILLEDESSINX + j)] = true;
+                }
+            }
+
+            return bits;
+        }
 
     }
 } // ns
