@@ -17,5 +17,7 @@ namespace TPARCHIPERCEPTRON
         public int PerceptronID { get; set; }
         public string LettresPerceptron { get; set; }
         public string BitArray { get; set; }
+        public int Hauteur { get; set; }
+        public int Largeur { get; set; }
     }
 }

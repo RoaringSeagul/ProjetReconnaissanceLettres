@@ -35,7 +35,8 @@ namespace TPARCHIPERCEPTRON.Données
 
             foreach (var p in lstPercept)
             {
-                CoordDessin c = new CoordDessin(16, 16);
+                CoordDessin c = new CoordDessin(p.Largeur, p.Hauteur);
+                c.Id = p.PerceptronID;
                 c.Reponse = p.LettresPerceptron;
                 c.CreerBitArrayString(p.BitArray);
                 _lstCoord.Add(c);
@@ -50,7 +51,25 @@ namespace TPARCHIPERCEPTRON.Données
         {
             foreach (var c in lstCoord)
             {
-                bd.Perceptrons.Add(new Perceptron() { LettresPerceptron = c.Reponse, BitArray = c.BitArrayDessin.ToString() });
+                if (c.Id == 0)
+                    bd.Perceptrons.Add(
+                        new Perceptron()
+                        {
+                            LettresPerceptron = c.Reponse,
+                            BitArray = c.BitArrayDessin.ToString(),
+                            Hauteur = c.Hauteur,
+                            Largeur = c.Largeur
+                        });
+                else
+                    bd.Perceptrons.AddOrUpdate(p => p.PerceptronID,
+                        new Perceptron()
+                        {
+                            PerceptronID = c.Id,
+                            LettresPerceptron = c.Reponse,
+                            BitArray = c.BitArrayDessin.ToString(),
+                            Hauteur = c.Hauteur,
+                            Largeur = c.Largeur
+                        });
             }
 
             return CstApplication.OK;
