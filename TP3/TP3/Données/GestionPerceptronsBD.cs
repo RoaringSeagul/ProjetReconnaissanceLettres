@@ -4,9 +4,13 @@ using System.IO;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Data.Entity;
+using System.Data.Entity.Spatial;
 using System.Data.Entity.Migrations;
 using TPARCHIPERCEPTRON.Utilitaires;
 using TPARCHIPERCEPTRON.Métier;
+using System.Xml;
+using System.Linq;
 
 namespace TPARCHIPERCEPTRON.Données
 {
@@ -17,29 +21,24 @@ namespace TPARCHIPERCEPTRON.Données
     public class GestionPerceptronBD : IPerceptronData
     {
         private List<Perceptron> _lstPerceptrons;
-        BDPerceptron bd = new BDPerceptron();
+        private List<CoordDessin> _lstCoord;
+        Entities bd = new Entities();
 
         /// <summary>
         /// Permet d'extraire de la base de données dans une matrice les information d'un perceptron pour l'apprentissage automatique.
         /// </summary>
         private void ChargerCoordonnees()
         {
+
             var coords = new Double[16, 16];
+            IEnumerable<Perceptron> lstPercept = bd.Perceptrons;
 
-            foreach (var p in bd.Perceptrons)
+            foreach (var p in lstPercept)
             {
-
-                foreach (var s in p.BitArray)
-                {
-                    for (int y = 0; y <= 16; y++)
-                    {
-                        for (int x = 0; x < 16; x++)
-                        {
-                            // TODO: Implémenter
-                        }
-                    }
-                }
-
+                CoordDessin c = new CoordDessin(16, 16);
+                c.Reponse = p.LettresPerceptron;
+                c.CreerBitArrayString(p.BitArray);
+                _lstCoord.Add(c);
             }
         }
 
@@ -47,11 +46,11 @@ namespace TPARCHIPERCEPTRON.Données
         /// Permet de sauvegarder dans une base de données dans une matrice les informations des perceptrons pour l'apprentissage automatique
         /// </summary>
         /// <param name="fichier">Fichier où extraire les données</param>
-        public int SauvegarderCoordonnees(string fichier, List<CoordDessin> lstCoord)
+        public int SauvegarderCoordonnees(List<CoordDessin> lstCoord)
         {
             foreach (var c in lstCoord)
             {
-                bd.Perceptrons.AddOrUpdate(p => p.LettresPerceptron, new SavedPerceptron() { LettresPerceptron = c.Reponse, BitArray = c.BitArrayDessin.ToString() });
+                bd.Perceptrons.Add(new Perceptron() { LettresPerceptron = c.Reponse, BitArray = c.BitArrayDessin.ToString() });
             }
 
             return CstApplication.OK;
