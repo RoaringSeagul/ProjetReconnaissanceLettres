@@ -4,7 +4,11 @@ using System.IO;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Data.Entity;
+using System.Data.Entity.Spatial;
 using System.Data.Entity.Migrations;
+using System.Xml;
+using System.Linq;
 
 namespace TPARCHIPERCEPTRON
 {
@@ -15,31 +19,21 @@ namespace TPARCHIPERCEPTRON
     public class GestionFichiersSorties
     {
         private List<CoordDessin> _lstCoord;
-        BDPerceptron bd = new BDPerceptron();
+        Entities bd = new Entities();
 
         /// <summary>
         /// Permet d'extraire de la base de données dans une matrice les information d'un perceptron pour l'apprentissage automatique.
         /// </summary>
         public List<CoordDessin> ChargerCoordonnees()
         {
-            _lstCoord = new List<CoordDessin>();
+            IEnumerable<Perceptron> lstPercept = bd.Perceptrons;
 
-            foreach (var p in bd.Perceptrons)
+            foreach (var p in lstPercept)
             {
                 CoordDessin c = new CoordDessin(16, 16);
-
-                foreach (var s in p.BitArray)
-                {
-                    for (int y = 0; y <= 16; y++)
-                    {
-                        for (int x = 0; x < 16; x++)
-                        {
-                            if (s != '0')
-                                c.AjouterCoordonnees(x, y, 1, 1);
-                        }
-                    }
-                }
-
+                c.Reponse = p.LettresPerceptron;
+                c.CreerBitArrayString(p.BitArray);
+                _lstCoord.Add(c);
             }
 
             return _lstCoord;
@@ -49,11 +43,11 @@ namespace TPARCHIPERCEPTRON
         /// Permet de sauvegarder dans une base de données dans une matrice les informations des perceptrons pour l'apprentissage automatique
         /// </summary>
         /// <param name="fichier">Fichier où extraire les données</param>
-        public int SauvegarderCoordonnees(string fichier, List<CoordDessin> lstCoord)
+        public int SauvegarderCoordonnees(List<CoordDessin> lstCoord)
         {
             foreach (var c in lstCoord)
             {
-                bd.Perceptrons.AddOrUpdate(p => p.LettresPerceptron, new SavedPerceptron() { LettresPerceptron = c.Reponse, BitArray = c.BitArrayDessin.ToString() });
+                bd.Perceptrons.Add(new Perceptron() { LettresPerceptron = c.Reponse, BitArray = c.BitArrayDessin.ToString() });
             }
 
             return CstApplication.OK;

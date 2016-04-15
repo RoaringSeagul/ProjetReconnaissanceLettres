@@ -7,7 +7,7 @@ namespace TPARCHIPERCEPTRON
     /// <summary>
     /// Classe du perceptron. Permet de faire l'apprentissage automatique sur un échantillon d'apprentissage. 
     /// </summary>
-    public class Perceptron
+    public class LocalPerceptron
     {
         private readonly double _cstApprentissage;
         private double[] _poidsSyn;
@@ -22,7 +22,7 @@ namespace TPARCHIPERCEPTRON
         /// Constructeur de la classe. Crée un perceptron pour une réponse(caractère) qu'on veut identifier le pattern(modèle)
         /// </summary>
         /// <param name="reponse">La classe que défini le perceptron</param>
-        public Perceptron(string reponse, double cstApprentissage)
+        public LocalPerceptron(string reponse, double cstApprentissage)
         {
             //À COMPLÉTER
             // On assigne notre constante d'apprentissage

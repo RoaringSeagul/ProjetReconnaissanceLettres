@@ -33,6 +33,25 @@ namespace TPARCHIPERCEPTRON
         }
 
         /// <summary>
+        /// Remplie le BitArray de l'objet CoordDessin à partir d'une string
+        /// </summary>
+        /// <param name="bitArray"></param>
+        public void CreerBitArrayString(string bitArray)
+        {
+            for (int i = 0; i < BitArrayDessin.Count; i++)
+            {
+                switch (bitArray[i])
+                {
+                    case '1':
+                        BitArrayDessin[i] = true;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        /// <summary>
         /// Lors de l'ajout d'un point, modifier le vecteur de bits où il y a de nouveaux points noirs.
         /// </summary>
         /// <param name="x">La position x du nouveau point.</param>

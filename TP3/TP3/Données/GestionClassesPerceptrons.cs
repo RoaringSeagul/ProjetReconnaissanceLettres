@@ -11,7 +11,7 @@ namespace TPARCHIPERCEPTRON
     /// </summary>
     public class GestionClassesPerceptrons
     {
-        private Dictionary<string, Perceptron> _lstPerceptrons;
+        private Dictionary<string, LocalPerceptron> _lstPerceptrons;
         private GestionFichiersSorties _gestionSortie;
 
         /// <summary>
@@ -19,9 +19,8 @@ namespace TPARCHIPERCEPTRON
         /// </summary>
         public GestionClassesPerceptrons()
         {
-            _lstPerceptrons = new Dictionary<string, Perceptron>();
+            _lstPerceptrons = new Dictionary<string, LocalPerceptron>();
             _gestionSortie = new GestionFichiersSorties();
-            
         }
 
         /// <summary>
@@ -55,7 +54,7 @@ namespace TPARCHIPERCEPTRON
 
             if (!_lstPerceptrons.ContainsKey(reponse))
             {
-                _lstPerceptrons.Add(reponse, new Perceptron(reponse, 0.10));
+                _lstPerceptrons.Add(reponse, new LocalPerceptron(reponse, 0.10));
             }
 
             foreach (var perceptron in _lstPerceptrons)
