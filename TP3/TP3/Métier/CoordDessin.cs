@@ -11,6 +11,9 @@ namespace TPARCHIPERCEPTRON
     {
         private BitArray _baDessin = null;
         private string _reponse;
+        private int _id = 0;
+        private int _largeur = 0;
+        private int _hauteur = 0;
 
         public BitArray BitArrayDessin
         {
@@ -22,6 +25,22 @@ namespace TPARCHIPERCEPTRON
             set { _reponse = value; }
         }
 
+        public int Id
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
+
+        public int Largeur
+        {
+            get { return _largeur; }
+        }
+
+        public int Hauteur
+        {
+            get { return _hauteur; }
+        }
+
         /// <summary>
         /// Constructeur, crée un vecteur de bit pour représenter le dessin. Le blanc = 1 et le noir = -1.
         /// </summary>
@@ -29,6 +48,8 @@ namespace TPARCHIPERCEPTRON
         /// <param name="hauteur"></param>
         public CoordDessin(int largeur, int hauteur)
         {
+            _largeur = largeur;
+            _hauteur = hauteur;
             _baDessin = new BitArray((largeur / CstApplication.LARGEURTRAIT) * (hauteur / CstApplication.HAUTEURTRAIT));
         }
 
