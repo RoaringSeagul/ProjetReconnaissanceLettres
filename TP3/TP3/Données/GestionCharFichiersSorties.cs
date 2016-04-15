@@ -17,7 +17,7 @@ namespace TPARCHIPERCEPTRON.Données
     {
         private List<CoordDessin> _lstCoord;
         private ImageFormat _imageFormat = new ImageFormat() { X = 16, Y = 16 }; // 16x16 est l'image par défaut que l'on utilise.
-        BDPerceptron bd = new BDPerceptron();
+        Entities bd = new Entities();
 
         public GestionCharFichiersSorties(bool utiliseBD = false)
         {
@@ -63,7 +63,7 @@ namespace TPARCHIPERCEPTRON.Données
         {
             foreach (var c in lstCoord)
             {
-                bd.Perceptrons.AddOrUpdate(p => p.LettresPerceptron, new SavedPerceptron() { LettresPerceptron = c.Reponse, BitArray = c.BitArrayDessin.ToString() });
+                bd.Perceptrons.AddOrUpdate(p => p.LettresPerceptron, new PerceptronModel() { LettresPerceptron = c.Reponse, BitArray = c.BitArrayDessin.ToString() });
             }
         }
 

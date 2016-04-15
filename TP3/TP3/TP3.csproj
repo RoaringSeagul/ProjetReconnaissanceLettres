@@ -93,12 +93,9 @@
       <DependentUpon>201604051328366_AddPerceptronINBd.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\BDPerceptron.cs" />
     <Compile Include="Données\GestionChiffresManuscripts.cs" />
-    <Compile Include="Models\Perceptron.cs" />
     <Compile Include="Métier\PerceptronTrainTest.cs" />
     <Compile Include="Métier\TypeEntrainement.cs" />
-    <Compile Include="Métier\IdxReader.cs" />
     <Compile Include="Perceptron.cs">
       <DependentUpon>DbPerceptron.tt</DependentUpon>
     </Compile>

@@ -25,6 +25,6 @@ namespace TPARCHIPERCEPTRON
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Perceptron> Perceptrons { get; set; }
+        public virtual DbSet<PerceptronModel> Perceptrons { get; set; }
     }
 }

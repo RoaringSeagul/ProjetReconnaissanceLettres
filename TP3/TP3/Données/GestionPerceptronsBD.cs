@@ -31,7 +31,7 @@ namespace TPARCHIPERCEPTRON.Données
         {
 
             var coords = new Double[16, 16];
-            IEnumerable<Perceptron> lstPercept = bd.Perceptrons;
+            IEnumerable<PerceptronModel> lstPercept = bd.Perceptrons;
 
             foreach (var p in lstPercept)
             {
@@ -53,7 +53,7 @@ namespace TPARCHIPERCEPTRON.Données
             {
                 if (c.Id == 0)
                     bd.Perceptrons.Add(
-                        new Perceptron()
+                        new PerceptronModel()
                         {
                             LettresPerceptron = c.Reponse,
                             BitArray = c.BitArrayDessin.ToString(),
@@ -62,7 +62,7 @@ namespace TPARCHIPERCEPTRON.Données
                         });
                 else
                     bd.Perceptrons.AddOrUpdate(p => p.PerceptronID,
-                        new Perceptron()
+                        new PerceptronModel()
                         {
                             PerceptronID = c.Id,
                             LettresPerceptron = c.Reponse,
