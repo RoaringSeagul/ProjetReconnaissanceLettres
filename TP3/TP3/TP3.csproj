@@ -64,6 +64,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Données\GestionPerceptronsBD.cs" />
+    <Compile Include="Données\GestionPerceptronFichiersSorties.cs" />
+    <Compile Include="Données\ICharData.cs" />
+    <Compile Include="Données\IPerceptronData.cs" />
     <Compile Include="Migrations\201604051327087_Init.cs" />
     <Compile Include="Migrations\201604051327087_Init.Designer.cs">
       <DependentUpon>201604051327087_Init.cs</DependentUpon>
@@ -74,8 +78,10 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BDPerceptron.cs" />
-    <Compile Include="Données\GestionBDChiffresManuscripts.cs" />
+    <Compile Include="Données\GestionChiffresManuscripts.cs" />
     <Compile Include="Models\Perceptron.cs" />
+    <Compile Include="Métier\PerceptronTrainTest.cs" />
+    <Compile Include="Métier\TypeEntrainement.cs" />
     <Compile Include="Présentation\frmAffichageDessins.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,9 +94,9 @@
     <Compile Include="Présentation\frmAnalyseEcriture.Designer.cs">
       <DependentUpon>frmAnalyseEcriture.cs</DependentUpon>
     </Compile>
-    <Compile Include="Données\GestionClassesPerceptrons.cs" />
-    <Compile Include="Métier\CoordDessin.cs" />
-    <Compile Include="Données\GestionFichiersSorties.cs" />
+    <Compile Include="Métier\GestionClassesPerceptrons.cs" />
+    <Compile Include="Utilitaires\CoordDessin.cs" />
+    <Compile Include="Données\GestionCharFichiersSorties.cs" />
     <Compile Include="Métier\Perceptron.cs" />
     <Compile Include="Utilitaires\CstApplication.cs" />
     <Compile Include="Program.cs" />
@@ -102,6 +108,8 @@
     <Compile Include="Présentation\ucZoneDessin.Designer.cs">
       <DependentUpon>ucZoneDessin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utilitaires\DigitImage.cs" />
+    <Compile Include="Utilitaires\ImageFormat.cs" />
     <EmbeddedResource Include="Migrations\201604051327087_Init.resx">
       <DependentUpon>201604051327087_Init.cs</DependentUpon>
     </EmbeddedResource>

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Configuration;
 using System.Windows.Forms;
-
 using System.Globalization;
 using System.Linq;
 using System.ComponentModel;
@@ -9,6 +8,9 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using TPARCHIPERCEPTRON.Présentation;
+using TPARCHIPERCEPTRON.Métier;
+using TPARCHIPERCEPTRON.Utilitaires;
+
 
 namespace TPARCHIPERCEPTRON
 {
@@ -19,10 +21,9 @@ namespace TPARCHIPERCEPTRON
     public partial class frmAnalyseEcriture : Form
     {
         TextWriter _writer = null;
-        GestionBDChiffresManuscripts _gbd = new GestionBDChiffresManuscripts();
         // Le gestionnaire des perceptrons.
         private GestionClassesPerceptrons _gcpAnalyseEcriture;
-
+        private TypeEntrainement _typeEntrainement = TypeEntrainement.Manuel;
         // La liste contenant les items de menu correspodant aux langues.
         private List<ToolStripMenuItem> _langues = new List<ToolStripMenuItem>();
         // Si un changement de langue est en cours.
@@ -41,12 +42,6 @@ namespace TPARCHIPERCEPTRON
         public frmAnalyseEcriture()
         {
             InitializeComponent();
-
-            //ucDessin.Width = CstApplication.TAILLEDESSINX;
-           //ucDessin.Height = CstApplication.TAILLEDESSINY;
-
-            _gcpAnalyseEcriture = new GestionClassesPerceptrons();
-            //À COMPLÉTER   
         }
 
 
@@ -57,14 +52,12 @@ namespace TPARCHIPERCEPTRON
         /// <param name="e">Les arguments de cet événement.</param>
         private void btnEntrainement_Click(object sender, EventArgs e)
         {
-            //ucDessin.Coordonnees.Reponse = txtValeurEntrainee.Text;
-            //txtConsole.Text = _gcpAnalyseEcriture.Entrainement(ucDessin.Coordonnees, txtValeurEntrainee.Text);
+            rdManual.Enabled = false;
+            rdUseMNIST.Enabled = false;
+            rdUseBD.Enabled = false;
 
-            for (int i = 0; i < 9000; i++)
-            {
-                var obj = _gbd.BitArrays.ElementAt(i);
-                _gcpAnalyseEcriture.Entrainement(new CoordDessin(obj.Key, obj.Value.ToString()), obj.Value.ToString());
-            }
+            _gcpAnalyseEcriture = new GestionClassesPerceptrons(_typeEntrainement);
+            _gcpAnalyseEcriture.Entrainement();
         }
 
         /// <summary>
@@ -74,17 +67,7 @@ namespace TPARCHIPERCEPTRON
         /// <param name="e">Les arguments de cet événement.</param>
         private void btnTest_Click(object sender, EventArgs e)
         {
-            int goodCount = 0;
-            //txtValeurTestee.Text = _gcpAnalyseEcriture.TesterPerceptron(ucDessin.Coordonnees);
-            for (int i = 9000; i < 10000; i++)
-            {
-                var obj = _gbd.BitArrays.ElementAt(i);
-                if (_gcpAnalyseEcriture.TesterPerceptron(new CoordDessin(obj.Key, obj.Value.ToString())) == (obj.Value.ToString()))
-                {
-                    goodCount++;
-                }
-            }
-            txtValeurTestee.Text = goodCount.ToString();
+            _gcpAnalyseEcriture.TesterPerceptron(ucDessin.Coordonnees);
         }
 
         /// <summary>
@@ -104,7 +87,7 @@ namespace TPARCHIPERCEPTRON
         /// <param name="e">Les arguments de cet événement.</param>
         private void frmAnalyseEcriture_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //À COMPLÉTER
+            _gcpAnalyseEcriture.SauvegarderCoordonnees();
         }
 
         /// <summary>
@@ -147,20 +130,37 @@ namespace TPARCHIPERCEPTRON
             // Si la fenêtre n'est pas encore ouverte, la créer.
             if (_instanceDessinsForm == null)
             {
-                frmAffichageDessins nouvelleForm = new frmAffichageDessins();
-                nouvelleForm.GestionnairePerceptron = _gcpAnalyseEcriture;
+                frmAffichageDessins affichageDessin = new frmAffichageDessins();
+                affichageDessin.GestionnairePerceptron = _gcpAnalyseEcriture;
 
                 // Ajouter un événement qui met _instanceDessinsForm à null lorsque
                 // cette fenêtre se ferme.
-                _instanceDessinsForm = nouvelleForm;
-                nouvelleForm.FormClosed += (s, ea) => _instanceDessinsForm = null;
+                _instanceDessinsForm = affichageDessin;
+                affichageDessin.FormClosed += (s, ea) => _instanceDessinsForm = null;
 
-                nouvelleForm.Show();
+                affichageDessin.Show();
             }
 
             // Amener la fenêtre existante ou nouvellement crée
             // en avant-plan.
             _instanceDessinsForm.BringToFront();
+        }
+
+
+        // La priorité fait que même si deux évènements sont appelés, le dernier a précédence alors ça retourne la bonne réponse.
+        private void rdManual_CheckedChanged(object sender, EventArgs e)
+        {
+            _typeEntrainement = TypeEntrainement.Manuel;
+        }
+
+        private void rdUseBD_CheckedChanged(object sender, EventArgs e)
+        {
+            _typeEntrainement = TypeEntrainement.BD;
+        }
+
+        private void rdUseMNIST_CheckedChanged(object sender, EventArgs e)
+        {
+            _typeEntrainement = TypeEntrainement.MNIST;
         }
     }
 }

@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using System.Collections;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
+using TPARCHIPERCEPTRON.Utilitaires;
+using TPARCHIPERCEPTRON.Métier;
 
 namespace TPARCHIPERCEPTRON
 {
@@ -93,16 +95,16 @@ namespace TPARCHIPERCEPTRON
             lvDessins.Items.Clear();
 
             List<Bitmap> images = new List<Bitmap>();
-            foreach (CoordDessin item in GestionnairePerceptron.ObtenirCoordonnees())
-            {
-                Bitmap bitmap = CreerImageBitArray(item.BitArrayDessin);
-                images.Add(bitmap);
-                listeImage.Images.Add(bitmap);
-                lvDessins.Items.Add(new ListViewItem(item.Reponse)
-                {
-                    ImageIndex = listeImage.Images.Count - 1,
-                });
-            }
+            //foreach (CoordDessin item in GestionnairePerceptron.ObtenirCoordonnees())
+            //{
+            //    Bitmap bitmap = CreerImageBitArray(item.BitArrayDessin);
+            //    images.Add(bitmap);
+            //    listeImage.Images.Add(bitmap);
+            //    lvDessins.Items.Add(new ListViewItem(item.Reponse)
+            //    {
+            //        ImageIndex = listeImage.Images.Count - 1,
+            //    });
+            //}
 
             // Forcer la copie immédiate des images.
             IntPtr dummy = listeImage.Handle;

@@ -35,6 +35,9 @@
             this.txtValeurEntrainee = new System.Windows.Forms.TextBox();
             this.btnEntrainement = new System.Windows.Forms.Button();
             this.grpDessinEntrainement = new System.Windows.Forms.GroupBox();
+            this.rdManual = new System.Windows.Forms.RadioButton();
+            this.rdUseMNIST = new System.Windows.Forms.RadioButton();
+            this.rdUseBD = new System.Windows.Forms.RadioButton();
             this.btnEffacer = new System.Windows.Forms.Button();
             this.ucDessin = new TPARCHIPERCEPTRON.ucZoneDessin();
             this.grpTests = new System.Windows.Forms.GroupBox();
@@ -83,11 +86,39 @@
             // 
             // grpDessinEntrainement
             // 
+            this.grpDessinEntrainement.Controls.Add(this.rdManual);
+            this.grpDessinEntrainement.Controls.Add(this.rdUseMNIST);
+            this.grpDessinEntrainement.Controls.Add(this.rdUseBD);
             this.grpDessinEntrainement.Controls.Add(this.btnEffacer);
             this.grpDessinEntrainement.Controls.Add(this.ucDessin);
             resources.ApplyResources(this.grpDessinEntrainement, "grpDessinEntrainement");
             this.grpDessinEntrainement.Name = "grpDessinEntrainement";
             this.grpDessinEntrainement.TabStop = false;
+            // 
+            // rdManual
+            // 
+            resources.ApplyResources(this.rdManual, "rdManual");
+            this.rdManual.Checked = true;
+            this.rdManual.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.rdManual.Name = "rdManual";
+            this.rdManual.TabStop = true;
+            this.rdManual.UseVisualStyleBackColor = true;
+            this.rdManual.CheckedChanged += new System.EventHandler(this.rdManual_CheckedChanged);
+            // 
+            // rdUseMNIST
+            // 
+            resources.ApplyResources(this.rdUseMNIST, "rdUseMNIST");
+            this.rdUseMNIST.Name = "rdUseMNIST";
+            this.rdUseMNIST.TabStop = true;
+            this.rdUseMNIST.UseVisualStyleBackColor = true;
+            this.rdUseMNIST.CheckedChanged += new System.EventHandler(this.rdUseMNIST_CheckedChanged);
+            // 
+            // rdUseBD
+            // 
+            resources.ApplyResources(this.rdUseBD, "rdUseBD");
+            this.rdUseBD.Name = "rdUseBD";
+            this.rdUseBD.UseVisualStyleBackColor = true;
+            this.rdUseBD.CheckedChanged += new System.EventHandler(this.rdUseBD_CheckedChanged);
             // 
             // btnEffacer
             // 
@@ -168,6 +199,7 @@
             this.grpEntrainement.ResumeLayout(false);
             this.grpEntrainement.PerformLayout();
             this.grpDessinEntrainement.ResumeLayout(false);
+            this.grpDessinEntrainement.PerformLayout();
             this.grpTests.ResumeLayout(false);
             this.grpTests.PerformLayout();
             this.mnuPrincipal.ResumeLayout(false);
@@ -194,6 +226,9 @@
         private System.Windows.Forms.MenuStrip mnuPrincipal;
         private System.Windows.Forms.ToolStripMenuItem tsmiLangue;
         private System.Windows.Forms.ToolStripMenuItem tsmiAfficherDessins;
+        private System.Windows.Forms.RadioButton rdUseMNIST;
+        private System.Windows.Forms.RadioButton rdUseBD;
+        private System.Windows.Forms.RadioButton rdManual;
     }
 }
 

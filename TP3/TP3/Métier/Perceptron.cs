@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Windows.Forms;
+using TPARCHIPERCEPTRON.Utilitaires;
 
-namespace TPARCHIPERCEPTRON
+namespace TPARCHIPERCEPTRON.Métier
 {
     /// <summary>
     /// Classe du perceptron. Permet de faire l'apprentissage automatique sur un échantillon d'apprentissage. 
@@ -12,6 +14,8 @@ namespace TPARCHIPERCEPTRON
         private readonly double _cstApprentissage;
         private double[] _poidsSyn;
         private string _reponse;
+
+        public ImageFormat Format { get; set; }
 
         public string Reponse
         {
@@ -48,35 +52,34 @@ namespace TPARCHIPERCEPTRON
         /// <returns>Les paramètres de la console</returns>
         public string Entrainement(List<CoordDessin> _lstCoords)
         {
-            Int32 nbIteration = 0;
-            Int32 nbErreur = 0;
             string s = "";
-
-            foreach (var coord in _lstCoords)
+            Int32 nbErreur = 0;
+            Int32 nbIteration = 0;
+            List<int> lstNbErreur = new List<int>();    
+            do
             {
-                bool estBonneLettre = (coord.Reponse == this.Reponse);
-                bool estBonneValeurSelonPerceptron = (ValeurEstime(_poidsSyn, coord.BitArrayDessin) == 1);
-                bool estBonneValeurEstime = ((estBonneLettre && estBonneValeurSelonPerceptron) || (!estBonneLettre && !estBonneValeurSelonPerceptron));
-                s = (estBonneValeurEstime ? "1" : "0");
-                if (!estBonneValeurEstime && estBonneLettre)
+                nbErreur = 0;
+                foreach (var coord in _lstCoords)
                 {
-                    for (int i = 0; i < _poidsSyn.Length; i++)
+                    int iEstBonneLettre = (coord.Reponse == this.Reponse ? 1 : 0);
+                    int iBonneValeurSelonPerceptron = ValeurEstime(_poidsSyn, coord.BitArrayDessin);
+                    int iErreurLocale = iEstBonneLettre - iBonneValeurSelonPerceptron;
+
+                    if (iErreurLocale != 0)
                     {
-                        _poidsSyn[i] += _cstApprentissage * (coord.BitArrayDessin[i] ? 1 : -1);
+                        //Console.WriteLine(this.Reponse + " " + nbIteration);
+                        _poidsSyn[0] += _cstApprentissage * iErreurLocale;
+                        for (int i = 1; i < _poidsSyn.Length; i++)
+                        {
+                            _poidsSyn[i] += _cstApprentissage * iErreurLocale * (coord.BitArrayDessin[i] ? 1 : -1);
+                        }
+                        nbErreur++;
                     }
-                    nbErreur++;
                 }
-                else if(!estBonneLettre && !estBonneValeurEstime)
-                {
-                    for (int i = 0; i < _poidsSyn.Length; i++)
-                    {
-                        _poidsSyn[i] += _cstApprentissage * (coord.BitArrayDessin[i] ? -1 : 1);
-                    }
-                    nbErreur++;
-                }
+                if(this.Reponse == "1")
+                    MessageBox.Show(this.Reponse + " : " + nbErreur);
                 nbIteration++;
-            }
-            
+            }while (nbErreur != 0 && nbIteration < 10000);
             return s;
         }
 
@@ -92,7 +95,7 @@ namespace TPARCHIPERCEPTRON
             for (int i = 1; i < _poidsSyn.Length; i++)
                 somme += _poidsSyn[i] * (entree[i] ? 1 : -1);
 
-            return (somme / _poidsSyn.Length)  >= 0 ? CstApplication.VRAI : CstApplication.FAUX;
+            return somme >= 0 ? 1 : 0;
         }
 
         /// <summary>
@@ -100,11 +103,10 @@ namespace TPARCHIPERCEPTRON
         /// </summary>
         /// <param name="coord"></param>
         /// <returns></returns>
-        public bool TesterNeurone(CoordDessin coord)
+        public int TesterNeurone(CoordDessin coord)
         {
             bool estBonneLettre = (coord.Reponse == this.Reponse);
-            bool estBonneValeurSelonPerceptron = (ValeurEstime(_poidsSyn, coord.BitArrayDessin) == 1);
-            return estBonneValeurSelonPerceptron;
+            return ValeurEstime(_poidsSyn, coord.BitArrayDessin);
         }
 
     }

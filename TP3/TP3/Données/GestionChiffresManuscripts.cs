@@ -5,22 +5,41 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Collections;
+using TPARCHIPERCEPTRON.Utilitaires;
 
-namespace TPARCHIPERCEPTRON
+namespace TPARCHIPERCEPTRON.Données
 {
-    public class GestionBDChiffresManuscripts
+    public class GestionChiffresManuscripts : ICharData
     {
-        private Dictionary<BitArray, byte> _bitArrays = new Dictionary<BitArray, byte>();
-        public Dictionary<BitArray, byte> BitArrays
-        {
-            get
-            {
-                return _bitArrays;
-            }
-        }
+        private List<CoordDessin> _lstCharData = new List<CoordDessin>();
         
-        public GestionBDChiffresManuscripts()
+        public GestionChiffresManuscripts()
         {
+            
+        }
+
+        public List<CoordDessin> GetCharData(string cheminAcces = "")
+        {
+            if (_lstCharData.Count == 0)
+                LoadCharData(cheminAcces);
+
+            return _lstCharData;
+            
+        }
+
+        public ImageFormat GetFormat()
+        {
+            return new ImageFormat() { X = 28, Y = 28 };
+        }
+
+        public void SaveCharData(List<CoordDessin> lstCoords, string cheminAcces)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void LoadCharData(string cheminAcces)
+        {
+            Dictionary<BitArray, byte> bitArrays = new Dictionary<BitArray, byte>();
             try
             {
                 FileStream ifsImages = new FileStream("Fichiers/t10k-images.idx3-ubyte", FileMode.Open); // test images
@@ -56,9 +75,11 @@ namespace TPARCHIPERCEPTRON
                     byte lbl = brLabels.ReadByte();
 
                     DigitImage dImage = new DigitImage(pixels, lbl);
-                    BitArrays.Add(dImage.ToBitArray(), lbl);
+                    bitArrays.Add(dImage.ToBitArray(), lbl);
 
                 } // each image
+
+                BitArrayToCoordDessin(bitArrays);
 
                 ifsImages.Close();
                 brImages.Close();
@@ -70,66 +91,15 @@ namespace TPARCHIPERCEPTRON
                 Console.WriteLine(ex.Message);
                 Console.ReadLine();
             }
-        } // Main
+        }
+
+        private void BitArrayToCoordDessin(Dictionary<BitArray, byte> bitArrays)
+        {
+            foreach (var bitArray in bitArrays)
+                _lstCharData.Add(new CoordDessin(bitArray.Key, bitArray.Value.ToString()));
+        }
 
     } // Program
-
-    public class DigitImage
-    {
-        public byte[][] pixels;
-        public byte label;
-
-        public DigitImage(byte[][] pixels,
-          byte label)
-        {
-            this.pixels = new byte[28][];
-            for (int i = 0; i < this.pixels.Length; ++i)
-                this.pixels[i] = new byte[28];
-
-            for (int i = 0; i < 28; ++i)
-                for (int j = 0; j < 28; ++j)
-                    this.pixels[i][j] = pixels[i][j];
-
-            this.label = label;
-        }
-
-        public override string ToString()
-        {
-            string s = "";
-            for (int i = 0; i < 28; ++i)
-            {
-                for (int j = 0; j < 28; ++j)
-                {
-                    if (this.pixels[i][j] == 0)
-                        s += " "; // white
-                    else
-                        s += "."; // gray
-                }
-                s += "\n";
-            }
-            s += this.label.ToString();
-            return s;
-        } // ToString
-
-        public BitArray ToBitArray()
-        {
-            BitArray bits = new BitArray(28 * 28);
-
-            for (int i = 0; i < 28; ++i)
-            {
-                for (int j = 0; j < 28; ++j)
-                {
-                    if (this.pixels[i][j] == 0)
-                        bits[(i * CstApplication.TAILLEDESSINX + j)] = false;
-                    else
-                        bits[(i * CstApplication.TAILLEDESSINX + j)] = true;
-                }
-            }
-
-            return bits;
-        }
-
-    }
 } // ns
 
 

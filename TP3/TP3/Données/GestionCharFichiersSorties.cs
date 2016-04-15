@@ -5,22 +5,32 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data.Entity.Migrations;
+using TPARCHIPERCEPTRON.Utilitaires;
 
-namespace TPARCHIPERCEPTRON
+namespace TPARCHIPERCEPTRON.Données
 {
     /// <summary>
     /// Cette classe gère l'accès aux disques pour le fichiers d'apprentissages. 
     /// Permet de charger ou décharger dans la matrice d'apprentissage.
     /// </summary>
-    public class GestionFichiersSorties
+    public class GestionCharFichiersSorties : ICharData
     {
         private List<CoordDessin> _lstCoord;
+        private ImageFormat _imageFormat = new ImageFormat() { X = 16, Y = 16 }; // 16x16 est l'image par défaut que l'on utilise.
         BDPerceptron bd = new BDPerceptron();
+
+        public GestionCharFichiersSorties(bool utiliseBD = false)
+        {
+            if (utiliseBD)
+            {
+                ChargerCoordonnees();
+            }
+        }
 
         /// <summary>
         /// Permet d'extraire de la base de données dans une matrice les information d'un perceptron pour l'apprentissage automatique.
         /// </summary>
-        public List<CoordDessin> ChargerCoordonnees()
+        private List<CoordDessin> ChargerCoordonnees()
         {
             _lstCoord = new List<CoordDessin>();
 
@@ -49,20 +59,18 @@ namespace TPARCHIPERCEPTRON
         /// Permet de sauvegarder dans une base de données dans une matrice les informations des perceptrons pour l'apprentissage automatique
         /// </summary>
         /// <param name="fichier">Fichier où extraire les données</param>
-        public int SauvegarderCoordonnees(string fichier, List<CoordDessin> lstCoord)
+        private void SauvegarderCoordonnees(string fichier, List<CoordDessin> lstCoord)
         {
             foreach (var c in lstCoord)
             {
                 bd.Perceptrons.AddOrUpdate(p => p.LettresPerceptron, new SavedPerceptron() { LettresPerceptron = c.Reponse, BitArray = c.BitArrayDessin.ToString() });
             }
-
-            return CstApplication.OK;
         }
 
         /// <summary>
         /// Permet d'obtenir la liste des perceptrons.
         /// </summary>
-        public IList<CoordDessin> ObtenirCoordonnees()
+        public List<CoordDessin> GetCoordDessin()
         {
             return _lstCoord;
         }
@@ -91,6 +99,20 @@ namespace TPARCHIPERCEPTRON
             }
         }
 
+        public ImageFormat GetFormat()
+        {
+            return _imageFormat;
+        }
+
+        public List<CoordDessin> GetCharData(string cheminAcces = "")
+        {
+            return _lstCoord;
+        }
+
+        public void SaveCharData(List<CoordDessin> lstCoords, string cheminAcces)
+        {
+            SauvegarderCoordonnees(cheminAcces, lstCoords);
+        }
     }
 
 }

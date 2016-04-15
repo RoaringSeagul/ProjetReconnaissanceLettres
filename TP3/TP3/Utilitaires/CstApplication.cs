@@ -1,5 +1,5 @@
 ﻿
-namespace TPARCHIPERCEPTRON
+namespace TPARCHIPERCEPTRON.Utilitaires
 {
     /// <summary>
     /// Classe de constantes de l'application.
