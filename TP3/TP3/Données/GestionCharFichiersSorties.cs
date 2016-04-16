@@ -15,7 +15,7 @@ namespace TPARCHIPERCEPTRON.Données
     /// </summary>
     public class GestionCharFichiersSorties : ICharData
     {
-        private List<CoordDessin> _lstCoord;
+        private List<CoordDessin> _lstCoord = new List<CoordDessin>();
         private ImageFormat _imageFormat = new ImageFormat() { X = 16, Y = 16 }; // 16x16 est l'image par défaut que l'on utilise.
         Entities bd = new Entities();
 
@@ -103,15 +103,22 @@ namespace TPARCHIPERCEPTRON.Données
         {
             return _imageFormat;
         }
+        
 
-        public List<CoordDessin> GetCharData(string cheminAcces = "")
-        {
-            return _lstCoord;
-        }
 
         public void SaveCharData(List<CoordDessin> lstCoords, string cheminAcces)
         {
             SauvegarderCoordonnees(cheminAcces, lstCoords);
+        }
+
+        public List<CoordDessin> GetTrainData()
+        {
+            return _lstCoord;
+        }
+
+        public List<CoordDessin> GetTestData()
+        {
+            return new List<CoordDessin>();
         }
     }
 

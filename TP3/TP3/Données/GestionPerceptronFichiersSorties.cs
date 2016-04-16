@@ -16,7 +16,7 @@ namespace TPARCHIPERCEPTRON.Données
     /// </summary>
     public class GestionPerceptronFichiersSorties : IPerceptronData
     {
-        private List<Perceptron> _lstPerceptrons;
+        private List<Perceptron> _lstPerceptrons = new List<Perceptron>();
 
         /// <summary>
         /// Permet d'extraire de la base de données dans une matrice les information d'un perceptron pour l'apprentissage automatique.
@@ -84,9 +84,23 @@ namespace TPARCHIPERCEPTRON.Données
             return _lstPerceptrons;
         }
 
-        public void SavePerceptrons(List<Perceptron> lstPerceptrons, string cheminAcces)
+        public void SavePerceptrons(Dictionary<string, Perceptron> lstPerceptrons, string cheminAcces)
         {
-            throw new NotImplementedException();
+            using (StreamWriter sw = new StreamWriter(cheminAcces + "\\Perceptrons.csv"))
+            {
+                foreach (var perceptron in lstPerceptrons)
+                {
+                    sw.WriteLine(perceptron.Key);
+                    for (uint i = 0; i < perceptron.Value.Format.X; i++)
+                    {
+                        for (uint j = 0;  j < perceptron.Value.Format.Y;  j++)
+                        {
+                            sw.Write(perceptron.Value.GetWeightAt(i, j).ToString() + ',');
+                        }
+                        sw.WriteLine();
+                    }
+                }
+            }
         }
     }
 

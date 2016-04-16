@@ -17,7 +17,7 @@ namespace TPARCHIPERCEPTRON.Métier
     {
         private Dictionary<string, Perceptron> _lstPerceptrons;
         private PerceptronTrainTest _perceptronTrainTest;
-        private TypeEntrainement _typeEntrainement;
+        private TypeEntrainement _typeEntrainement = TypeEntrainement.Manuel;
         private IPerceptronData _gestionPerceptron;
         private ICharData _gestionSortie;
 
@@ -35,7 +35,7 @@ namespace TPARCHIPERCEPTRON.Métier
         /// </summary>
         public void ChargerCoordonnees(TypeEntrainement typeEntrainement)
         {
-            _perceptronTrainTest = new PerceptronTrainTest(0.80);
+            _perceptronTrainTest = new PerceptronTrainTest();
             switch (typeEntrainement)
             {
                 case TypeEntrainement.Manuel:
@@ -73,11 +73,17 @@ namespace TPARCHIPERCEPTRON.Métier
         /// <returns>Le résultat de la console</returns>
         public string Entrainement(CoordDessin coordo, string reponse)
         {
+            if (_lstPerceptrons.Count == 0)
+                Entrainement();
+
+            if (reponse == "")
+                return "";
+
             string sConsole = "";
 
             if (!_lstPerceptrons.ContainsKey(reponse))
             {
-                _lstPerceptrons.Add(reponse, new Perceptron(reponse, 0.1));
+                _lstPerceptrons.Add(reponse, new Perceptron(reponse, 0.1, _gestionSortie.GetFormat()));
             }
 
             foreach (var perceptron in _lstPerceptrons)
@@ -96,15 +102,15 @@ namespace TPARCHIPERCEPTRON.Métier
         {
             string sConsole = "";
 
-            foreach (var coord in _gestionSortie.GetCharData())
+            foreach (var coord in _gestionSortie.GetTrainData())
             {
                 if (!_lstPerceptrons.ContainsKey(coord.Reponse))
                 {
-                    _lstPerceptrons.Add(coord.Reponse, new Perceptron(coord.Reponse, 0.1));
+                    _lstPerceptrons.Add(coord.Reponse, new Perceptron(coord.Reponse, 0.1, _gestionSortie.GetFormat()));
                 }
             }
 
-            _perceptronTrainTest.Entrainement(_gestionSortie.GetCharData(), ref _lstPerceptrons);
+            _perceptronTrainTest.Entrainement(_gestionSortie.GetTrainData(), ref _lstPerceptrons);
 
             return sConsole;
         }
@@ -118,5 +124,19 @@ namespace TPARCHIPERCEPTRON.Métier
         {
             return _perceptronTrainTest.Entrainement(new List<CoordDessin>() { coord }, ref _lstPerceptrons);
         }
+
+        /// <summary>
+        /// Sauvegarde les perceptrons.
+        /// </summary>
+        public void SauvegarderPerceptrons(string cheminAcces, bool useBD = false)
+        {
+            if (useBD)
+                _gestionPerceptron = new GestionPerceptronBD();
+            else
+                _gestionPerceptron = new GestionPerceptronFichiersSorties();
+
+            _gestionPerceptron.SavePerceptrons(_lstPerceptrons, cheminAcces);
+        }
+
     }
 }

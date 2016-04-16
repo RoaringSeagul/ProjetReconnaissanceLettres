@@ -104,7 +104,7 @@ namespace TPARCHIPERCEPTRON.Données
             return _lstPerceptrons;
         }
 
-        public void SavePerceptrons(List<Perceptron> lstPerceptrons, string cheminAcces)
+        public void SavePerceptrons(Dictionary<string, Perceptron> lstPerceptrons, string cheminAcces)
         {
             throw new NotImplementedException();
         }

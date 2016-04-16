@@ -22,8 +22,8 @@ namespace TPARCHIPERCEPTRON
     {
         TextWriter _writer = null;
         // Le gestionnaire des perceptrons.
-        private GestionClassesPerceptrons _gcpAnalyseEcriture;
         private TypeEntrainement _typeEntrainement = TypeEntrainement.Manuel;
+        private GestionClassesPerceptrons _gcpAnalyseEcriture = new GestionClassesPerceptrons(TypeEntrainement.Manuel);
         // La liste contenant les items de menu correspodant aux langues.
         private List<ToolStripMenuItem> _langues = new List<ToolStripMenuItem>();
         // Si un changement de langue est en cours.
@@ -56,8 +56,7 @@ namespace TPARCHIPERCEPTRON
             rdUseMNIST.Enabled = false;
             rdUseBD.Enabled = false;
 
-            _gcpAnalyseEcriture = new GestionClassesPerceptrons(_typeEntrainement);
-            _gcpAnalyseEcriture.Entrainement();
+            _gcpAnalyseEcriture.Entrainement(ucDessin.Coordonnees, txtValeurEntrainee.Text);
         }
 
         /// <summary>
@@ -67,7 +66,8 @@ namespace TPARCHIPERCEPTRON
         /// <param name="e">Les arguments de cet événement.</param>
         private void btnTest_Click(object sender, EventArgs e)
         {
-            _gcpAnalyseEcriture.TesterPerceptron(ucDessin.Coordonnees);
+            if(_gcpAnalyseEcriture != null)
+                _gcpAnalyseEcriture.TesterPerceptron(ucDessin.Coordonnees);
         }
 
         /// <summary>
@@ -161,6 +161,18 @@ namespace TPARCHIPERCEPTRON
         private void rdUseMNIST_CheckedChanged(object sender, EventArgs e)
         {
             _typeEntrainement = TypeEntrainement.MNIST;
+        }
+
+        private void baseDeDonnéesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+             _gcpAnalyseEcriture.SauvegarderPerceptrons("", true);
+        }
+
+        private void fichierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog fDialog = new FolderBrowserDialog();
+            fDialog.ShowDialog();
+            _gcpAnalyseEcriture.SauvegarderPerceptrons(fDialog.SelectedPath, false);
         }
     }
 }

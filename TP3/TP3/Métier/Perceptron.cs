@@ -26,14 +26,16 @@ namespace TPARCHIPERCEPTRON.Métier
         /// Constructeur de la classe. Crée un perceptron pour une réponse(caractère) qu'on veut identifier le pattern(modèle)
         /// </summary>
         /// <param name="reponse">La classe que défini le perceptron</param>
-        public Perceptron(string reponse, double cstApprentissage)
+        public Perceptron(string reponse, double cstApprentissage, ImageFormat format)
         {
             //À COMPLÉTER
             // On assigne notre constante d'apprentissage
             _cstApprentissage = cstApprentissage;
 
+            Format = format;
+
             // On crée notre tableau de poids synaptiques
-            _poidsSyn = new Double[CstApplication.TAILLEDESSINX / CstApplication.HAUTEURTRAIT * CstApplication.TAILLEDESSINY / CstApplication.LARGEURTRAIT];
+            _poidsSyn = new Double[format.X * format.Y];
 
             Random rnd = new Random();
             // On assigne des poids aléatoires à chaques coordonnées
@@ -76,8 +78,6 @@ namespace TPARCHIPERCEPTRON.Métier
                         nbErreur++;
                     }
                 }
-                if(this.Reponse == "1")
-                    MessageBox.Show(this.Reponse + " : " + nbErreur);
                 nbIteration++;
             }while (nbErreur != 0 && nbIteration < 10000);
             return s;
@@ -107,6 +107,14 @@ namespace TPARCHIPERCEPTRON.Métier
         {
             bool estBonneLettre = (coord.Reponse == this.Reponse);
             return ValeurEstime(_poidsSyn, coord.BitArrayDessin);
+        }
+
+        public double GetWeightAt(uint x, uint y)
+        {
+            if (x <= Format.X && y <= Format.Y)
+                return _poidsSyn[x * Format.Y + y];
+            else
+                return double.MaxValue;
         }
 
     }

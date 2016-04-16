@@ -124,6 +124,18 @@
   <data name="grpEntrainement.Text" xml:space="preserve">
     <value>Training</value>
   </data>
+  <data name="lblValeurEntraine.Text" xml:space="preserve">
+    <value>Trained value :</value>
+  </data>
+  <data name="grpDessinEntrainement.Text" xml:space="preserve">
+    <value>Drawing Zone</value>
+  </data>
+  <data name="btnEffacer.Text" xml:space="preserve">
+    <value>Erase</value>
+  </data>
+  <data name="lblValeurTestee.Text" xml:space="preserve">
+    <value>Tested value :</value>
+  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Handwriting Analysis</value>
   </data>
@@ -139,20 +151,8 @@
   <data name="grpTests.Text" xml:space="preserve">
     <value>Testing</value>
   </data>
-  <data name="grpDessinEntrainement.Text" xml:space="preserve">
-    <value>Drawing Zone</value>
-  </data>
-  <data name="btnEffacer.Text" xml:space="preserve">
-    <value>Erase</value>
-  </data>
   <data name="btnEntrainement.Text" xml:space="preserve">
     <value>Train</value>
-  </data>
-  <data name="lblValeurEntraine.Text" xml:space="preserve">
-    <value>Trained value :</value>
-  </data>
-  <data name="lblValeurTestee.Text" xml:space="preserve">
-    <value>Tested value :</value>
   </data>
   <data name="tsmiLangue.Size" type="System.Drawing.Size, System.Drawing">
     <value>71, 20</value>

@@ -11,7 +11,7 @@ namespace TPARCHIPERCEPTRON.Métier
     public class PerceptronTrainTest
     {
         private readonly Double _ratio;
-        public PerceptronTrainTest(double ratio) {
+        public PerceptronTrainTest(double ratio = 1) {
             _ratio = ratio;
         }
 

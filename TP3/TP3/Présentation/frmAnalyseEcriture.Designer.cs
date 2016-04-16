@@ -47,6 +47,9 @@
             this.mnuPrincipal = new System.Windows.Forms.MenuStrip();
             this.tsmiLangue = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiAfficherDessins = new System.Windows.Forms.ToolStripMenuItem();
+            this.sauvegarderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.baseDeDonnéesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fichierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grpEntrainement.SuspendLayout();
             this.grpDessinEntrainement.SuspendLayout();
             this.grpTests.SuspendLayout();
@@ -165,7 +168,8 @@
             // 
             this.mnuPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiLangue,
-            this.tsmiAfficherDessins});
+            this.tsmiAfficherDessins,
+            this.sauvegarderToolStripMenuItem});
             resources.ApplyResources(this.mnuPrincipal, "mnuPrincipal");
             this.mnuPrincipal.Name = "mnuPrincipal";
             // 
@@ -179,6 +183,26 @@
             this.tsmiAfficherDessins.Name = "tsmiAfficherDessins";
             resources.ApplyResources(this.tsmiAfficherDessins, "tsmiAfficherDessins");
             this.tsmiAfficherDessins.Click += new System.EventHandler(this.tsmiAfficherDessins_Click);
+            // 
+            // sauvegarderToolStripMenuItem
+            // 
+            this.sauvegarderToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.baseDeDonnéesToolStripMenuItem,
+            this.fichierToolStripMenuItem});
+            this.sauvegarderToolStripMenuItem.Name = "sauvegarderToolStripMenuItem";
+            resources.ApplyResources(this.sauvegarderToolStripMenuItem, "sauvegarderToolStripMenuItem");
+            // 
+            // baseDeDonnéesToolStripMenuItem
+            // 
+            this.baseDeDonnéesToolStripMenuItem.Name = "baseDeDonnéesToolStripMenuItem";
+            resources.ApplyResources(this.baseDeDonnéesToolStripMenuItem, "baseDeDonnéesToolStripMenuItem");
+            this.baseDeDonnéesToolStripMenuItem.Click += new System.EventHandler(this.baseDeDonnéesToolStripMenuItem_Click);
+            // 
+            // fichierToolStripMenuItem
+            // 
+            this.fichierToolStripMenuItem.Name = "fichierToolStripMenuItem";
+            resources.ApplyResources(this.fichierToolStripMenuItem, "fichierToolStripMenuItem");
+            this.fichierToolStripMenuItem.Click += new System.EventHandler(this.fichierToolStripMenuItem_Click);
             // 
             // frmAnalyseEcriture
             // 
@@ -229,6 +253,9 @@
         private System.Windows.Forms.RadioButton rdUseMNIST;
         private System.Windows.Forms.RadioButton rdUseBD;
         private System.Windows.Forms.RadioButton rdManual;
+        private System.Windows.Forms.ToolStripMenuItem sauvegarderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem baseDeDonnéesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fichierToolStripMenuItem;
     }
 }
 
