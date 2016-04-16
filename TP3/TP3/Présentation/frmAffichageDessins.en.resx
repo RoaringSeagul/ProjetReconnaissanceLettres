@@ -123,4 +123,7 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Drawings</value>
   </data>
+  <data name="btnActualiser.Text" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
 </root>

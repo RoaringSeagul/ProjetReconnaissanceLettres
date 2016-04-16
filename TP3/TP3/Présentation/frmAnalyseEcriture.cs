@@ -10,7 +10,7 @@ using System.IO;
 using TPARCHIPERCEPTRON.Présentation;
 using TPARCHIPERCEPTRON.Métier;
 using TPARCHIPERCEPTRON.Utilitaires;
-
+using System.Threading;
 
 namespace TPARCHIPERCEPTRON
 {
@@ -41,6 +41,7 @@ namespace TPARCHIPERCEPTRON
         /// </summary>
         public frmAnalyseEcriture()
         {
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("fr");
             InitializeComponent();
         }
 
@@ -100,6 +101,7 @@ namespace TPARCHIPERCEPTRON
             {
                 Tag = culture
             };
+            itemMenu.Click += new EventHandler(tsmLanguesItem_Click);
             tsmiLangue.DropDownItems.Add(itemMenu);
             _langues.Add(itemMenu);
         }
@@ -117,6 +119,8 @@ namespace TPARCHIPERCEPTRON
             _writer = new TextBoxStreamWriter(txtConsole);
             Console.SetOut(_writer);
             _langues[0].Checked = true;
+            var LangueCourante = (CultureInfo)_langues[0].Tag;
+            ChangeLanguage(LangueCourante.Name);
         }
 
         /// <summary>
@@ -173,6 +177,48 @@ namespace TPARCHIPERCEPTRON
             FolderBrowserDialog fDialog = new FolderBrowserDialog();
             fDialog.ShowDialog();
             _gcpAnalyseEcriture.SauvegarderPerceptrons(fDialog.SelectedPath, false);
+        }
+
+        private void tsmLanguesItem_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem item = (ToolStripMenuItem)sender;
+            foreach (var i in _langues)
+                i.Checked = false;
+
+            item.Checked = true;
+
+            var lang = (CultureInfo)item.Tag;
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang.Name);
+            ChangeLanguage(lang.Name);
+            this.Refresh();
+        }
+
+        private void ChangeLanguage(string lang)
+        {
+            ComponentResourceManager resources = new ComponentResourceManager(typeof(frmAnalyseEcriture));
+            ComponentResourceManager resources_child = new ComponentResourceManager(typeof(frmAnalyseEcriture));
+
+            foreach (ToolStripItem item in mnuPrincipal.Items)
+            {
+                if (item is ToolStripDropDownItem)
+                    foreach (ToolStripItem dropDownItem in ((ToolStripDropDownItem)item).DropDownItems)
+                    {
+                        resources.ApplyResources(dropDownItem, dropDownItem.Name, new CultureInfo(lang));
+                    }
+                //Also apply resources to main toolstrip items. 
+                resources.ApplyResources(item, item.Name, new CultureInfo(lang));
+            }
+            foreach (Control c in this.Controls)
+            {
+                resources.ApplyResources(c, c.Name, new CultureInfo(lang));
+                if (c.ToString().StartsWith("System.Windows.Forms.GroupBox"))
+                {
+                    foreach (Control child in c.Controls)
+                    {
+                        resources_child.ApplyResources(child, child.Name, new CultureInfo(lang));
+                    }
+                }
+            }
         }
     }
 }
