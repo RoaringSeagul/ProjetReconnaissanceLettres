@@ -44,11 +44,11 @@ namespace TPARCHIPERCEPTRON.Métier
             }
         }
 
+        /// <summary>
+        /// Montre tous les settings dans le fichier de configuration courant
+        /// </summary>
         public static void ShowAllAppSettingAndConnectionString()
         {
-            AddOrUpdate("test1", "test");
-            AddOrUpdate("test2", "test");
-            AddOrUpdate("test3", "test");
             try
             {
                 var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.PerUserRoamingAndLocal);
@@ -64,15 +64,27 @@ namespace TPARCHIPERCEPTRON.Métier
             }
         }
 
+        /// <summary>
+        /// Set la valeur du connectionString courant et ouvre un port SqlConnection
+        /// </summary>
+        /// <param name="connectKey">Clé de la connection se trouvant dans le fichier de configuration</param>
         public static void SetConnectionString(string connectKey)
         {
             var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             var connectionString = ConfigurationManager.ConnectionStrings[connectKey].ConnectionString;
-            SqlConnection connect = new SqlConnection();
-            connect.ConnectionString = connectionString;
-            connect.Open();
+            if (connectionString != null)
+            {
+                SqlConnection connect = new SqlConnection();
+                connect.ConnectionString = connectionString;
+                connect.Open();
+            }
         }
 
+        /// <summary>
+        /// Renvois la valeur de la clé dans le fichier de configuration
+        /// </summary>
+        /// <param name="Key">Clé à chercher</param>
+        /// <returns></returns>
         public static string GetSettingValue(string Key)
         {
             var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.PerUserRoamingAndLocal);

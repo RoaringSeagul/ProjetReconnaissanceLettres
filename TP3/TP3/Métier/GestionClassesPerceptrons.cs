@@ -150,5 +150,16 @@ namespace TPARCHIPERCEPTRON.Métier
             _lstPerceptrons = _gestionPerceptron.LoadPerceptrons(cheminAcces);
         }
 
+        public List<Perceptron> ObtenirPerceptron()
+        {
+            List<Perceptron> lstPerceptron = new List<Perceptron>();
+
+            foreach (var p in _lstPerceptrons)
+            {
+                lstPerceptron.Add(p.Value);
+            }
+
+            return lstPerceptron;
+        }
     }
 }

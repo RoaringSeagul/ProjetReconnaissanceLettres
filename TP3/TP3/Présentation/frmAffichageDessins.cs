@@ -95,16 +95,17 @@ namespace TPARCHIPERCEPTRON
             lvDessins.Items.Clear();
 
             List<Bitmap> images = new List<Bitmap>();
-            //foreach (CoordDessin item in GestionnairePerceptron.ObtenirCoordonnees())
-            //{
-            //    Bitmap bitmap = CreerImageBitArray(item.BitArrayDessin);
-            //    images.Add(bitmap);
-            //    listeImage.Images.Add(bitmap);
-            //    lvDessins.Items.Add(new ListViewItem(item.Reponse)
-            //    {
-            //        ImageIndex = listeImage.Images.Count - 1,
-            //    });
-            //}
+            foreach (Perceptron p in GestionnairePerceptron.ObtenirPerceptron())
+            {
+                //Bitmap bitmap = CreerImageBitArray(p.)
+                //Bitmap bitmap = CreerImageBitArray(item.BitArrayDessin);
+                //images.Add(bitmap);
+                //listeImage.Images.Add(bitmap);
+                //lvDessins.Items.Add(new ListViewItem(item.Reponse)
+                //{
+                //    ImageIndex = listeImage.Images.Count - 1,
+                //});
+            }
 
             // Forcer la copie immédiate des images.
             IntPtr dummy = listeImage.Handle;
