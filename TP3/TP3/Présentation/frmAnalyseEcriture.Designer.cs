@@ -54,6 +54,7 @@
             this.tsmiFichier = new System.Windows.Forms.ToolStripMenuItem();
             this.baseDeDonnéesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fichierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtConsole = new System.Windows.Forms.TextBox();
             this.grpEntrainement.SuspendLayout();
             this.grpDessinEntrainement.SuspendLayout();
             this.grpTests.SuspendLayout();
@@ -236,11 +237,17 @@
             this.fichierToolStripMenuItem.Name = "fichierToolStripMenuItem";
             resources.ApplyResources(this.fichierToolStripMenuItem, "fichierToolStripMenuItem");
             // 
+            // txtConsole
+            // 
+            resources.ApplyResources(this.txtConsole, "txtConsole");
+            this.txtConsole.Name = "txtConsole";
+            // 
             // frmAnalyseEcriture
             // 
             this.AcceptButton = this.btnEntrainement;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.txtConsole);
             this.Controls.Add(this.grpTests);
             this.Controls.Add(this.grpEntrainement);
             this.Controls.Add(this.grpDessinEntrainement);
@@ -266,7 +273,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtConsole;
+        //private System.Windows.Forms.TextBox txtConsole;
         private System.Windows.Forms.GroupBox grpEntrainement;
         private System.Windows.Forms.Label lblValeurEntraine;
         private System.Windows.Forms.TextBox txtValeurEntrainee;
@@ -292,6 +299,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiFichier;
         private System.Windows.Forms.Button btnTestConf;
         private System.Windows.Forms.RadioButton rdTesterJeuTest;
+        private System.Windows.Forms.TextBox txtConsole;
     }
 }
 

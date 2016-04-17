@@ -113,6 +113,11 @@
       <DependentUpon>frmAnalyseEcriture.cs</DependentUpon>
     </Compile>
     <Compile Include="Métier\GestionClassesPerceptrons.cs" />
+    <!--<Compile Include="Présentation\frmAnalyseEcriture.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>frmAnalyseEcriture.resx</DependentUpon>
+    </Compile>-->
     <Compile Include="Présentation\frmAnalyseEcriture1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

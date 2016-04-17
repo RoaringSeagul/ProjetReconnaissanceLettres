@@ -186,26 +186,23 @@
   <data name="btnEntrainement.Text" xml:space="preserve">
     <value>Entrainement</value>
   </data>
-  <data name="btnTestConf.Text" xml:space="preserve">
-    <value>TestConfFile</value>
-  </data>
-  <data name="rdUseMNIST.Text" xml:space="preserve">
-    <value>Utiliser données MNIST</value>
-  </data>
-  <data name="rdManual.Text" xml:space="preserve">
-    <value>Manuel</value>
-  </data>
   <data name="grpEntrainement.Text" xml:space="preserve">
     <value>Entrainement</value>
-  </data>
-  <data name="grpDessinEntrainement.Text" xml:space="preserve">
-    <value>Zone de dessin</value>
   </data>
   <data name="rdUseBD.Text" xml:space="preserve">
     <value>Utiliser données BD</value>
   </data>
   <data name="btnEffacer.Text" xml:space="preserve">
     <value>Effacer</value>
+  </data>
+  <data name="grpDessinEntrainement.Text" xml:space="preserve">
+    <value>Zone de dessin</value>
+  </data>
+  <data name="rdUseMNIST.Text" xml:space="preserve">
+    <value>Utiliser données MNIST</value>
+  </data>
+  <data name="btnTestConf.Text" xml:space="preserve">
+    <value>TestConfFile</value>
   </data>
   <data name="&gt;&gt;btnEntrainement.Name" xml:space="preserve">
     <value>btnEntrainement</value>
@@ -238,7 +235,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;grpEntrainement.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="btnTestConf.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -278,6 +275,9 @@
   </data>
   <data name="rdManual.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
+  </data>
+  <data name="rdManual.Text" xml:space="preserve">
+    <value>Manuel</value>
   </data>
   <data name="&gt;&gt;rdManual.Name" xml:space="preserve">
     <value>rdManual</value>
@@ -409,7 +409,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;grpDessinEntrainement.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="rdTesterJeuTest.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -425,18 +425,6 @@
   </data>
   <data name="rdTesterJeuTest.Text" xml:space="preserve">
     <value>Tester  avec un jeu de test</value>
-  </data>
-  <data name="lblValeurTestee.Text" xml:space="preserve">
-    <value>Valeur testée :</value>
-  </data>
-  <data name="btnTest.Text" xml:space="preserve">
-    <value>Test</value>
-  </data>
-  <data name="grpTests.Text" xml:space="preserve">
-    <value>Tests</value>
-  </data>
-  <data name="tsmiLangue.Text" xml:space="preserve">
-    <value>Langue</value>
   </data>
   <data name="&gt;&gt;rdTesterJeuTest.Name" xml:space="preserve">
     <value>rdTesterJeuTest</value>
@@ -464,6 +452,9 @@
   </data>
   <data name="lblValeurTestee.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
+  </data>
+  <data name="lblValeurTestee.Text" xml:space="preserve">
+    <value>Valeur testée :</value>
   </data>
   <data name="&gt;&gt;lblValeurTestee.Name" xml:space="preserve">
     <value>lblValeurTestee</value>
@@ -510,6 +501,9 @@
   <data name="btnTest.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
+  <data name="btnTest.Text" xml:space="preserve">
+    <value>Test</value>
+  </data>
   <data name="&gt;&gt;btnTest.Name" xml:space="preserve">
     <value>btnTest</value>
   </data>
@@ -531,6 +525,9 @@
   <data name="grpTests.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
+  <data name="grpTests.Text" xml:space="preserve">
+    <value>Tests</value>
+  </data>
   <data name="&gt;&gt;grpTests.Name" xml:space="preserve">
     <value>grpTests</value>
   </data>
@@ -541,13 +538,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;grpTests.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <metadata name="mnuPrincipal.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <data name="tsmiLangue.Size" type="System.Drawing.Size, System.Drawing">
     <value>58, 20</value>
+  </data>
+  <data name="tsmiLangue.Text" xml:space="preserve">
+    <value>Langue</value>
   </data>
   <data name="tsmiAfficherDessins.Size" type="System.Drawing.Size, System.Drawing">
     <value>119, 20</value>
@@ -561,14 +561,17 @@
   <data name="tsmiCharger.Text" xml:space="preserve">
     <value>Charger</value>
   </data>
+  <data name="tsmiBaseDeDonnées.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 22</value>
+  </data>
   <data name="tsmiBaseDeDonnées.Text" xml:space="preserve">
     <value>Base de données</value>
   </data>
+  <data name="tsmiFichier.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 22</value>
+  </data>
   <data name="tsmiFichier.Text" xml:space="preserve">
     <value>Fichier</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Analyse Écriture</value>
   </data>
   <data name="tsmiSauvegarder.Text" xml:space="preserve">
     <value>Sauvegarder</value>
@@ -576,11 +579,8 @@
   <data name="mnuPrincipal.Text" xml:space="preserve">
     <value>menuStrip1</value>
   </data>
-  <data name="tsmiBaseDeDonnées.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 22</value>
-  </data>
-  <data name="tsmiFichier.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 22</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Analyse Écriture</value>
   </data>
   <data name="tsmiSauvegarder.Size" type="System.Drawing.Size, System.Drawing">
     <value>84, 20</value>
@@ -604,13 +604,37 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;mnuPrincipal.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="baseDeDonnéesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>32, 19</value>
   </data>
   <data name="fichierToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>32, 19</value>
+  </data>
+  <data name="txtConsole.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 350</value>
+  </data>
+  <data name="txtConsole.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="txtConsole.Size" type="System.Drawing.Size, System.Drawing">
+    <value>366, 185</value>
+  </data>
+  <data name="txtConsole.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;txtConsole.Name" xml:space="preserve">
+    <value>txtConsole</value>
+  </data>
+  <data name="&gt;&gt;txtConsole.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtConsole.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txtConsole.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
