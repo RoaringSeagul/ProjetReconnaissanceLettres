@@ -29,42 +29,36 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAnalyseEcriture));
-            this.txtConsole = new System.Windows.Forms.TextBox();
             this.grpEntrainement = new System.Windows.Forms.GroupBox();
             this.lblValeurEntraine = new System.Windows.Forms.Label();
             this.txtValeurEntrainee = new System.Windows.Forms.TextBox();
             this.btnEntrainement = new System.Windows.Forms.Button();
             this.grpDessinEntrainement = new System.Windows.Forms.GroupBox();
+            this.btnTestConf = new System.Windows.Forms.Button();
             this.rdManual = new System.Windows.Forms.RadioButton();
             this.rdUseMNIST = new System.Windows.Forms.RadioButton();
             this.rdUseBD = new System.Windows.Forms.RadioButton();
             this.btnEffacer = new System.Windows.Forms.Button();
+            this.ucDessin = new TPARCHIPERCEPTRON.ucZoneDessin();
             this.grpTests = new System.Windows.Forms.GroupBox();
+            this.rdTesterJeuTest = new System.Windows.Forms.RadioButton();
             this.lblValeurTestee = new System.Windows.Forms.Label();
             this.txtValeurTestee = new System.Windows.Forms.TextBox();
             this.btnTest = new System.Windows.Forms.Button();
             this.mnuPrincipal = new System.Windows.Forms.MenuStrip();
             this.tsmiLangue = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiAfficherDessins = new System.Windows.Forms.ToolStripMenuItem();
-            this.sauvegarderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.baseDeDonnéesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fichierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ucDessin = new TPARCHIPERCEPTRON.ucZoneDessin();
-            this.chargerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiCharger = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiSauvegarder = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiBaseDeDonnées = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiFichier = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnTestConf = new System.Windows.Forms.Button();
+            this.baseDeDonnéesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fichierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grpEntrainement.SuspendLayout();
             this.grpDessinEntrainement.SuspendLayout();
             this.grpTests.SuspendLayout();
             this.mnuPrincipal.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // txtConsole
-            // 
-            resources.ApplyResources(this.txtConsole, "txtConsole");
-            this.txtConsole.Name = "txtConsole";
             // 
             // grpEntrainement
             // 
@@ -104,6 +98,13 @@
             this.grpDessinEntrainement.Name = "grpDessinEntrainement";
             this.grpDessinEntrainement.TabStop = false;
             // 
+            // btnTestConf
+            // 
+            resources.ApplyResources(this.btnTestConf, "btnTestConf");
+            this.btnTestConf.Name = "btnTestConf";
+            this.btnTestConf.UseVisualStyleBackColor = true;
+            this.btnTestConf.Click += new System.EventHandler(this.btnTestConf_Click);
+            // 
             // rdManual
             // 
             resources.ApplyResources(this.rdManual, "rdManual");
@@ -136,14 +137,29 @@
             this.btnEffacer.UseVisualStyleBackColor = true;
             this.btnEffacer.Click += new System.EventHandler(this.btnEffacer_Click);
             // 
+            // ucDessin
+            // 
+            this.ucDessin.BackColor = System.Drawing.Color.White;
+            this.ucDessin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.ucDessin, "ucDessin");
+            this.ucDessin.Name = "ucDessin";
+            // 
             // grpTests
             // 
+            this.grpTests.Controls.Add(this.rdTesterJeuTest);
             this.grpTests.Controls.Add(this.lblValeurTestee);
             this.grpTests.Controls.Add(this.txtValeurTestee);
             this.grpTests.Controls.Add(this.btnTest);
             resources.ApplyResources(this.grpTests, "grpTests");
             this.grpTests.Name = "grpTests";
             this.grpTests.TabStop = false;
+            // 
+            // rdTesterJeuTest
+            // 
+            resources.ApplyResources(this.rdTesterJeuTest, "rdTesterJeuTest");
+            this.rdTesterJeuTest.Name = "rdTesterJeuTest";
+            this.rdTesterJeuTest.TabStop = true;
+            this.rdTesterJeuTest.UseVisualStyleBackColor = true;
             // 
             // lblValeurTestee
             // 
@@ -168,12 +184,8 @@
             this.mnuPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiLangue,
             this.tsmiAfficherDessins,
-<<<<<<< HEAD
-            this.sauvegarderToolStripMenuItem,
-            this.chargerToolStripMenuItem});
-=======
+            this.tsmiCharger,
             this.tsmiSauvegarder});
->>>>>>> ba4093f9fcefec70cbaeea93233946ae1f951901
             resources.ApplyResources(this.mnuPrincipal, "mnuPrincipal");
             this.mnuPrincipal.Name = "mnuPrincipal";
             // 
@@ -187,6 +199,12 @@
             this.tsmiAfficherDessins.Name = "tsmiAfficherDessins";
             resources.ApplyResources(this.tsmiAfficherDessins, "tsmiAfficherDessins");
             this.tsmiAfficherDessins.Click += new System.EventHandler(this.tsmiAfficherDessins_Click);
+            // 
+            // tsmiCharger
+            // 
+            this.tsmiCharger.Name = "tsmiCharger";
+            resources.ApplyResources(this.tsmiCharger, "tsmiCharger");
+            this.tsmiCharger.Click += new System.EventHandler(this.chargerToolStripMenuItem_Click);
             // 
             // tsmiSauvegarder
             // 
@@ -208,25 +226,15 @@
             resources.ApplyResources(this.tsmiFichier, "tsmiFichier");
             this.tsmiFichier.Click += new System.EventHandler(this.fichierToolStripMenuItem_Click);
             // 
-            // btnTestConf
+            // baseDeDonnéesToolStripMenuItem
             // 
-            resources.ApplyResources(this.btnTestConf, "btnTestConf");
-            this.btnTestConf.Name = "btnTestConf";
-            this.btnTestConf.UseVisualStyleBackColor = true;
-            this.btnTestConf.Click += new System.EventHandler(this.btnTestConf_Click);
+            this.baseDeDonnéesToolStripMenuItem.Name = "baseDeDonnéesToolStripMenuItem";
+            resources.ApplyResources(this.baseDeDonnéesToolStripMenuItem, "baseDeDonnéesToolStripMenuItem");
             // 
-            // ucDessin
+            // fichierToolStripMenuItem
             // 
-            this.ucDessin.BackColor = System.Drawing.Color.White;
-            this.ucDessin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(this.ucDessin, "ucDessin");
-            this.ucDessin.Name = "ucDessin";
-            // 
-            // chargerToolStripMenuItem
-            // 
-            this.chargerToolStripMenuItem.Name = "chargerToolStripMenuItem";
-            resources.ApplyResources(this.chargerToolStripMenuItem, "chargerToolStripMenuItem");
-            this.chargerToolStripMenuItem.Click += new System.EventHandler(this.chargerToolStripMenuItem_Click);
+            this.fichierToolStripMenuItem.Name = "fichierToolStripMenuItem";
+            resources.ApplyResources(this.fichierToolStripMenuItem, "fichierToolStripMenuItem");
             // 
             // frmAnalyseEcriture
             // 
@@ -236,7 +244,6 @@
             this.Controls.Add(this.grpTests);
             this.Controls.Add(this.grpEntrainement);
             this.Controls.Add(this.grpDessinEntrainement);
-            this.Controls.Add(this.txtConsole);
             this.Controls.Add(this.mnuPrincipal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.mnuPrincipal;
@@ -277,17 +284,14 @@
         private System.Windows.Forms.RadioButton rdUseMNIST;
         private System.Windows.Forms.RadioButton rdUseBD;
         private System.Windows.Forms.RadioButton rdManual;
-<<<<<<< HEAD
-        private System.Windows.Forms.ToolStripMenuItem sauvegarderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem baseDeDonnéesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fichierToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem chargerToolStripMenuItem;
-=======
+        private System.Windows.Forms.ToolStripMenuItem tsmiCharger;
         private System.Windows.Forms.ToolStripMenuItem tsmiSauvegarder;
         private System.Windows.Forms.ToolStripMenuItem tsmiBaseDeDonnées;
         private System.Windows.Forms.ToolStripMenuItem tsmiFichier;
         private System.Windows.Forms.Button btnTestConf;
->>>>>>> ba4093f9fcefec70cbaeea93233946ae1f951901
+        private System.Windows.Forms.RadioButton rdTesterJeuTest;
     }
 }
 

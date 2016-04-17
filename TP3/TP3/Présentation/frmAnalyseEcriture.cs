@@ -70,10 +70,11 @@ namespace TPARCHIPERCEPTRON
         {
             if (_gcpAnalyseEcriture != null)
             {
-                //if (_typeEntrainement != TypeEntrainement.MNIST)
-                txtValeurTestee.Text = _gcpAnalyseEcriture.TesterPerceptron(ucDessin.Coordonnees);
-                //else
-                //    Console.WriteLine(_gcpAnalyseEcriture.TesterPerceptron());
+                if (!rdTesterJeuTest.Checked)
+                    txtValeurTestee.Text = _gcpAnalyseEcriture.TesterPerceptron(ucDessin.Coordonnees);
+                else
+                    txtValeurTestee.Text = _gcpAnalyseEcriture.TesterPerceptron();
+
             }
         }
 
@@ -193,6 +194,7 @@ namespace TPARCHIPERCEPTRON
             OpenFileDialog fDialog = new OpenFileDialog();
             fDialog.ShowDialog();
             _gcpAnalyseEcriture.ChargerPerceptrons(fDialog.FileName);
+        }
         private void tsmLanguesItem_Click(object sender, EventArgs e)
         {
             ToolStripMenuItem item = (ToolStripMenuItem)sender;

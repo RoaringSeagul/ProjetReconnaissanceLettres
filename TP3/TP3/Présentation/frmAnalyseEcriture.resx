@@ -117,32 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="txtConsole.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 350</value>
-  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="txtConsole.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="txtConsole.Size" type="System.Drawing.Size, System.Drawing">
-    <value>366, 185</value>
-  </data>
-  <data name="txtConsole.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;txtConsole.Name" xml:space="preserve">
-    <value>txtConsole</value>
-  </data>
-  <data name="&gt;&gt;txtConsole.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtConsole.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;txtConsole.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
   <data name="lblValeurEntraine.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -150,6 +125,7 @@
   <data name="lblValeurEntraine.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="lblValeurEntraine.Location" type="System.Drawing.Point, System.Drawing">
     <value>7, 40</value>
   </data>
@@ -161,15 +137,6 @@
   </data>
   <data name="lblValeurEntraine.Text" xml:space="preserve">
     <value>Valeur entrainée :</value>
-  </data>
-  <data name="rdManual.Text" xml:space="preserve">
-    <value>Manuel</value>
-  </data>
-  <data name="grpEntrainement.Text" xml:space="preserve">
-    <value>Entrainement</value>
-  </data>
-  <data name="btnEntrainement.Text" xml:space="preserve">
-    <value>Entrainement</value>
   </data>
   <data name="&gt;&gt;lblValeurEntraine.Name" xml:space="preserve">
     <value>lblValeurEntraine</value>
@@ -219,6 +186,27 @@
   <data name="btnEntrainement.Text" xml:space="preserve">
     <value>Entrainement</value>
   </data>
+  <data name="btnTestConf.Text" xml:space="preserve">
+    <value>TestConfFile</value>
+  </data>
+  <data name="rdUseMNIST.Text" xml:space="preserve">
+    <value>Utiliser données MNIST</value>
+  </data>
+  <data name="rdManual.Text" xml:space="preserve">
+    <value>Manuel</value>
+  </data>
+  <data name="grpEntrainement.Text" xml:space="preserve">
+    <value>Entrainement</value>
+  </data>
+  <data name="grpDessinEntrainement.Text" xml:space="preserve">
+    <value>Zone de dessin</value>
+  </data>
+  <data name="rdUseBD.Text" xml:space="preserve">
+    <value>Utiliser données BD</value>
+  </data>
+  <data name="btnEffacer.Text" xml:space="preserve">
+    <value>Effacer</value>
+  </data>
   <data name="&gt;&gt;btnEntrainement.Name" xml:space="preserve">
     <value>btnEntrainement</value>
   </data>
@@ -252,26 +240,8 @@
   <data name="&gt;&gt;grpEntrainement.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="grpEntrainement.Size" type="System.Drawing.Size, System.Drawing">
-    <value>365, 79</value>
-  </data>
-  <data name="grpEntrainement.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="grpEntrainement.Text" xml:space="preserve">
-    <value>Entrainement</value>
-  </data>
-  <data name="&gt;&gt;grpEntrainement.Name" xml:space="preserve">
-    <value>grpEntrainement</value>
-  </data>
-  <data name="&gt;&gt;grpEntrainement.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;grpEntrainement.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;grpEntrainement.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="btnTestConf.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="btnTestConf.Location" type="System.Drawing.Point, System.Drawing">
     <value>268, 77</value>
@@ -281,54 +251,6 @@
   </data>
   <data name="btnTestConf.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
-  </data>
-  <data name="btnTestConf.Text" xml:space="preserve">
-    <value>TestConfFile</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Analyse Écriture</value>
-  </data>
-  <data name="mnuPrincipal.Text" xml:space="preserve">
-    <value>mnuPrincipale</value>
-  </data>
-  <data name="tsmiSauvegarder.Text" xml:space="preserve">
-    <value>Sauvegarder</value>
-  </data>
-  <data name="tsmiFichier.Text" xml:space="preserve">
-    <value>Fichier</value>
-  </data>
-  <data name="tsmiBaseDeDonnées.Text" xml:space="preserve">
-    <value>Base de données</value>
-  </data>
-  <data name="tsmiAfficherDessins.Text" xml:space="preserve">
-    <value>Afficher les dessins</value>
-  </data>
-  <data name="tsmiLangue.Text" xml:space="preserve">
-    <value>Langue</value>
-  </data>
-  <data name="grpTests.Text" xml:space="preserve">
-    <value>Tests</value>
-  </data>
-  <data name="btnTest.Text" xml:space="preserve">
-    <value>Test</value>
-  </data>
-  <data name="lblValeurTestee.Text" xml:space="preserve">
-    <value>Valeur testée :</value>
-  </data>
-  <data name="grpDessinEntrainement.Text" xml:space="preserve">
-    <value>Zone de dessin</value>
-  </data>
-  <data name="btnEffacer.Text" xml:space="preserve">
-    <value>Effacer</value>
-  </data>
-  <data name="rdUseBD.Text" xml:space="preserve">
-    <value>Utiliser données BD</value>
-  </data>
-  <data name="rdUseMNIST.Text" xml:space="preserve">
-    <value>Utiliser données MNIST</value>
-  </data>
-  <data name="rdManual.Text" xml:space="preserve">
-    <value>Manuel</value>
   </data>
   <data name="&gt;&gt;btnTestConf.Name" xml:space="preserve">
     <value>btnTestConf</value>
@@ -349,7 +271,7 @@
     <value>NoControl</value>
   </data>
   <data name="rdManual.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 19</value>
+    <value>4, 35</value>
   </data>
   <data name="rdManual.Size" type="System.Drawing.Size, System.Drawing">
     <value>60, 17</value>
@@ -376,7 +298,7 @@
     <value>NoControl</value>
   </data>
   <data name="rdUseMNIST.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 65</value>
+    <value>4, 81</value>
   </data>
   <data name="rdUseMNIST.Size" type="System.Drawing.Size, System.Drawing">
     <value>137, 17</value>
@@ -403,7 +325,7 @@
     <value>NoControl</value>
   </data>
   <data name="rdUseBD.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 42</value>
+    <value>4, 58</value>
   </data>
   <data name="rdUseBD.Size" type="System.Drawing.Size, System.Drawing">
     <value>118, 17</value>
@@ -466,37 +388,6 @@
     <value>grpDessinEntrainement</value>
   </data>
   <data name="&gt;&gt;ucDessin.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="grpDessinEntrainement.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 36</value>
-  </data>
-  <data name="grpDessinEntrainement.Size" type="System.Drawing.Size, System.Drawing">
-    <value>366, 138</value>
-  </data>
-  <data name="grpDessinEntrainement.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="rdUseMNIST.Text" xml:space="preserve">
-    <value>Utiliser données MNIST</value>
-  </data>
-  <data name="lblValeurTestee.Text" xml:space="preserve">
-    <value>Valeur testée :</value>
-  </data>
-  <data name="grpTests.Text" xml:space="preserve">
-    <value>Tests</value>
-  </data>
-  <data name="btnTest.Text" xml:space="preserve">
-    <value>Test</value>
-  </data>
-  <data name="grpDessinEntrainement.Text" xml:space="preserve">
-    <value>Zone de dessin</value>
-  </data>
-  <data name="btnEffacer.Text" xml:space="preserve">
-    <value>Effacer</value>
-  </data>
-  <data name="rdUseBD.Text" xml:space="preserve">
-    <value>Utiliser données BD</value>
     <value>5</value>
   </data>
   <data name="grpDessinEntrainement.Location" type="System.Drawing.Point, System.Drawing">
@@ -520,6 +411,45 @@
   <data name="&gt;&gt;grpDessinEntrainement.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="rdTesterJeuTest.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="rdTesterJeuTest.Location" type="System.Drawing.Point, System.Drawing">
+    <value>95, 46</value>
+  </data>
+  <data name="rdTesterJeuTest.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 17</value>
+  </data>
+  <data name="rdTesterJeuTest.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="rdTesterJeuTest.Text" xml:space="preserve">
+    <value>Tester  avec un jeu de test</value>
+  </data>
+  <data name="lblValeurTestee.Text" xml:space="preserve">
+    <value>Valeur testée :</value>
+  </data>
+  <data name="btnTest.Text" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="grpTests.Text" xml:space="preserve">
+    <value>Tests</value>
+  </data>
+  <data name="tsmiLangue.Text" xml:space="preserve">
+    <value>Langue</value>
+  </data>
+  <data name="&gt;&gt;rdTesterJeuTest.Name" xml:space="preserve">
+    <value>rdTesterJeuTest</value>
+  </data>
+  <data name="&gt;&gt;rdTesterJeuTest.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rdTesterJeuTest.Parent" xml:space="preserve">
+    <value>grpTests</value>
+  </data>
+  <data name="&gt;&gt;rdTesterJeuTest.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="lblValeurTestee.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -527,7 +457,7 @@
     <value>NoControl</value>
   </data>
   <data name="lblValeurTestee.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 40</value>
+    <value>7, 20</value>
   </data>
   <data name="lblValeurTestee.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 13</value>
@@ -545,10 +475,10 @@
     <value>grpTests</value>
   </data>
   <data name="&gt;&gt;lblValeurTestee.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="txtValeurTestee.Location" type="System.Drawing.Point, System.Drawing">
-    <value>103, 37</value>
+    <value>111, 20</value>
   </data>
   <data name="txtValeurTestee.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 20</value>
@@ -566,7 +496,7 @@
     <value>grpTests</value>
   </data>
   <data name="&gt;&gt;txtValeurTestee.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="btnTest.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -590,7 +520,7 @@
     <value>grpTests</value>
   </data>
   <data name="&gt;&gt;btnTest.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="grpTests.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 265</value>
@@ -619,16 +549,33 @@
   <data name="tsmiLangue.Size" type="System.Drawing.Size, System.Drawing">
     <value>58, 20</value>
   </data>
-  <data name="tsmiLangue.Text" xml:space="preserve">
-    <value>Langue</value>
-  </data>
   <data name="tsmiAfficherDessins.Size" type="System.Drawing.Size, System.Drawing">
     <value>119, 20</value>
   </data>
   <data name="tsmiAfficherDessins.Text" xml:space="preserve">
     <value>Afficher les dessins</value>
   </data>
-  <data name="baseDeDonnéesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="tsmiCharger.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 20</value>
+  </data>
+  <data name="tsmiCharger.Text" xml:space="preserve">
+    <value>Charger</value>
+  </data>
+  <data name="tsmiBaseDeDonnées.Text" xml:space="preserve">
+    <value>Base de données</value>
+  </data>
+  <data name="tsmiFichier.Text" xml:space="preserve">
+    <value>Fichier</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Analyse Écriture</value>
+  </data>
+  <data name="tsmiSauvegarder.Text" xml:space="preserve">
+    <value>Sauvegarder</value>
+  </data>
+  <data name="mnuPrincipal.Text" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
   <data name="tsmiBaseDeDonnées.Size" type="System.Drawing.Size, System.Drawing">
     <value>162, 22</value>
   </data>
@@ -637,22 +584,6 @@
   </data>
   <data name="tsmiSauvegarder.Size" type="System.Drawing.Size, System.Drawing">
     <value>84, 20</value>
-  </data>
-<<<<<<< HEAD
-  <data name="sauvegarderToolStripMenuItem.Text" xml:space="preserve">
-    <value>Sauvegarder</value>
-  </data>
-  <data name="chargerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 20</value>
-  </data>
-  <data name="chargerToolStripMenuItem.Text" xml:space="preserve">
-    <value>Charger</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Analyse Écriture</value>
-  </data>
-  <data name="mnuPrincipal.Text" xml:space="preserve">
-    <value>menuStrip1</value>
   </data>
   <data name="mnuPrincipal.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
@@ -673,7 +604,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;mnuPrincipal.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
+  </data>
+  <data name="baseDeDonnéesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 19</value>
+  </data>
+  <data name="fichierToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 19</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -696,6 +633,12 @@
   <data name="&gt;&gt;tsmiAfficherDessins.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;tsmiCharger.Name" xml:space="preserve">
+    <value>tsmiCharger</value>
+  </data>
+  <data name="&gt;&gt;tsmiCharger.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;tsmiSauvegarder.Name" xml:space="preserve">
     <value>tsmiSauvegarder</value>
   </data>
@@ -714,10 +657,16 @@
   <data name="&gt;&gt;tsmiFichier.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;chargerToolStripMenuItem.Name" xml:space="preserve">
-    <value>chargerToolStripMenuItem</value>
+  <data name="&gt;&gt;baseDeDonnéesToolStripMenuItem.Name" xml:space="preserve">
+    <value>baseDeDonnéesToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;chargerToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;baseDeDonnéesToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;fichierToolStripMenuItem.Name" xml:space="preserve">
+    <value>fichierToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;fichierToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
