@@ -11,6 +11,7 @@ using TPARCHIPERCEPTRON.Présentation;
 using TPARCHIPERCEPTRON.Métier;
 using TPARCHIPERCEPTRON.Utilitaires;
 using System.Threading;
+using System.Collections.Specialized;
 
 namespace TPARCHIPERCEPTRON
 {
@@ -196,7 +197,7 @@ namespace TPARCHIPERCEPTRON
         private void ChangeLanguage(string lang)
         {
             ComponentResourceManager resources = new ComponentResourceManager(typeof(frmAnalyseEcriture));
-            ComponentResourceManager resources_child = new ComponentResourceManager(typeof(frmAnalyseEcriture));
+            resources.ApplyResources(this, "$this", new CultureInfo(lang));
 
             foreach (ToolStripItem item in mnuPrincipal.Items)
             {
@@ -215,10 +216,15 @@ namespace TPARCHIPERCEPTRON
                 {
                     foreach (Control child in c.Controls)
                     {
-                        resources_child.ApplyResources(child, child.Name, new CultureInfo(lang));
+                        resources.ApplyResources(child, child.Name, new CultureInfo(lang));
                     }
                 }
             }
+        }
+
+        private void btnTestConf_Click(object sender, EventArgs e)
+        {
+            GestionFichierConfig.ShowAllAppSettingAndConnectionString();
         }
     }
 }

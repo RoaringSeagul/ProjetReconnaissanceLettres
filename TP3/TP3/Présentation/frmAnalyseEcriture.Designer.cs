@@ -39,6 +39,7 @@
             this.rdUseMNIST = new System.Windows.Forms.RadioButton();
             this.rdUseBD = new System.Windows.Forms.RadioButton();
             this.btnEffacer = new System.Windows.Forms.Button();
+            this.ucDessin = new TPARCHIPERCEPTRON.ucZoneDessin();
             this.grpTests = new System.Windows.Forms.GroupBox();
             this.lblValeurTestee = new System.Windows.Forms.Label();
             this.txtValeurTestee = new System.Windows.Forms.TextBox();
@@ -49,7 +50,7 @@
             this.tsmiSauvegarder = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiBaseDeDonnées = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiFichier = new System.Windows.Forms.ToolStripMenuItem();
-            this.ucDessin = new TPARCHIPERCEPTRON.ucZoneDessin();
+            this.btnTestConf = new System.Windows.Forms.Button();
             this.grpEntrainement.SuspendLayout();
             this.grpDessinEntrainement.SuspendLayout();
             this.grpTests.SuspendLayout();
@@ -89,6 +90,7 @@
             // 
             // grpDessinEntrainement
             // 
+            this.grpDessinEntrainement.Controls.Add(this.btnTestConf);
             this.grpDessinEntrainement.Controls.Add(this.rdManual);
             this.grpDessinEntrainement.Controls.Add(this.rdUseMNIST);
             this.grpDessinEntrainement.Controls.Add(this.rdUseBD);
@@ -129,6 +131,13 @@
             this.btnEffacer.Name = "btnEffacer";
             this.btnEffacer.UseVisualStyleBackColor = true;
             this.btnEffacer.Click += new System.EventHandler(this.btnEffacer_Click);
+            // 
+            // ucDessin
+            // 
+            this.ucDessin.BackColor = System.Drawing.Color.White;
+            this.ucDessin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.ucDessin, "ucDessin");
+            this.ucDessin.Name = "ucDessin";
             // 
             // grpTests
             // 
@@ -197,12 +206,12 @@
             resources.ApplyResources(this.tsmiFichier, "tsmiFichier");
             this.tsmiFichier.Click += new System.EventHandler(this.fichierToolStripMenuItem_Click);
             // 
-            // ucDessin
+            // btnTestConf
             // 
-            this.ucDessin.BackColor = System.Drawing.Color.White;
-            this.ucDessin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(this.ucDessin, "ucDessin");
-            this.ucDessin.Name = "ucDessin";
+            resources.ApplyResources(this.btnTestConf, "btnTestConf");
+            this.btnTestConf.Name = "btnTestConf";
+            this.btnTestConf.UseVisualStyleBackColor = true;
+            this.btnTestConf.Click += new System.EventHandler(this.btnTestConf_Click);
             // 
             // frmAnalyseEcriture
             // 
@@ -256,6 +265,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiSauvegarder;
         private System.Windows.Forms.ToolStripMenuItem tsmiBaseDeDonnées;
         private System.Windows.Forms.ToolStripMenuItem tsmiFichier;
+        private System.Windows.Forms.Button btnTestConf;
     }
 }
 

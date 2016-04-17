@@ -127,55 +127,55 @@
   <data name="btnEntrainement.Text" xml:space="preserve">
     <value>Train</value>
   </data>
-  <data name="tsmiAfficherDessins.Text" xml:space="preserve">
-    <value>Display drawings</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Handwriting Analysis</value>
-  </data>
-  <data name="tsmiLangue.Text" xml:space="preserve">
-    <value>Language</value>
-  </data>
-  <data name="grpTests.Text" xml:space="preserve">
-    <value>Testing</value>
-  </data>
-  <data name="btnTest.Text" xml:space="preserve">
-    <value>Test</value>
-  </data>
-  <data name="lblValeurTestee.Text" xml:space="preserve">
-    <value>Tested value :</value>
-  </data>
-  <data name="grpDessinEntrainement.Text" xml:space="preserve">
-    <value>Drawing Zone</value>
-  </data>
-  <data name="btnEffacer.Text" xml:space="preserve">
-    <value>Erase</value>
-  </data>
   <data name="grpEntrainement.Text" xml:space="preserve">
     <value>Training</value>
-  </data>
-  <data name="tsmiLangue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 20</value>
-  </data>
-  <data name="tsmiAfficherDessins.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 20</value>
   </data>
   <data name="rdManual.Text" xml:space="preserve">
     <value>Manual</value>
   </data>
-  <data name="rdUseBD.Text" xml:space="preserve">
-    <value>Use database</value>
-  </data>
   <data name="rdUseMNIST.Text" xml:space="preserve">
     <value>Use MNIST data</value>
   </data>
-  <data name="tsmiSauvegarder.Text" xml:space="preserve">
-    <value>Save</value>
+  <data name="rdUseBD.Text" xml:space="preserve">
+    <value>Use database</value>
+  </data>
+  <data name="btnEffacer.Text" xml:space="preserve">
+    <value>Erase</value>
+  </data>
+  <data name="grpDessinEntrainement.Text" xml:space="preserve">
+    <value>Drawing Zone</value>
+  </data>
+  <data name="lblValeurTestee.Text" xml:space="preserve">
+    <value>Tested value :</value>
+  </data>
+  <data name="btnTest.Text" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="grpTests.Text" xml:space="preserve">
+    <value>Testing</value>
+  </data>
+  <data name="tsmiLangue.Text" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="tsmiAfficherDessins.Text" xml:space="preserve">
+    <value>Display drawings</value>
   </data>
   <data name="tsmiBaseDeDonnées.Text" xml:space="preserve">
     <value>Database</value>
   </data>
   <data name="tsmiFichier.Text" xml:space="preserve">
     <value>File</value>
+  </data>
+  <data name="tsmiSauvegarder.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Handwriting Analysis</value>
+  </data>
+  <data name="tsmiLangue.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 20</value>
+  </data>
+  <data name="tsmiAfficherDessins.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 20</value>
   </data>
 </root>

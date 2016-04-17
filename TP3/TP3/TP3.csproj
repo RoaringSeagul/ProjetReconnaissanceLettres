@@ -94,6 +94,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Données\GestionChiffresManuscripts.cs" />
+    <Compile Include="Métier\GestionFichierConfig.cs" />
     <Compile Include="Métier\PerceptronTrainTest.cs" />
     <Compile Include="Métier\TypeEntrainement.cs" />
     <Compile Include="Perceptron.cs">

@@ -208,6 +208,45 @@ namespace TPARCHIPERCEPTRON.Présentation {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Point similar to {X=268,Y=77}.
+        /// </summary>
+        public static System.Drawing.Point btnTestConf_Location {
+            get {
+                object obj = ResourceManager.GetObject("btnTestConf.Location", resourceCulture);
+                return ((System.Drawing.Point)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Size similar to {Width=75, Height=23}.
+        /// </summary>
+        public static System.Drawing.Size btnTestConf_Size {
+            get {
+                object obj = ResourceManager.GetObject("btnTestConf.Size", resourceCulture);
+                return ((System.Drawing.Size)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Int32 similar to 5.
+        /// </summary>
+        public static int btnTestConf_TabIndex {
+            get {
+                object obj = ResourceManager.GetObject("btnTestConf.TabIndex", resourceCulture);
+                return ((int)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TestConfFile.
+        /// </summary>
+        public static string btnTestConf_Text {
+            get {
+                return ResourceManager.GetString("btnTestConf.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Point similar to {X=8,Y=36}.
         /// </summary>
         public static System.Drawing.Point grpDessinEntrainement_Location {
