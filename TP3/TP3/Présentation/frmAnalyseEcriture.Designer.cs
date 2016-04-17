@@ -51,6 +51,10 @@
             this.fichierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ucDessin = new TPARCHIPERCEPTRON.ucZoneDessin();
             this.chargerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiSauvegarder = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiBaseDeDonnées = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiFichier = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnTestConf = new System.Windows.Forms.Button();
             this.grpEntrainement.SuspendLayout();
             this.grpDessinEntrainement.SuspendLayout();
             this.grpTests.SuspendLayout();
@@ -90,6 +94,7 @@
             // 
             // grpDessinEntrainement
             // 
+            this.grpDessinEntrainement.Controls.Add(this.btnTestConf);
             this.grpDessinEntrainement.Controls.Add(this.rdManual);
             this.grpDessinEntrainement.Controls.Add(this.rdUseMNIST);
             this.grpDessinEntrainement.Controls.Add(this.rdUseBD);
@@ -163,8 +168,12 @@
             this.mnuPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiLangue,
             this.tsmiAfficherDessins,
+<<<<<<< HEAD
             this.sauvegarderToolStripMenuItem,
             this.chargerToolStripMenuItem});
+=======
+            this.tsmiSauvegarder});
+>>>>>>> ba4093f9fcefec70cbaeea93233946ae1f951901
             resources.ApplyResources(this.mnuPrincipal, "mnuPrincipal");
             this.mnuPrincipal.Name = "mnuPrincipal";
             // 
@@ -179,25 +188,32 @@
             resources.ApplyResources(this.tsmiAfficherDessins, "tsmiAfficherDessins");
             this.tsmiAfficherDessins.Click += new System.EventHandler(this.tsmiAfficherDessins_Click);
             // 
-            // sauvegarderToolStripMenuItem
+            // tsmiSauvegarder
             // 
-            this.sauvegarderToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.baseDeDonnéesToolStripMenuItem,
-            this.fichierToolStripMenuItem});
-            this.sauvegarderToolStripMenuItem.Name = "sauvegarderToolStripMenuItem";
-            resources.ApplyResources(this.sauvegarderToolStripMenuItem, "sauvegarderToolStripMenuItem");
+            this.tsmiSauvegarder.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiBaseDeDonnées,
+            this.tsmiFichier});
+            this.tsmiSauvegarder.Name = "tsmiSauvegarder";
+            resources.ApplyResources(this.tsmiSauvegarder, "tsmiSauvegarder");
             // 
-            // baseDeDonnéesToolStripMenuItem
+            // tsmiBaseDeDonnées
             // 
-            this.baseDeDonnéesToolStripMenuItem.Name = "baseDeDonnéesToolStripMenuItem";
-            resources.ApplyResources(this.baseDeDonnéesToolStripMenuItem, "baseDeDonnéesToolStripMenuItem");
-            this.baseDeDonnéesToolStripMenuItem.Click += new System.EventHandler(this.baseDeDonnéesToolStripMenuItem_Click);
+            this.tsmiBaseDeDonnées.Name = "tsmiBaseDeDonnées";
+            resources.ApplyResources(this.tsmiBaseDeDonnées, "tsmiBaseDeDonnées");
+            this.tsmiBaseDeDonnées.Click += new System.EventHandler(this.baseDeDonnéesToolStripMenuItem_Click);
             // 
-            // fichierToolStripMenuItem
+            // tsmiFichier
             // 
-            this.fichierToolStripMenuItem.Name = "fichierToolStripMenuItem";
-            resources.ApplyResources(this.fichierToolStripMenuItem, "fichierToolStripMenuItem");
-            this.fichierToolStripMenuItem.Click += new System.EventHandler(this.fichierToolStripMenuItem_Click);
+            this.tsmiFichier.Name = "tsmiFichier";
+            resources.ApplyResources(this.tsmiFichier, "tsmiFichier");
+            this.tsmiFichier.Click += new System.EventHandler(this.fichierToolStripMenuItem_Click);
+            // 
+            // btnTestConf
+            // 
+            resources.ApplyResources(this.btnTestConf, "btnTestConf");
+            this.btnTestConf.Name = "btnTestConf";
+            this.btnTestConf.UseVisualStyleBackColor = true;
+            this.btnTestConf.Click += new System.EventHandler(this.btnTestConf_Click);
             // 
             // ucDessin
             // 
@@ -261,10 +277,17 @@
         private System.Windows.Forms.RadioButton rdUseMNIST;
         private System.Windows.Forms.RadioButton rdUseBD;
         private System.Windows.Forms.RadioButton rdManual;
+<<<<<<< HEAD
         private System.Windows.Forms.ToolStripMenuItem sauvegarderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem baseDeDonnéesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fichierToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem chargerToolStripMenuItem;
+=======
+        private System.Windows.Forms.ToolStripMenuItem tsmiSauvegarder;
+        private System.Windows.Forms.ToolStripMenuItem tsmiBaseDeDonnées;
+        private System.Windows.Forms.ToolStripMenuItem tsmiFichier;
+        private System.Windows.Forms.Button btnTestConf;
+>>>>>>> ba4093f9fcefec70cbaeea93233946ae1f951901
     }
 }
 

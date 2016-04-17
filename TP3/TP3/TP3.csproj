@@ -94,6 +94,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Données\GestionChiffresManuscripts.cs" />
+    <Compile Include="Métier\GestionFichierConfig.cs" />
     <Compile Include="Métier\PerceptronTrainTest.cs" />
     <Compile Include="Métier\TypeEntrainement.cs" />
     <Compile Include="Perceptron.cs">
@@ -112,6 +113,11 @@
       <DependentUpon>frmAnalyseEcriture.cs</DependentUpon>
     </Compile>
     <Compile Include="Métier\GestionClassesPerceptrons.cs" />
+    <Compile Include="Présentation\frmAnalyseEcriture1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>frmAnalyseEcriture.resx</DependentUpon>
+    </Compile>
     <Compile Include="Utilitaires\CoordDessin.cs" />
     <Compile Include="Données\GestionCharFichiersSorties.cs" />
     <Compile Include="Métier\Perceptron.cs" />
@@ -136,6 +142,9 @@
     <EmbeddedResource Include="Présentation\frmAffichageDessins.en.resx">
       <DependentUpon>frmAffichageDessins.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Présentation\frmAffichageDessins.fr.resx">
+      <DependentUpon>frmAffichageDessins.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Présentation\frmAffichageDessins.resx">
       <DependentUpon>frmAffichageDessins.cs</DependentUpon>
     </EmbeddedResource>
@@ -147,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Présentation\frmAnalyseEcriture.resx">
       <DependentUpon>frmAnalyseEcriture.cs</DependentUpon>
+      <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>frmAnalyseEcriture1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
