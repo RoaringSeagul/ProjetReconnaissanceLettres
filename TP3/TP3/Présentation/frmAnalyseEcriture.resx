@@ -186,9 +186,6 @@
   <data name="btnEntrainement.Text" xml:space="preserve">
     <value>Entrainement</value>
   </data>
-  <data name="grpEntrainement.Text" xml:space="preserve">
-    <value>Entrainement</value>
-  </data>
   <data name="rdUseBD.Text" xml:space="preserve">
     <value>Utiliser données BD</value>
   </data>
@@ -225,6 +222,9 @@
   <data name="grpEntrainement.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
+  <data name="grpEntrainement.Text" xml:space="preserve">
+    <value>Entrainement</value>
+  </data>
   <data name="&gt;&gt;grpEntrainement.Name" xml:space="preserve">
     <value>grpEntrainement</value>
   </data>
@@ -248,6 +248,9 @@
   </data>
   <data name="btnTestConf.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
+  </data>
+  <data name="btnTestConf.Text" xml:space="preserve">
+    <value>TestConfFile</value>
   </data>
   <data name="&gt;&gt;btnTestConf.Name" xml:space="preserve">
     <value>btnTestConf</value>
@@ -306,6 +309,9 @@
   <data name="rdUseMNIST.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
+  <data name="rdUseMNIST.Text" xml:space="preserve">
+    <value>Utiliser données MNIST</value>
+  </data>
   <data name="&gt;&gt;rdUseMNIST.Name" xml:space="preserve">
     <value>rdUseMNIST</value>
   </data>
@@ -333,6 +339,9 @@
   <data name="rdUseBD.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
+  <data name="rdUseBD.Text" xml:space="preserve">
+    <value>Utiliser données BD</value>
+  </data>
   <data name="&gt;&gt;rdUseBD.Name" xml:space="preserve">
     <value>rdUseBD</value>
   </data>
@@ -356,6 +365,9 @@
   </data>
   <data name="btnEffacer.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
+  </data>
+  <data name="btnEffacer.Text" xml:space="preserve">
+    <value>Effacer</value>
   </data>
   <data name="&gt;&gt;btnEffacer.Name" xml:space="preserve">
     <value>btnEffacer</value>
@@ -399,6 +411,9 @@
   <data name="grpDessinEntrainement.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
+  <data name="grpDessinEntrainement.Text" xml:space="preserve">
+    <value>Zone de dessin</value>
+  </data>
   <data name="&gt;&gt;grpDessinEntrainement.Name" xml:space="preserve">
     <value>grpDessinEntrainement</value>
   </data>
@@ -411,16 +426,16 @@
   <data name="&gt;&gt;grpDessinEntrainement.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="rdTesterJeuTest.AutoSize" type="System.Boolean, mscorlib">
+  <data name="chkTestJeu.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="rdTesterJeuTest.Location" type="System.Drawing.Point, System.Drawing">
-    <value>95, 46</value>
+  <data name="chkTestJeu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>103, 49</value>
   </data>
-  <data name="rdTesterJeuTest.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 17</value>
+  <data name="chkTestJeu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 17</value>
   </data>
-  <data name="rdTesterJeuTest.TabIndex" type="System.Int32, mscorlib">
+  <data name="chkTestJeu.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
   <data name="rdTesterJeuTest.Text" xml:space="preserve">
@@ -432,10 +447,19 @@
   <data name="&gt;&gt;rdTesterJeuTest.Type" xml:space="preserve">
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;rdTesterJeuTest.Parent" xml:space="preserve">
+  <data name="chkTestJeu.Text" xml:space="preserve">
+    <value>Tester avec un jeu de test</value>
+  </data>
+  <data name="&gt;&gt;chkTestJeu.Name" xml:space="preserve">
+    <value>chkTestJeu</value>
+  </data>
+  <data name="&gt;&gt;chkTestJeu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chkTestJeu.Parent" xml:space="preserve">
     <value>grpTests</value>
   </data>
-  <data name="&gt;&gt;rdTesterJeuTest.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;chkTestJeu.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="lblValeurTestee.AutoSize" type="System.Boolean, mscorlib">
@@ -469,7 +493,7 @@
     <value>1</value>
   </data>
   <data name="txtValeurTestee.Location" type="System.Drawing.Point, System.Drawing">
-    <value>111, 20</value>
+    <value>103, 20</value>
   </data>
   <data name="txtValeurTestee.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 20</value>
@@ -585,6 +609,12 @@
   <data name="tsmiSauvegarder.Size" type="System.Drawing.Size, System.Drawing">
     <value>84, 20</value>
   </data>
+  <data name="tsmiSauvegarder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 20</value>
+  </data>
+  <data name="tsmiSauvegarder.Text" xml:space="preserve">
+    <value>Sauvegarder</value>
+  </data>
   <data name="mnuPrincipal.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
@@ -593,6 +623,9 @@
   </data>
   <data name="mnuPrincipal.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
+  </data>
+  <data name="mnuPrincipal.Text" xml:space="preserve">
+    <value>menuStrip1</value>
   </data>
   <data name="&gt;&gt;mnuPrincipal.Name" xml:space="preserve">
     <value>mnuPrincipal</value>
@@ -644,6 +677,12 @@
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>386, 547</value>
+  </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Analyse Écriture</value>
   </data>
   <data name="&gt;&gt;tsmiLangue.Name" xml:space="preserve">
     <value>tsmiLangue</value>

@@ -70,7 +70,7 @@ namespace TPARCHIPERCEPTRON
         {
             if (_gcpAnalyseEcriture != null)
             {
-                if (!rdTesterJeuTest.Checked)
+                if (!chkTestJeu.Checked)
                     txtValeurTestee.Text = _gcpAnalyseEcriture.TesterPerceptron(ucDessin.Coordonnees);
                 else
                     txtValeurTestee.Text = _gcpAnalyseEcriture.TesterPerceptron();

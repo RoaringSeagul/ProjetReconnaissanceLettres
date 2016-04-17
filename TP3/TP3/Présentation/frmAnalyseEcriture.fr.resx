@@ -129,32 +129,38 @@
   <data name="rdUseBD.Text" xml:space="preserve">
     <value>Utiliser base de données</value>
   </data>
+  <data name="rdManual.Text" xml:space="preserve">
+    <value>Manuel</value>
+  </data>
+  <data name="rdUseMNIST.Text" xml:space="preserve">
+    <value>Utiliser données MNIST</value>
+  </data>
+  <data name="grpDessinEntrainement.Text" xml:space="preserve">
+    <value>Zone de dessin</value>
+  </data>
   <data name="btnEffacer.Text" xml:space="preserve">
     <value>Effacer</value>
   </data>
   <data name="grpDessinEntrainement.Text" xml:space="preserve">
     <value>Zone de dessin</value>
   </data>
-  <data name="rdUseMNIST.Text" xml:space="preserve">
-    <value>Utiliser données MNIST</value>
-  </data>
-  <data name="rdManual.Text" xml:space="preserve">
-    <value>Manuel</value>
-  </data>
   <data name="rdTesterJeuTest.Text" xml:space="preserve">
     <value>Tester avec un jeu de test</value>
   </data>
-  <data name="lblValeurTestee.Text" xml:space="preserve">
-    <value>Valeur testée :</value>
+  <data name="chkTestJeu.Text" xml:space="preserve">
+    <value>Tester avec un jeu de test</value>
   </data>
-  <data name="btnTest.Text" xml:space="preserve">
-    <value>Test</value>
+  <data name="tsmiLangue.Text" xml:space="preserve">
+    <value>Langue</value>
   </data>
   <data name="grpTests.Text" xml:space="preserve">
     <value>Tests</value>
   </data>
-  <data name="tsmiLangue.Text" xml:space="preserve">
-    <value>Langue</value>
+  <data name="btnTest.Text" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="lblValeurTestee.Text" xml:space="preserve">
+    <value>Valeur testée :</value>
   </data>
   <data name="tsmiAfficherDessins.Text" xml:space="preserve">
     <value>Afficher les dessins</value>
@@ -165,13 +171,13 @@
   <data name="tsmiBaseDeDonnées.Text" xml:space="preserve">
     <value>Base de données</value>
   </data>
-  <data name="tsmiFichier.Text" xml:space="preserve">
-    <value>Fichier</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Analyse Écriture</value>
   </data>
   <data name="tsmiSauvegarder.Text" xml:space="preserve">
     <value>Sauvegarder</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Analyse Écriture</value>
+  <data name="tsmiFichier.Text" xml:space="preserve">
+    <value>Fichier</value>
   </data>
 </root>
