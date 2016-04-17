@@ -53,9 +53,9 @@ namespace TPARCHIPERCEPTRON.Utilitaires
                 for (int j = 0; j < 28; ++j)
                 {
                     if (this.pixels[i][j] == 0)
-                        bits[(i * CstApplication.TAILLEDESSINX + j)] = false;
+                        bits[(i * 28 + j)] = false;
                     else
-                        bits[(i * CstApplication.TAILLEDESSINX + j)] = true;
+                        bits[(i * 28 + j)] = true;
                 }
             }
 

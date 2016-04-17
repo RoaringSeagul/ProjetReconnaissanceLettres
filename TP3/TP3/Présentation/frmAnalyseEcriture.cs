@@ -66,8 +66,13 @@ namespace TPARCHIPERCEPTRON
         /// <param name="e">Les arguments de cet événement.</param>
         private void btnTest_Click(object sender, EventArgs e)
         {
-            if(_gcpAnalyseEcriture != null)
-                _gcpAnalyseEcriture.TesterPerceptron(ucDessin.Coordonnees);
+            if (_gcpAnalyseEcriture != null)
+            {
+                //if (_typeEntrainement != TypeEntrainement.MNIST)
+                txtValeurTestee.Text = _gcpAnalyseEcriture.TesterPerceptron(ucDessin.Coordonnees);
+                //else
+                //    Console.WriteLine(_gcpAnalyseEcriture.TesterPerceptron());
+            }
         }
 
         /// <summary>
@@ -151,16 +156,19 @@ namespace TPARCHIPERCEPTRON
         private void rdManual_CheckedChanged(object sender, EventArgs e)
         {
             _typeEntrainement = TypeEntrainement.Manuel;
+            _gcpAnalyseEcriture = new GestionClassesPerceptrons(TypeEntrainement.Manuel);
         }
 
         private void rdUseBD_CheckedChanged(object sender, EventArgs e)
         {
             _typeEntrainement = TypeEntrainement.BD;
+            _gcpAnalyseEcriture = new GestionClassesPerceptrons(TypeEntrainement.BD);
         }
 
         private void rdUseMNIST_CheckedChanged(object sender, EventArgs e)
         {
             _typeEntrainement = TypeEntrainement.MNIST;
+            _gcpAnalyseEcriture = new GestionClassesPerceptrons(TypeEntrainement.MNIST);
         }
 
         private void baseDeDonnéesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -173,6 +181,13 @@ namespace TPARCHIPERCEPTRON
             FolderBrowserDialog fDialog = new FolderBrowserDialog();
             fDialog.ShowDialog();
             _gcpAnalyseEcriture.SauvegarderPerceptrons(fDialog.SelectedPath, false);
+        }
+
+        private void chargerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog fDialog = new OpenFileDialog();
+            fDialog.ShowDialog();
+            _gcpAnalyseEcriture.ChargerPerceptrons(fDialog.FileName);
         }
     }
 }

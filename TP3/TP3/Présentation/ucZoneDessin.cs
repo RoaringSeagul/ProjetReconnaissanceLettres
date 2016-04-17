@@ -34,7 +34,7 @@ namespace TPARCHIPERCEPTRON
             _hauteur = CstApplication.TAILLEDESSINX;
             pZoneDessin.Image = new Bitmap(_largeur, _hauteur);
             _objGraphics = Graphics.FromImage(pZoneDessin.Image);
-            _coordonnees = new CoordDessin(_largeur, _hauteur);
+            _coordonnees = new CoordDessin(_largeur, _hauteur, CstApplication.LARGEURTRAIT, CstApplication.HAUTEURTRAIT);
         }
 
         /// <summary>
@@ -71,10 +71,10 @@ namespace TPARCHIPERCEPTRON
         /// </summary>
         public void EffacerDessin()
         {
-            _coordonnees = new CoordDessin(_largeur, _hauteur);
+            _coordonnees = new CoordDessin(_largeur, _hauteur, CstApplication.LARGEURTRAIT, CstApplication.HAUTEURTRAIT);
             _objGraphics.Clear(pZoneDessin.BackColor);
             pZoneDessin.Refresh();
-            _coordonnees = new CoordDessin(_largeur, _hauteur);
+            _coordonnees = new CoordDessin(_largeur, _hauteur, CstApplication.LARGEURTRAIT, CstApplication.HAUTEURTRAIT);
 
         }
 

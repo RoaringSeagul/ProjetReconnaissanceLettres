@@ -46,11 +46,11 @@ namespace TPARCHIPERCEPTRON.Utilitaires
         /// </summary>
         /// <param name="largeur"></param>
         /// <param name="hauteur"></param>
-        public CoordDessin(int largeur, int hauteur)
+        public CoordDessin(int largeur, int hauteur, int largeurTrait, int hauteurTrait)
         {
             _largeur = largeur;
             _hauteur = hauteur;
-            _baDessin = new BitArray((largeur / CstApplication.LARGEURTRAIT) * (hauteur / CstApplication.HAUTEURTRAIT));
+            _baDessin = new BitArray((largeur / largeurTrait) * (hauteur / hauteurTrait));
         }
 
         public CoordDessin(BitArray bits, string reponse)

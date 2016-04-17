@@ -117,14 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="grpEntrainement.Text" xml:space="preserve">
-    <value>Entrainement</value>
-  </data>
   <data name="lblValeurEntraine.Text" xml:space="preserve">
     <value>Valeur entrainée :</value>
   </data>
-  <data name="grpDessinEntrainement.Text" xml:space="preserve">
-    <value>Zone de dessin</value>
+  <data name="grpEntrainement.Text" xml:space="preserve">
+    <value>Entrainement</value>
+  </data>
+  <data name="btnEntrainement.Text" xml:space="preserve">
+    <value>Entrainement</value>
   </data>
   <data name="btnEffacer.Text" xml:space="preserve">
     <value>Effacer</value>
@@ -135,19 +135,19 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Analyse Écriture</value>
   </data>
+  <data name="grpTests.Text" xml:space="preserve">
+    <value>Tests</value>
+  </data>
+  <data name="btnTest.Text" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="grpDessinEntrainement.Text" xml:space="preserve">
+    <value>Zone de dessin</value>
+  </data>
   <data name="tsmiAfficherDessins.Text" xml:space="preserve">
     <value>Afficher les dessins</value>
   </data>
   <data name="tsmiLangue.Text" xml:space="preserve">
     <value>Langue</value>
-  </data>
-  <data name="btnTest.Text" xml:space="preserve">
-    <value>Test</value>
-  </data>
-  <data name="grpTests.Text" xml:space="preserve">
-    <value>Tests</value>
-  </data>
-  <data name="btnEntrainement.Text" xml:space="preserve">
-    <value>Entrainement</value>
   </data>
 </root>

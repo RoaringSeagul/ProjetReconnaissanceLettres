@@ -10,7 +10,8 @@ namespace TPARCHIPERCEPTRON.Données
 {
     public interface IPerceptronData
     {
-        List<Perceptron> GetPerceptrons();
+        Dictionary<string, Perceptron> GetPerceptrons();
         void SavePerceptrons(Dictionary<string, Perceptron> lstPerceptrons, string cheminAcces);
+        Dictionary<string, Perceptron> LoadPerceptrons(string cheminAcces);
     }
 }

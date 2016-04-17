@@ -36,7 +36,7 @@ namespace TPARCHIPERCEPTRON.Données
 
             foreach (var p in bd.Perceptrons)
             {
-                CoordDessin c = new CoordDessin(16, 16);
+                CoordDessin c = new CoordDessin(16, 16, 1, 1);
 
                 foreach (var s in p.BitArray)
                 {

@@ -17,6 +17,7 @@ namespace TPARCHIPERCEPTRON.Métier
     {
         private Dictionary<string, Perceptron> _lstPerceptrons;
         private PerceptronTrainTest _perceptronTrainTest;
+        private List<CoordDessin> _fichierEntrainement = new List<CoordDessin>();
         private TypeEntrainement _typeEntrainement = TypeEntrainement.Manuel;
         private IPerceptronData _gestionPerceptron;
         private ICharData _gestionSortie;
@@ -71,27 +72,19 @@ namespace TPARCHIPERCEPTRON.Métier
         /// <param name="coordo">Les nouvelles coordonnées</param>
         /// <param name="reponse">La réponse associé(caractère) aux coordonnées</param>
         /// <returns>Le résultat de la console</returns>
-        public string Entrainement(CoordDessin coordo, string reponse)
+        public void Entrainement(CoordDessin coordo, string reponse)
         {
             if (_lstPerceptrons.Count == 0)
                 Entrainement();
-
-            if (reponse == "")
-                return "";
-
-            string sConsole = "";
 
             if (!_lstPerceptrons.ContainsKey(reponse))
             {
                 _lstPerceptrons.Add(reponse, new Perceptron(reponse, 0.1, _gestionSortie.GetFormat()));
             }
 
-            foreach (var perceptron in _lstPerceptrons)
-            {
-                sConsole = sConsole + perceptron.Key + " : " + perceptron.Value.Entrainement(new List<CoordDessin> { coordo }) + " ";
-            }
+            coordo.Reponse = reponse;
 
-            return sConsole;
+            _perceptronTrainTest.Entrainement(new List<CoordDessin>() { coordo }, ref _lstPerceptrons);
         }
 
         /// <summary>
@@ -122,7 +115,16 @@ namespace TPARCHIPERCEPTRON.Métier
         /// <returns>Retourne la liste des valeurs possibles du perceptron</returns>
         public string TesterPerceptron(CoordDessin coord)
         {
-            return _perceptronTrainTest.Entrainement(new List<CoordDessin>() { coord }, ref _lstPerceptrons);
+            return _perceptronTrainTest.Test(coord, ref _lstPerceptrons);
+        }
+
+        /// <summary>
+        /// Test le perceptron avec un jeu de test.
+        /// </summary>
+        /// <returns></returns>
+        public string TesterPerceptron()
+        {
+            return _perceptronTrainTest.Test(_gestionSortie.GetTestData(), _lstPerceptrons);
         }
 
         /// <summary>
@@ -136,6 +138,16 @@ namespace TPARCHIPERCEPTRON.Métier
                 _gestionPerceptron = new GestionPerceptronFichiersSorties();
 
             _gestionPerceptron.SavePerceptrons(_lstPerceptrons, cheminAcces);
+        }
+
+        public void ChargerPerceptrons(string cheminAcces)
+        {
+            if (cheminAcces == "")
+                return;
+
+            _gestionPerceptron = new GestionPerceptronFichiersSorties();
+
+            _lstPerceptrons = _gestionPerceptron.LoadPerceptrons(cheminAcces);
         }
 
     }

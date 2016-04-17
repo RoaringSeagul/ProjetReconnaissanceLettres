@@ -20,7 +20,7 @@ namespace TPARCHIPERCEPTRON.Données
     /// </summary>
     public class GestionPerceptronBD : IPerceptronData
     {
-        private List<Perceptron> _lstPerceptrons;
+        private Dictionary<string, Perceptron> _lstPerceptrons;
         private List<CoordDessin> _lstCoord;
         Entities bd = new Entities();
 
@@ -35,7 +35,7 @@ namespace TPARCHIPERCEPTRON.Données
 
             foreach (var p in lstPercept)
             {
-                CoordDessin c = new CoordDessin(p.Largeur, p.Hauteur);
+                CoordDessin c = new CoordDessin(p.Largeur, p.Hauteur, 1, 1);
                 c.Id = p.PerceptronID;
                 c.Reponse = p.LettresPerceptron;
                 c.CreerBitArrayString(p.BitArray);
@@ -99,12 +99,17 @@ namespace TPARCHIPERCEPTRON.Données
             }
         }
 
-        public List<Perceptron> GetPerceptrons()
+        public Dictionary<string, Perceptron> GetPerceptrons()
         {
             return _lstPerceptrons;
         }
 
         public void SavePerceptrons(Dictionary<string, Perceptron> lstPerceptrons, string cheminAcces)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Dictionary<string, Perceptron> LoadPerceptrons(string cheminAcces)
         {
             throw new NotImplementedException();
         }

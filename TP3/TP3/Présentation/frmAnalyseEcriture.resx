@@ -143,102 +143,6 @@
   <data name="&gt;&gt;txtConsole.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;lblValeurEntraine.Name" xml:space="preserve">
-    <value>lblValeurEntraine</value>
-  </data>
-  <data name="&gt;&gt;lblValeurEntraine.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblValeurEntraine.Parent" xml:space="preserve">
-    <value>grpEntrainement</value>
-  </data>
-  <data name="&gt;&gt;lblValeurEntraine.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;txtValeurEntrainee.Name" xml:space="preserve">
-    <value>txtValeurEntrainee</value>
-  </data>
-  <data name="&gt;&gt;txtValeurEntrainee.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtValeurEntrainee.Parent" xml:space="preserve">
-    <value>grpEntrainement</value>
-  </data>
-  <data name="&gt;&gt;txtValeurEntrainee.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;btnEntrainement.Name" xml:space="preserve">
-    <value>btnEntrainement</value>
-  </data>
-  <data name="&gt;&gt;btnEntrainement.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnEntrainement.Parent" xml:space="preserve">
-    <value>grpEntrainement</value>
-  </data>
-  <data name="&gt;&gt;btnEntrainement.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="grpEntrainement.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 180</value>
-  </data>
-  <data name="grpEntrainement.Size" type="System.Drawing.Size, System.Drawing">
-    <value>365, 79</value>
-  </data>
-  <data name="grpEntrainement.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="grpEntrainement.Text" xml:space="preserve">
-    <value>Entrainement</value>
-  </data>
-  <data name="lblValeurEntraine.Text" xml:space="preserve">
-    <value>Valeur entrainée :</value>
-  </data>
-  <data name="grpDessinEntrainement.Text" xml:space="preserve">
-    <value>Zone de dessin</value>
-  </data>
-  <data name="rdUseMNIST.Text" xml:space="preserve">
-    <value>Utiliser données MNIST</value>
-  </data>
-  <data name="lblValeurTestee.Text" xml:space="preserve">
-    <value>Valeur testée :</value>
-  </data>
-  <data name="tsmiAfficherDessins.Text" xml:space="preserve">
-    <value>Afficher les dessins</value>
-  </data>
-  <data name="tsmiLangue.Text" xml:space="preserve">
-    <value>Langue</value>
-  </data>
-  <data name="btnTest.Text" xml:space="preserve">
-    <value>Test</value>
-  </data>
-  <data name="grpTests.Text" xml:space="preserve">
-    <value>Tests</value>
-  </data>
-  <data name="btnEffacer.Text" xml:space="preserve">
-    <value>Effacer</value>
-  </data>
-  <data name="rdUseBD.Text" xml:space="preserve">
-    <value>Utiliser données BD</value>
-  </data>
-  <data name="rdManual.Text" xml:space="preserve">
-    <value>Manuel</value>
-  </data>
-  <data name="btnEntrainement.Text" xml:space="preserve">
-    <value>Entrainement</value>
-  </data>
-  <data name="&gt;&gt;grpEntrainement.Name" xml:space="preserve">
-    <value>grpEntrainement</value>
-  </data>
-  <data name="&gt;&gt;grpEntrainement.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;grpEntrainement.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;grpEntrainement.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="lblValeurEntraine.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -254,6 +158,18 @@
   </data>
   <data name="lblValeurEntraine.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
+  </data>
+  <data name="lblValeurEntraine.Text" xml:space="preserve">
+    <value>Valeur entrainée :</value>
+  </data>
+  <data name="rdManual.Text" xml:space="preserve">
+    <value>Manuel</value>
+  </data>
+  <data name="grpEntrainement.Text" xml:space="preserve">
+    <value>Entrainement</value>
+  </data>
+  <data name="btnEntrainement.Text" xml:space="preserve">
+    <value>Entrainement</value>
   </data>
   <data name="&gt;&gt;lblValeurEntraine.Name" xml:space="preserve">
     <value>lblValeurEntraine</value>
@@ -312,86 +228,26 @@
   <data name="&gt;&gt;btnEntrainement.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;rdManual.Name" xml:space="preserve">
-    <value>rdManual</value>
+  <data name="grpEntrainement.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 180</value>
   </data>
-  <data name="&gt;&gt;rdManual.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="grpEntrainement.Size" type="System.Drawing.Size, System.Drawing">
+    <value>365, 79</value>
   </data>
-  <data name="&gt;&gt;rdManual.Parent" xml:space="preserve">
-    <value>grpDessinEntrainement</value>
+  <data name="grpEntrainement.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
-  <data name="&gt;&gt;rdManual.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;grpEntrainement.Name" xml:space="preserve">
+    <value>grpEntrainement</value>
   </data>
-  <data name="&gt;&gt;rdUseMNIST.Name" xml:space="preserve">
-    <value>rdUseMNIST</value>
-  </data>
-  <data name="&gt;&gt;rdUseMNIST.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rdUseMNIST.Parent" xml:space="preserve">
-    <value>grpDessinEntrainement</value>
-  </data>
-  <data name="&gt;&gt;rdUseMNIST.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;rdUseBD.Name" xml:space="preserve">
-    <value>rdUseBD</value>
-  </data>
-  <data name="&gt;&gt;rdUseBD.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rdUseBD.Parent" xml:space="preserve">
-    <value>grpDessinEntrainement</value>
-  </data>
-  <data name="&gt;&gt;rdUseBD.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;btnEffacer.Name" xml:space="preserve">
-    <value>btnEffacer</value>
-  </data>
-  <data name="&gt;&gt;btnEffacer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnEffacer.Parent" xml:space="preserve">
-    <value>grpDessinEntrainement</value>
-  </data>
-  <data name="&gt;&gt;btnEffacer.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;ucDessin.Name" xml:space="preserve">
-    <value>ucDessin</value>
-  </data>
-  <data name="&gt;&gt;ucDessin.Type" xml:space="preserve">
-    <value>TPARCHIPERCEPTRON.ucZoneDessin, TPARCHIPERCEPTRON, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;ucDessin.Parent" xml:space="preserve">
-    <value>grpDessinEntrainement</value>
-  </data>
-  <data name="&gt;&gt;ucDessin.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="grpDessinEntrainement.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 36</value>
-  </data>
-  <data name="grpDessinEntrainement.Size" type="System.Drawing.Size, System.Drawing">
-    <value>366, 138</value>
-  </data>
-  <data name="grpDessinEntrainement.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;grpDessinEntrainement.Name" xml:space="preserve">
-    <value>grpDessinEntrainement</value>
-  </data>
-  <data name="&gt;&gt;grpDessinEntrainement.Type" xml:space="preserve">
+  <data name="&gt;&gt;grpEntrainement.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;grpDessinEntrainement.Parent" xml:space="preserve">
+  <data name="&gt;&gt;grpEntrainement.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;grpDessinEntrainement.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;grpEntrainement.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="rdManual.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -519,62 +375,47 @@
   <data name="&gt;&gt;ucDessin.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;lblValeurTestee.Name" xml:space="preserve">
-    <value>lblValeurTestee</value>
+  <data name="grpDessinEntrainement.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 36</value>
   </data>
-  <data name="&gt;&gt;lblValeurTestee.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="grpDessinEntrainement.Size" type="System.Drawing.Size, System.Drawing">
+    <value>366, 138</value>
   </data>
-  <data name="&gt;&gt;lblValeurTestee.Parent" xml:space="preserve">
-    <value>grpTests</value>
+  <data name="grpDessinEntrainement.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
-  <data name="&gt;&gt;lblValeurTestee.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="rdUseMNIST.Text" xml:space="preserve">
+    <value>Utiliser données MNIST</value>
   </data>
-  <data name="&gt;&gt;txtValeurTestee.Name" xml:space="preserve">
-    <value>txtValeurTestee</value>
+  <data name="lblValeurTestee.Text" xml:space="preserve">
+    <value>Valeur testée :</value>
   </data>
-  <data name="&gt;&gt;txtValeurTestee.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="grpTests.Text" xml:space="preserve">
+    <value>Tests</value>
   </data>
-  <data name="&gt;&gt;txtValeurTestee.Parent" xml:space="preserve">
-    <value>grpTests</value>
+  <data name="btnTest.Text" xml:space="preserve">
+    <value>Test</value>
   </data>
-  <data name="&gt;&gt;txtValeurTestee.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="grpDessinEntrainement.Text" xml:space="preserve">
+    <value>Zone de dessin</value>
   </data>
-  <data name="&gt;&gt;btnTest.Name" xml:space="preserve">
-    <value>btnTest</value>
+  <data name="btnEffacer.Text" xml:space="preserve">
+    <value>Effacer</value>
   </data>
-  <data name="&gt;&gt;btnTest.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="rdUseBD.Text" xml:space="preserve">
+    <value>Utiliser données BD</value>
   </data>
-  <data name="&gt;&gt;btnTest.Parent" xml:space="preserve">
-    <value>grpTests</value>
+  <data name="&gt;&gt;grpDessinEntrainement.Name" xml:space="preserve">
+    <value>grpDessinEntrainement</value>
   </data>
-  <data name="&gt;&gt;btnTest.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="grpTests.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 265</value>
-  </data>
-  <data name="grpTests.Size" type="System.Drawing.Size, System.Drawing">
-    <value>365, 79</value>
-  </data>
-  <data name="grpTests.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;grpTests.Name" xml:space="preserve">
-    <value>grpTests</value>
-  </data>
-  <data name="&gt;&gt;grpTests.Type" xml:space="preserve">
+  <data name="&gt;&gt;grpDessinEntrainement.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;grpTests.Parent" xml:space="preserve">
+  <data name="&gt;&gt;grpDessinEntrainement.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;grpTests.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;grpDessinEntrainement.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="lblValeurTestee.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -648,14 +489,41 @@
   <data name="&gt;&gt;btnTest.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="grpTests.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 265</value>
+  </data>
+  <data name="grpTests.Size" type="System.Drawing.Size, System.Drawing">
+    <value>365, 79</value>
+  </data>
+  <data name="grpTests.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;grpTests.Name" xml:space="preserve">
+    <value>grpTests</value>
+  </data>
+  <data name="&gt;&gt;grpTests.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;grpTests.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;grpTests.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <metadata name="mnuPrincipal.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <data name="tsmiLangue.Size" type="System.Drawing.Size, System.Drawing">
     <value>58, 20</value>
   </data>
+  <data name="tsmiLangue.Text" xml:space="preserve">
+    <value>Langue</value>
+  </data>
   <data name="tsmiAfficherDessins.Size" type="System.Drawing.Size, System.Drawing">
     <value>119, 20</value>
+  </data>
+  <data name="tsmiAfficherDessins.Text" xml:space="preserve">
+    <value>Afficher les dessins</value>
   </data>
   <data name="baseDeDonnéesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>162, 22</value>
@@ -674,6 +542,12 @@
   </data>
   <data name="sauvegarderToolStripMenuItem.Text" xml:space="preserve">
     <value>Sauvegarder</value>
+  </data>
+  <data name="chargerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 20</value>
+  </data>
+  <data name="chargerToolStripMenuItem.Text" xml:space="preserve">
+    <value>Charger</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Analyse Écriture</value>
@@ -739,6 +613,12 @@
     <value>fichierToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;fichierToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chargerToolStripMenuItem.Name" xml:space="preserve">
+    <value>chargerToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;chargerToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

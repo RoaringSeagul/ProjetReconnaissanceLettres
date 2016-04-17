@@ -93,7 +93,7 @@ namespace TPARCHIPERCEPTRON.Données
         public List<CoordDessin> GetTrainData()
         {
             if (_lstTrainData.Count == 0)
-                _lstTrainData = LoadCharData("Fichiers/train-images.idx3-ubyte", "Fichiers/train-labels.idx1-ubyte", 60000);
+                _lstTrainData = LoadCharData("Fichiers/train-images.idx3-ubyte", "Fichiers/train-labels.idx1-ubyte", 6000);
 
             return _lstTrainData;
         }
@@ -101,9 +101,9 @@ namespace TPARCHIPERCEPTRON.Données
         public List<CoordDessin> GetTestData()
         {
             if (_lstTestData.Count == 0)
-                _lstTestData = LoadCharData("Fichiers/t10k-images.idx3-ubyte", "Fichiers/t10k-labels.idx1-ubyte", 10000);
+                _lstTestData = LoadCharData("Fichiers/t10k-images.idx3-ubyte", "Fichiers/t10k-labels.idx1-ubyte", 1000);
 
-            return _lstTrainData;
+            return _lstTestData;
         }
     } // Program
 } // ns

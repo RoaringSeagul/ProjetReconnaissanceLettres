@@ -7,6 +7,7 @@ using System.Configuration;
 using System.Data.Entity.Migrations;
 using TPARCHIPERCEPTRON.Utilitaires;
 using TPARCHIPERCEPTRON.Métier;
+using System.Windows.Forms;
 
 namespace TPARCHIPERCEPTRON.Données
 {
@@ -16,7 +17,7 @@ namespace TPARCHIPERCEPTRON.Données
     /// </summary>
     public class GestionPerceptronFichiersSorties : IPerceptronData
     {
-        private List<Perceptron> _lstPerceptrons = new List<Perceptron>();
+        private Dictionary<string, Perceptron> _lstPerceptrons = new Dictionary<string, Perceptron>();
 
         /// <summary>
         /// Permet d'extraire de la base de données dans une matrice les information d'un perceptron pour l'apprentissage automatique.
@@ -79,28 +80,70 @@ namespace TPARCHIPERCEPTRON.Données
             }
         }
 
-        public List<Perceptron> GetPerceptrons()
+        public Dictionary<string, Perceptron> GetPerceptrons()
         {
             return _lstPerceptrons;
         }
 
         public void SavePerceptrons(Dictionary<string, Perceptron> lstPerceptrons, string cheminAcces)
         {
-            using (StreamWriter sw = new StreamWriter(cheminAcces + "\\Perceptrons.csv"))
+            try
             {
-                foreach (var perceptron in lstPerceptrons)
+                using (StreamWriter sw = new StreamWriter(cheminAcces + "\\Perceptrons.csv"))
                 {
-                    sw.WriteLine(perceptron.Key);
-                    for (uint i = 0; i < perceptron.Value.Format.X; i++)
+                    foreach (var perceptron in lstPerceptrons)
                     {
-                        for (uint j = 0;  j < perceptron.Value.Format.Y;  j++)
+                        sw.WriteLine(perceptron.Key + "," + perceptron.Value.CstApprentissage.ToString() + "," + perceptron.Value.Format.X + "," + perceptron.Value.Format.Y);
+                        for (uint i = 0; i < perceptron.Value.Format.X; i++)
                         {
-                            sw.Write(perceptron.Value.GetWeightAt(i, j).ToString() + ',');
+                            for (uint j = 0; j < perceptron.Value.Format.Y; j++)
+                            {
+                                sw.Write(perceptron.Value.GetWeightAt(i, j).ToString() + ',');
+                            }
+                            sw.WriteLine();
                         }
-                        sw.WriteLine();
                     }
                 }
             }
+            catch
+            {
+                MessageBox.Show("Le fichier est utilisé par un autre programme.", "Erreur");
+            }
+        }
+
+        public Dictionary<string, Perceptron> LoadPerceptrons(string cheminAcces)
+        {
+            using (StreamReader sr = new StreamReader(cheminAcces))
+            {
+                string line;
+
+                while ((line = sr.ReadLine()) != null)
+                {
+                    ImageFormat format = new ImageFormat();
+                    Double cstApprentissage;
+                    List<Double> poids = new List<Double>();
+                    char c;
+
+                    var values = line.Split(',');
+                    c = values[0][0];
+                    cstApprentissage = Double.Parse(values[1]);
+                    format.X = Int32.Parse(values[2]);
+                    format.Y = Int32.Parse(values[3]);
+
+                    for (int i = 0; i < format.X; i++)
+                    {
+                        line = sr.ReadLine();
+                        var lignePoids = line.Split(',');
+                        for (int j = 0; j < format.Y; j++)
+                        {
+                            poids.Add(Double.Parse(lignePoids[j]));
+                        }
+                    }
+
+                    _lstPerceptrons.Add(c.ToString(), new Perceptron(c.ToString(), cstApprentissage, format, poids));
+                }
+            }
+            return _lstPerceptrons;
         }
     }
 

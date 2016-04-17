@@ -15,28 +15,25 @@ namespace TPARCHIPERCEPTRON.Métier
             _ratio = ratio;
         }
 
-        public string Entrainement(List<CoordDessin> coords, ref Dictionary<string, Perceptron> perceptrons)
+        public void Entrainement(List<CoordDessin> coords, ref Dictionary<string, Perceptron> perceptrons)
         {
-            string sConsole = "";
             foreach (var perceptron in perceptrons.Values)
             {
                 ThreadPool.QueueUserWorkItem(delegate {
-                    String s = perceptron.Entrainement(coords.GetRange(0, (int)((Double)coords.Count * _ratio)));
-                    sConsole = sConsole + perceptron.Reponse + " : " + s + " ";
+                    perceptron.Entrainement(coords.GetRange(0, (int)((Double)coords.Count * _ratio)));
                 });
             }
-            return sConsole;
         }
 
-        public string Test(List<CoordDessin> coords, List<Perceptron> perceptrons)
+        public string Test(List<CoordDessin> coords, Dictionary<string, Perceptron> perceptrons)
         {
-            int nbTest = (int)((Double)coords.Count * (1 - _ratio));
+            int nbTest = coords.Count;
             int nbBonneReponse = 0;
-            foreach (var coord in coords.GetRange((int)((Double)coords.Count * _ratio), nbTest))
+            foreach (var coord in coords)
             {
                 string reponse = "";
-                int resultatReponse = 0;
-                foreach (var perceptron in perceptrons)
+                int resultatReponse = Int32.MinValue;
+                foreach (var perceptron in perceptrons.Values)
                 {
                     int valeur = perceptron.TesterNeurone(coord);
                     if (valeur > resultatReponse)
@@ -51,6 +48,23 @@ namespace TPARCHIPERCEPTRON.Métier
                 }
             }
             return "Resultat: " + nbBonneReponse + " / " + nbTest;
+        }
+
+        public string Test(CoordDessin coord, ref Dictionary<string, Perceptron> perceptrons)
+        {
+            string reponse = "";
+            int resultatReponse = Int32.MinValue;
+            foreach (var perceptron in perceptrons.Values)
+            {
+                int valeur = perceptron.TesterNeurone(coord);
+                if (valeur > resultatReponse)
+                {
+                    resultatReponse = valeur;
+                    reponse = perceptron.Reponse;
+                }
+            }
+
+            return reponse;
         }
     }
 }

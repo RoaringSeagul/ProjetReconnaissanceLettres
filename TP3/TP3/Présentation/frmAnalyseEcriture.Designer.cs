@@ -39,7 +39,6 @@
             this.rdUseMNIST = new System.Windows.Forms.RadioButton();
             this.rdUseBD = new System.Windows.Forms.RadioButton();
             this.btnEffacer = new System.Windows.Forms.Button();
-            this.ucDessin = new TPARCHIPERCEPTRON.ucZoneDessin();
             this.grpTests = new System.Windows.Forms.GroupBox();
             this.lblValeurTestee = new System.Windows.Forms.Label();
             this.txtValeurTestee = new System.Windows.Forms.TextBox();
@@ -50,6 +49,8 @@
             this.sauvegarderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.baseDeDonnéesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fichierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ucDessin = new TPARCHIPERCEPTRON.ucZoneDessin();
+            this.chargerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grpEntrainement.SuspendLayout();
             this.grpDessinEntrainement.SuspendLayout();
             this.grpTests.SuspendLayout();
@@ -130,13 +131,6 @@
             this.btnEffacer.UseVisualStyleBackColor = true;
             this.btnEffacer.Click += new System.EventHandler(this.btnEffacer_Click);
             // 
-            // ucDessin
-            // 
-            this.ucDessin.BackColor = System.Drawing.Color.White;
-            this.ucDessin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(this.ucDessin, "ucDessin");
-            this.ucDessin.Name = "ucDessin";
-            // 
             // grpTests
             // 
             this.grpTests.Controls.Add(this.lblValeurTestee);
@@ -169,7 +163,8 @@
             this.mnuPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiLangue,
             this.tsmiAfficherDessins,
-            this.sauvegarderToolStripMenuItem});
+            this.sauvegarderToolStripMenuItem,
+            this.chargerToolStripMenuItem});
             resources.ApplyResources(this.mnuPrincipal, "mnuPrincipal");
             this.mnuPrincipal.Name = "mnuPrincipal";
             // 
@@ -203,6 +198,19 @@
             this.fichierToolStripMenuItem.Name = "fichierToolStripMenuItem";
             resources.ApplyResources(this.fichierToolStripMenuItem, "fichierToolStripMenuItem");
             this.fichierToolStripMenuItem.Click += new System.EventHandler(this.fichierToolStripMenuItem_Click);
+            // 
+            // ucDessin
+            // 
+            this.ucDessin.BackColor = System.Drawing.Color.White;
+            this.ucDessin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.ucDessin, "ucDessin");
+            this.ucDessin.Name = "ucDessin";
+            // 
+            // chargerToolStripMenuItem
+            // 
+            this.chargerToolStripMenuItem.Name = "chargerToolStripMenuItem";
+            resources.ApplyResources(this.chargerToolStripMenuItem, "chargerToolStripMenuItem");
+            this.chargerToolStripMenuItem.Click += new System.EventHandler(this.chargerToolStripMenuItem_Click);
             // 
             // frmAnalyseEcriture
             // 
@@ -256,6 +264,7 @@
         private System.Windows.Forms.ToolStripMenuItem sauvegarderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem baseDeDonnéesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fichierToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem chargerToolStripMenuItem;
     }
 }
 

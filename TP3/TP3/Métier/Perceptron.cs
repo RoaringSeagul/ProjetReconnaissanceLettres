@@ -22,6 +22,8 @@ namespace TPARCHIPERCEPTRON.Métier
             get { return _reponse; }
         }
 
+        public double CstApprentissage { get; }
+
         /// <summary>
         /// Constructeur de la classe. Crée un perceptron pour une réponse(caractère) qu'on veut identifier le pattern(modèle)
         /// </summary>
@@ -47,14 +49,27 @@ namespace TPARCHIPERCEPTRON.Métier
             _reponse = reponse;
         }
 
+        public Perceptron(string reponse, double cstApprentissage, ImageFormat format, List<Double> poids)
+        {
+            //À COMPLÉTER
+            // On assigne notre constante d'apprentissage
+            _cstApprentissage = cstApprentissage;
+
+            Format = format;
+
+            // On crée notre tableau de poids synaptiques
+            _poidsSyn = poids.ToArray();
+
+            _reponse = reponse;
+        }
+
         /// <summary>
         /// Faire l'apprentissage sur un ensemble de coordonnées. Ces coordonnées sont les coordonnées de tous les caractères analysés. 
         /// </summary>
         /// <param name="lstCoord">La liste de coordonnées pour les caractères à analysés.</param>
         /// <returns>Les paramètres de la console</returns>
-        public string Entrainement(List<CoordDessin> _lstCoords)
+        public void Entrainement(List<CoordDessin> _lstCoords)
         {
-            string s = "";
             Int32 nbErreur = 0;
             Int32 nbIteration = 0;
             List<int> lstNbErreur = new List<int>();    
@@ -63,8 +78,11 @@ namespace TPARCHIPERCEPTRON.Métier
                 nbErreur = 0;
                 foreach (var coord in _lstCoords)
                 {
+                    if (coord.BitArrayDessin.Length == 256)
+                        MessageBox.Show("256");
                     int iEstBonneLettre = (coord.Reponse == this.Reponse ? 1 : 0);
-                    int iBonneValeurSelonPerceptron = ValeurEstime(_poidsSyn, coord.BitArrayDessin);
+                    double valeurEstime = ValeurEstime(_poidsSyn, coord.BitArrayDessin);
+                    int iBonneValeurSelonPerceptron = valeurEstime >= 0 ? 1 : 0;
                     int iErreurLocale = iEstBonneLettre - iBonneValeurSelonPerceptron;
 
                     if (iErreurLocale != 0)
@@ -80,7 +98,6 @@ namespace TPARCHIPERCEPTRON.Métier
                 }
                 nbIteration++;
             }while (nbErreur != 0 && nbIteration < 10000);
-            return s;
         }
 
         /// <summary>
@@ -89,13 +106,13 @@ namespace TPARCHIPERCEPTRON.Métier
         /// <param name="vecteurSyn">Les poids synaptiques du perceptron</param>
         /// <param name="entree">Le vecteur de bit correspondant aux couleurs du caractère</param>
         /// <returns>Vrai ou faux</returns>
-        public int ValeurEstime(double[] vecteurSyn, BitArray entree)
+        public double ValeurEstime(double[] vecteurSyn, BitArray entree)
         {
             double somme = _poidsSyn[0];
             for (int i = 1; i < _poidsSyn.Length; i++)
                 somme += _poidsSyn[i] * (entree[i] ? 1 : -1);
 
-            return somme >= 0 ? 1 : 0;
+            return somme;
         }
 
         /// <summary>
@@ -105,8 +122,7 @@ namespace TPARCHIPERCEPTRON.Métier
         /// <returns></returns>
         public int TesterNeurone(CoordDessin coord)
         {
-            bool estBonneLettre = (coord.Reponse == this.Reponse);
-            return ValeurEstime(_poidsSyn, coord.BitArrayDessin);
+            return (int)ValeurEstime(_poidsSyn, coord.BitArrayDessin);
         }
 
         public double GetWeightAt(uint x, uint y)
