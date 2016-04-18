@@ -4,8 +4,8 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Perceptron">
+      <Schema Namespace="Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="PerceptronModel">
           <Key>
             <PropertyRef Name="PerceptronID" />
           </Key>
@@ -16,13 +16,14 @@
           <Property Name="Largeur" Type="int" Nullable="false" />
         </EntityType>
         <EntityContainer Name="ModelsStoreContainer">
-          <EntitySet Name="Perceptron" EntityType="Self.Perceptron" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PerceptronModel" EntityType="Self.PerceptronModel" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Models" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Perceptron">
+        <EntityType Name="PerceptronModel">
           <Key>
             <PropertyRef Name="PerceptronID" />
           </Key>
@@ -32,23 +33,23 @@
           <Property Name="Hauteur" Type="Int32" Nullable="false" />
           <Property Name="Largeur" Type="Int32" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Perceptrons" EntityType="Self.Perceptron" />
+        <EntityContainer Name="PerceptronBd" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="PerceptronModels" EntityType="Self.PerceptronModel" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ModelsStoreContainer" CdmEntityContainer="Entities">
-          <EntitySetMapping Name="Perceptrons">
-            <EntityTypeMapping TypeName="Models.Perceptron">
-              <MappingFragment StoreEntitySet="Perceptron">
-                <ScalarProperty Name="Largeur" ColumnName="Largeur" />
-                <ScalarProperty Name="Hauteur" ColumnName="Hauteur" />
+        <EntityContainerMapping StorageEntityContainer="ModelsStoreContainer" CdmEntityContainer="PerceptronBd">
+          <EntitySetMapping Name="PerceptronModels">
+            <EntityTypeMapping TypeName="Models.PerceptronModel">
+              <MappingFragment StoreEntitySet="PerceptronModel">
                 <ScalarProperty Name="PerceptronID" ColumnName="PerceptronID" />
                 <ScalarProperty Name="LettresPerceptron" ColumnName="LettresPerceptron" />
                 <ScalarProperty Name="BitArray" ColumnName="BitArray" />
+                <ScalarProperty Name="Hauteur" ColumnName="Hauteur" />
+                <ScalarProperty Name="Largeur" ColumnName="Largeur" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

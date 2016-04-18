@@ -13,10 +13,10 @@ namespace TPARCHIPERCEPTRON
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities : DbContext
+    public partial class PerceptronBd : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public PerceptronBd()
+            : base("name=PerceptronBd")
         {
         }
     
@@ -25,6 +25,6 @@ namespace TPARCHIPERCEPTRON
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<PerceptronModel> Perceptrons { get; set; }
+        public virtual DbSet<PerceptronModel> PerceptronModels { get; set; }
     }
 }

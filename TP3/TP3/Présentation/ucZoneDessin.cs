@@ -30,8 +30,8 @@ namespace TPARCHIPERCEPTRON
         {
             InitializeComponent();
 
-            _largeur = CstApplication.TAILLEDESSINY;
-            _hauteur = CstApplication.TAILLEDESSINX;
+            _largeur = CstApplication.TAILLEDESSINYBASE;
+            _hauteur = CstApplication.TAILLEDESSINXBASE;
             pZoneDessin.Image = new Bitmap(_largeur, _hauteur);
             _objGraphics = Graphics.FromImage(pZoneDessin.Image);
             _coordonnees = new CoordDessin(_largeur, _hauteur, CstApplication.LARGEURTRAIT, CstApplication.HAUTEURTRAIT);

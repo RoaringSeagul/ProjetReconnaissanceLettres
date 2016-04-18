@@ -103,7 +103,6 @@ namespace TPARCHIPERCEPTRON.Utilitaires
             //    for (int j = 0; j < tailleY; j++)
             int j = ((x / tailleX) * (CstApplication.TAILLEDESSINX / tailleX) + (y / tailleY));
             _baDessin[j] = true;
-
         }
     }
 }
