@@ -52,8 +52,8 @@ namespace TPARCHIPERCEPTRON.Métier
                     _gestionSortie = new GestionChiffresManuscripts();
                     break;
                 case TypeEntrainement.BD:
-                    _fichierEntrainement = _gestionSortie.GetTrainData();
                     _gestionSortie = new GestionCharBD();
+                    _fichierEntrainement = _gestionSortie.GetTrainData();
                     break;
                 default:
                     throw new NotImplementedException(); // TODO: Find something to put here
@@ -86,7 +86,7 @@ namespace TPARCHIPERCEPTRON.Métier
             if (_lstPerceptrons.Count == 0 && _typeEntrainement != TypeEntrainement.Manuel)
                 Entrainement();
 
-            if (!_lstPerceptrons.ContainsKey(reponse))
+            if (!_lstPerceptrons.ContainsKey(reponse) && reponse != "")
             {
                 _lstPerceptrons.Add(reponse, new Perceptron(reponse, 0.1, _gestionSortie.GetFormat()));
             }
@@ -106,7 +106,7 @@ namespace TPARCHIPERCEPTRON.Métier
 
             foreach (var coord in _gestionSortie.GetTrainData())
             {
-                if (!_lstPerceptrons.ContainsKey(coord.Reponse))
+                if (!_lstPerceptrons.ContainsKey(coord.Reponse) && coord.Reponse != "")
                 {
                     _lstPerceptrons.Add(coord.Reponse, new Perceptron(coord.Reponse, 0.1, _gestionSortie.GetFormat()));
                 }
@@ -175,7 +175,8 @@ namespace TPARCHIPERCEPTRON.Métier
 
             foreach (var p in _lstPerceptrons)
             {
-                lstPerceptron.Add(p.Value);
+                if(p.Value.Reponse != "")
+                    lstPerceptron.Add(p.Value);
             }
 
             return lstPerceptron;

@@ -65,7 +65,7 @@ namespace TPARCHIPERCEPTRON.Utilitaires
         /// <param name="bitArray"></param>
         public void CreerBitArrayString(string bitArray)
         {
-            for (int i = 0; i < BitArrayDessin.Count; i++)
+            for (int i = 0; i < bitArray.Length; i++)
             {
                 switch (bitArray[i])
                 {
