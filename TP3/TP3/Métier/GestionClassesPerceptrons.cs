@@ -22,6 +22,7 @@ namespace TPARCHIPERCEPTRON.Métier
         private ImageFormat _format;
         private IPerceptronData _gestionPerceptron;
         private ICharData _gestionSortie;
+        private TypeEntrainement _typeEntrainement;
 
         public ImageFormat Format { get { return _format; } }
 
