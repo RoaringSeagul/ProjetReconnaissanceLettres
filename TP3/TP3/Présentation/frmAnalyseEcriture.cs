@@ -139,7 +139,7 @@ namespace TPARCHIPERCEPTRON
         private void tsmiAfficherDessins_Click(object sender, EventArgs e)
         {
             // Si la fenêtre n'est pas encore ouverte, la créer.
-            if (_instanceDessinsForm == null)
+            if (_instanceDessinsForm == null && !rdUseMNIST.Checked)
             {
                 frmAffichageDessins affichageDessin = new frmAffichageDessins();
                 affichageDessin.GestionnairePerceptron = _gcpAnalyseEcriture;
@@ -150,31 +150,42 @@ namespace TPARCHIPERCEPTRON
                 affichageDessin.FormClosed += (s, ea) => _instanceDessinsForm = null;
 
                 affichageDessin.Show();
-            }
 
-            // Amener la fenêtre existante ou nouvellement crée
-            // en avant-plan.
-            _instanceDessinsForm.BringToFront();
+                // Amener la fenêtre existante ou nouvellement crée
+                // en avant-plan.
+                _instanceDessinsForm.BringToFront();
+            }
+            else if (rdUseMNIST.Checked)
+                MessageBox.Show("La création de la fenêtre avec les données du MNIST n'est pas faite à cause de la grosseur totale des données à montrer");
         }
 
 
         // La priorité fait que même si deux évènements sont appelés, le dernier a précédence alors ça retourne la bonne réponse.
         private void rdManual_CheckedChanged(object sender, EventArgs e)
         {
-            _typeEntrainement = TypeEntrainement.Manuel;
-            _gcpAnalyseEcriture = new GestionClassesPerceptrons(TypeEntrainement.Manuel);
+            if (rdManual.Checked)
+            {
+                _typeEntrainement = TypeEntrainement.Manuel;
+                _gcpAnalyseEcriture = new GestionClassesPerceptrons(TypeEntrainement.Manuel);
+            }
         }
 
         private void rdUseBD_CheckedChanged(object sender, EventArgs e)
         {
-            _typeEntrainement = TypeEntrainement.BD;
-            _gcpAnalyseEcriture = new GestionClassesPerceptrons(TypeEntrainement.BD);
+            if (rdUseBD.Checked)
+            {
+                _typeEntrainement = TypeEntrainement.BD;
+                _gcpAnalyseEcriture = new GestionClassesPerceptrons(TypeEntrainement.BD);
+            }
         }
 
         private void rdUseMNIST_CheckedChanged(object sender, EventArgs e)
         {
-            _typeEntrainement = TypeEntrainement.MNIST;
-            _gcpAnalyseEcriture = new GestionClassesPerceptrons(TypeEntrainement.MNIST);
+            if (rdUseMNIST.Checked)
+            {
+                _typeEntrainement = TypeEntrainement.MNIST;
+                _gcpAnalyseEcriture = new GestionClassesPerceptrons(TypeEntrainement.MNIST);
+            }
         }
 
         private void baseDeDonnéesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -191,9 +202,16 @@ namespace TPARCHIPERCEPTRON
 
         private void chargerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OpenFileDialog fDialog = new OpenFileDialog();
-            fDialog.ShowDialog();
-            _gcpAnalyseEcriture.ChargerPerceptrons(fDialog.FileName);
+            if (rdUseBD.Checked)
+            {
+                _gcpAnalyseEcriture.ChargerPerceptrons("");
+            }
+            else
+            {
+                OpenFileDialog fDialog = new OpenFileDialog();
+                fDialog.ShowDialog();
+                _gcpAnalyseEcriture.ChargerPerceptrons(fDialog.FileName);
+            }
         }
         private void tsmLanguesItem_Click(object sender, EventArgs e)
         {

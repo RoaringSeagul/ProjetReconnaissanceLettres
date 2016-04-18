@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\School\Hiver 2016\420-GEK-HY\TP03\ProjetReconnaissanceLettres\TP3\TP3\DbPerceptron.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\School\Hiver 2016\420-GEK-HY\TP03\ProjetReconnaissanceLettres\TP3\TP3\PerceptronsEntities.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

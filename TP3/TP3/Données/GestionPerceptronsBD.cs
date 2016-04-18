@@ -11,6 +11,8 @@ using TPARCHIPERCEPTRON.Utilitaires;
 using TPARCHIPERCEPTRON.Métier;
 using System.Xml;
 using System.Linq;
+using System.Collections;
+using System.Text;
 
 namespace TPARCHIPERCEPTRON.Données
 {
@@ -22,16 +24,23 @@ namespace TPARCHIPERCEPTRON.Données
     {
         private Dictionary<string, Perceptron> _lstPerceptrons;
         private List<CoordDessin> _lstCoord;
-        Entities bd = new Entities();
+        PerceptronBd bd = new PerceptronBd();
+
+        protected GestionPerceptronBD() { }
+
+        public GestionPerceptronBD(List<CoordDessin> lstCoord)
+        {
+            _lstCoord = lstCoord;
+        }
 
         /// <summary>
         /// Permet d'extraire de la base de données dans une matrice les information d'un perceptron pour l'apprentissage automatique.
         /// </summary>
         private void ChargerCoordonnees()
         {
-
+            ImageFormat imgFrmt = new ImageFormat() { X = 112, Y = 112 };
             var coords = new Double[16, 16];
-            IEnumerable<PerceptronModel> lstPercept = bd.Perceptrons;
+            IEnumerable<PerceptronModel> lstPercept = bd.PerceptronModels;
 
             foreach (var p in lstPercept)
             {
@@ -41,38 +50,21 @@ namespace TPARCHIPERCEPTRON.Données
                 c.CreerBitArrayString(p.BitArray);
                 _lstCoord.Add(c);
             }
-        }
 
-        /// <summary>
-        /// Permet de sauvegarder dans une base de données dans une matrice les informations des perceptrons pour l'apprentissage automatique
-        /// </summary>
-        /// <param name="fichier">Fichier où extraire les données</param>
-        public int SauvegarderCoordonnees(List<CoordDessin> lstCoord)
-        {
-            foreach (var c in lstCoord)
+            List<string> lstKnownChar = new List<string>();
+
+            foreach (var cd in _lstCoord)
             {
-                if (c.Id == 0)
-                    bd.Perceptrons.Add(
-                        new PerceptronModel()
-                        {
-                            LettresPerceptron = c.Reponse,
-                            BitArray = c.BitArrayDessin.ToString(),
-                            Hauteur = c.Hauteur,
-                            Largeur = c.Largeur
-                        });
-                else
-                    bd.Perceptrons.AddOrUpdate(p => p.PerceptronID,
-                        new PerceptronModel()
-                        {
-                            PerceptronID = c.Id,
-                            LettresPerceptron = c.Reponse,
-                            BitArray = c.BitArrayDessin.ToString(),
-                            Hauteur = c.Hauteur,
-                            Largeur = c.Largeur
-                        });
+                if (!lstKnownChar.Contains(cd.Reponse))
+                    lstKnownChar.Add(cd.Reponse);
             }
 
-            return CstApplication.OK;
+            foreach (var c in lstKnownChar)
+            {
+                Perceptron p = new Perceptron(c, 0.1, imgFrmt);
+                p.Entrainement(_lstCoord.Where(x => x.Reponse == c).ToList());
+                _lstPerceptrons.Add(c, p);
+            }
         }
 
 
@@ -104,14 +96,40 @@ namespace TPARCHIPERCEPTRON.Données
             return _lstPerceptrons;
         }
 
+        private string ToBitString(BitArray bits)
+        {
+            var sb = new StringBuilder();
+
+            for (int i = 0; i < bits.Count; i++)
+            {
+                char c = bits[i] ? '1' : '0';
+                sb.Append(c);
+            }
+
+            return sb.ToString();
+        }
+
         public void SavePerceptrons(Dictionary<string, Perceptron> lstPerceptrons, string cheminAcces)
         {
-            throw new NotImplementedException();
+            foreach (var cd in _lstCoord)
+            {
+                string bitString = ToBitString(cd.BitArrayDessin);
+                bd.PerceptronModels.Add(new PerceptronModel()
+                {
+                    LettresPerceptron = cd.Reponse,
+                    Hauteur = cd.Hauteur,
+                    Largeur = cd.Largeur,
+                    BitArray = bitString
+                });
+            }
+
+            bd.SaveChanges();
         }
 
         public Dictionary<string, Perceptron> LoadPerceptrons(string cheminAcces)
         {
-            throw new NotImplementedException();
+            this.ChargerCoordonnees();
+            return _lstPerceptrons;
         }
     }
 

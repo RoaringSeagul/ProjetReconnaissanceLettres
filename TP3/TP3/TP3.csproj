@@ -69,36 +69,27 @@
     <Compile Include="Données\GestionPerceptronFichiersSorties.cs" />
     <Compile Include="Données\ICharData.cs" />
     <Compile Include="Données\IPerceptronData.cs" />
-    <Compile Include="DbPerceptron.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DbPerceptron.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DbPerceptron.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DbPerceptron.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DbPerceptron.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DbPerceptron.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201604051327087_Init.cs" />
-    <Compile Include="Migrations\201604051327087_Init.Designer.cs">
-      <DependentUpon>201604051327087_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201604051328366_AddPerceptronINBd.cs" />
-    <Compile Include="Migrations\201604051328366_AddPerceptronINBd.Designer.cs">
-      <DependentUpon>201604051328366_AddPerceptronINBd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Données\GestionChiffresManuscripts.cs" />
     <Compile Include="Métier\GestionFichierConfig.cs" />
     <Compile Include="Métier\PerceptronTrainTest.cs" />
     <Compile Include="Métier\TypeEntrainement.cs" />
-    <Compile Include="Perceptron.cs">
-      <DependentUpon>DbPerceptron.tt</DependentUpon>
+    <Compile Include="PerceptronModel.cs">
+      <DependentUpon>PerceptronsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PerceptronsEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PerceptronsEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PerceptronsEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PerceptronsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PerceptronsEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PerceptronsEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Présentation\frmAffichageDessins.cs">
       <SubType>Form</SubType>
@@ -138,12 +129,6 @@
     </Compile>
     <Compile Include="Utilitaires\DigitImage.cs" />
     <Compile Include="Utilitaires\ImageFormat.cs" />
-    <EmbeddedResource Include="Migrations\201604051327087_Init.resx">
-      <DependentUpon>201604051327087_Init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201604051328366_AddPerceptronINBd.resx">
-      <DependentUpon>201604051328366_AddPerceptronINBd.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Présentation\frmAffichageDessins.en.resx">
       <DependentUpon>frmAffichageDessins.cs</DependentUpon>
     </EmbeddedResource>
@@ -179,19 +164,19 @@
       <DependentUpon>ucZoneDessin.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
-    <EntityDeploy Include="DbPerceptron.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DbPerceptron.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="DbPerceptron.edmx.diagram">
-      <DependentUpon>DbPerceptron.edmx</DependentUpon>
-    </None>
     <None Include="Fichiers\t10k-images.idx3-ubyte" />
     <None Include="Fichiers\t10k-labels.idx1-ubyte" />
     <None Include="Fichiers\train-images.idx3-ubyte" />
     <None Include="Fichiers\train-labels.idx1-ubyte" />
     <None Include="Fichiers\Train.dat" />
     <None Include="packages.config" />
+    <EntityDeploy Include="PerceptronsEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PerceptronsEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="PerceptronsEntities.edmx.diagram">
+      <DependentUpon>PerceptronsEntities.edmx</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -206,15 +191,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DbPerceptron.Context.tt">
+    <Content Include="PerceptronsEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DbPerceptron.edmx</DependentUpon>
-      <LastGenOutput>DbPerceptron.Context.cs</LastGenOutput>
+      <DependentUpon>PerceptronsEntities.edmx</DependentUpon>
+      <LastGenOutput>PerceptronsEntities.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="DbPerceptron.tt">
+    <Content Include="PerceptronsEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DbPerceptron.edmx</DependentUpon>
-      <LastGenOutput>DbPerceptron.cs</LastGenOutput>
+      <DependentUpon>PerceptronsEntities.edmx</DependentUpon>
+      <LastGenOutput>PerceptronsEntities.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

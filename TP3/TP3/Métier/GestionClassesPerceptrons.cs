@@ -3,6 +3,7 @@ using TPARCHIPERCEPTRON.Données;
 using TPARCHIPERCEPTRON.Utilitaires;
 using System;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace TPARCHIPERCEPTRON.Métier
 {
@@ -28,6 +29,7 @@ namespace TPARCHIPERCEPTRON.Métier
         public GestionClassesPerceptrons(TypeEntrainement typeEntrainement)
         {
             _lstPerceptrons = new Dictionary<string, Perceptron>();
+            _typeEntrainement = typeEntrainement;
             ChargerCoordonnees(typeEntrainement);
         }
 
@@ -41,12 +43,14 @@ namespace TPARCHIPERCEPTRON.Métier
             {
                 case TypeEntrainement.Manuel:
                     _gestionSortie = new GestionCharFichiersSorties();
+                    _fichierEntrainement = _gestionSortie.GetTrainData();
                     break;
                 case TypeEntrainement.MNIST:
                     _gestionSortie = new GestionChiffresManuscripts();
                     break;
                 case TypeEntrainement.BD:
                     _gestionSortie = new GestionCharFichiersSorties(true);
+                    _fichierEntrainement = _gestionSortie.GetTrainData();
                     break;
                 default:
                     throw new NotImplementedException(); // TODO: Find something to put here
@@ -74,7 +78,9 @@ namespace TPARCHIPERCEPTRON.Métier
         /// <returns>Le résultat de la console</returns>
         public void Entrainement(CoordDessin coordo, string reponse)
         {
-            if (_lstPerceptrons.Count == 0)
+            _fichierEntrainement.Add(coordo);
+
+            if (_lstPerceptrons.Count == 0 && _typeEntrainement != TypeEntrainement.Manuel)
                 Entrainement();
 
             if (!_lstPerceptrons.ContainsKey(reponse))
@@ -133,7 +139,7 @@ namespace TPARCHIPERCEPTRON.Métier
         public void SauvegarderPerceptrons(string cheminAcces, bool useBD = false)
         {
             if (useBD)
-                _gestionPerceptron = new GestionPerceptronBD();
+                _gestionPerceptron = new GestionPerceptronBD(_fichierEntrainement);
             else
                 _gestionPerceptron = new GestionPerceptronFichiersSorties();
 
@@ -142,12 +148,23 @@ namespace TPARCHIPERCEPTRON.Métier
 
         public void ChargerPerceptrons(string cheminAcces)
         {
-            if (cheminAcces == "")
-                return;
-
-            _gestionPerceptron = new GestionPerceptronFichiersSorties();
-
-            _lstPerceptrons = _gestionPerceptron.LoadPerceptrons(cheminAcces);
+            switch (_typeEntrainement)
+            {
+                case TypeEntrainement.Manuel:
+                    _gestionPerceptron = new GestionPerceptronFichiersSorties();
+                    _lstPerceptrons = _gestionPerceptron.LoadPerceptrons(cheminAcces);
+                    break;
+                case TypeEntrainement.MNIST:
+                    _gestionPerceptron = new GestionPerceptronFichiersSorties();
+                    _lstPerceptrons = _gestionPerceptron.LoadPerceptrons(cheminAcces);
+                    break;
+                case TypeEntrainement.BD:
+                    _gestionPerceptron = new GestionPerceptronBD(_fichierEntrainement);
+                    _gestionPerceptron.LoadPerceptrons("");
+                    break;
+                default:
+                    break;
+            }
         }
 
         public List<Perceptron> ObtenirPerceptron()
@@ -160,6 +177,11 @@ namespace TPARCHIPERCEPTRON.Métier
             }
 
             return lstPerceptron;
+        }
+
+        public List<CoordDessin> ObtenirCoordDessin()
+        {
+            return _fichierEntrainement;
         }
     }
 }
