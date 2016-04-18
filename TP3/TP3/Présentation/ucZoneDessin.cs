@@ -26,12 +26,17 @@ namespace TPARCHIPERCEPTRON
         /// <summary>
         /// Constructeur. Initialise la zone de dessin.
         /// </summary>
-        public ucZoneDessin()
+        public ucZoneDessin(int x = CstApplication.TAILLEDESSINX, int y = CstApplication.TAILLEDESSINY)
         {
             InitializeComponent();
 
+<<<<<<< Updated upstream
             _largeur = CstApplication.TAILLEDESSINYBASE;
             _hauteur = CstApplication.TAILLEDESSINXBASE;
+=======
+            _largeur = y;
+            _hauteur = x;
+>>>>>>> Stashed changes
             pZoneDessin.Image = new Bitmap(_largeur, _hauteur);
             _objGraphics = Graphics.FromImage(pZoneDessin.Image);
             _coordonnees = new CoordDessin(_largeur, _hauteur, CstApplication.LARGEURTRAIT, CstApplication.HAUTEURTRAIT);

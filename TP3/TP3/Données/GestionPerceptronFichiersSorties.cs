@@ -113,37 +113,45 @@ namespace TPARCHIPERCEPTRON.Données
 
         public Dictionary<string, Perceptron> LoadPerceptrons(string cheminAcces)
         {
-            using (StreamReader sr = new StreamReader(cheminAcces))
+            try
             {
-                string line;
-
-                while ((line = sr.ReadLine()) != null)
+                using (StreamReader sr = new StreamReader(cheminAcces))
                 {
-                    ImageFormat format = new ImageFormat();
-                    Double cstApprentissage;
-                    List<Double> poids = new List<Double>();
-                    char c;
+                    string line;
 
-                    var values = line.Split(',');
-                    c = values[0][0];
-                    cstApprentissage = Double.Parse(values[1]);
-                    format.X = Int32.Parse(values[2]);
-                    format.Y = Int32.Parse(values[3]);
-
-                    for (int i = 0; i < format.X; i++)
+                    while ((line = sr.ReadLine()) != null)
                     {
-                        line = sr.ReadLine();
-                        var lignePoids = line.Split(',');
-                        for (int j = 0; j < format.Y; j++)
-                        {
-                            poids.Add(Double.Parse(lignePoids[j]));
-                        }
-                    }
+                        ImageFormat format = new ImageFormat();
+                        Double cstApprentissage;
+                        List<Double> poids = new List<Double>();
+                        char c;
 
-                    _lstPerceptrons.Add(c.ToString(), new Perceptron(c.ToString(), cstApprentissage, format, poids));
+                        var values = line.Split(',');
+                        c = values[0][0];
+                        cstApprentissage = Double.Parse(values[1]);
+                        format.X = Int32.Parse(values[2]);
+                        format.Y = Int32.Parse(values[3]);
+
+                        for (int i = 0; i < format.X; i++)
+                        {
+                            line = sr.ReadLine();
+                            var lignePoids = line.Split(',');
+                            for (int j = 0; j < format.Y; j++)
+                            {
+                                poids.Add(Double.Parse(lignePoids[j]));
+                            }
+                        }
+
+                        _lstPerceptrons.Add(c.ToString(), new Perceptron(c.ToString(), cstApprentissage, format, poids));
+                    }
                 }
+                return _lstPerceptrons;
             }
-            return _lstPerceptrons;
+            catch
+            {
+                MessageBox.Show("Le fichier est utilisé par un autre programme.", "Erreur");
+                return new Dictionary<string, Perceptron>();
+            }
         }
     }
 

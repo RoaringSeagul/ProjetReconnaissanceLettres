@@ -78,8 +78,6 @@ namespace TPARCHIPERCEPTRON.Métier
                 nbErreur = 0;
                 foreach (var coord in _lstCoords)
                 {
-                    if (coord.BitArrayDessin.Length == 256)
-                        MessageBox.Show("256");
                     int iEstBonneLettre = (coord.Reponse == this.Reponse ? 1 : 0);
                     double valeurEstime = ValeurEstime(_poidsSyn, coord.BitArrayDessin);
                     int iBonneValeurSelonPerceptron = valeurEstime >= 0 ? 1 : 0;

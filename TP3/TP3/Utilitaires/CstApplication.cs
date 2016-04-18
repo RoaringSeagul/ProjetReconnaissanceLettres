@@ -7,12 +7,8 @@ namespace TPARCHIPERCEPTRON.Utilitaires
     public static class CstApplication
     {
         //Taille maximale de l'interface de dessin.
-        public const int TAILLEDESSINY = 112;
-        public const int TAILLEDESSINX = 112;
-
-        //Taille maximale de l'interface de dessin.
-        public const int TAILLEDESSINYBASE = 112;
-        public const int TAILLEDESSINXBASE = 112;
+        public const int TAILLEDESSINY = 64;
+        public const int TAILLEDESSINX = 64;
 
         //Constante d'apprentissage pour le perceptron
         public const double CONSTANTEAPPRENTISSAGE = 0.01;

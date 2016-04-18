@@ -73,7 +73,7 @@ namespace TPARCHIPERCEPTRON
                 if (!chkTestJeu.Checked)
                     txtValeurTestee.Text = _gcpAnalyseEcriture.TesterPerceptron(ucDessin.Coordonnees);
                 else
-                    txtValeurTestee.Text = _gcpAnalyseEcriture.TesterPerceptron();
+                    Console.WriteLine(_gcpAnalyseEcriture.TesterPerceptron());
 
             }
         }
@@ -167,6 +167,7 @@ namespace TPARCHIPERCEPTRON
             {
                 _typeEntrainement = TypeEntrainement.Manuel;
                 _gcpAnalyseEcriture = new GestionClassesPerceptrons(TypeEntrainement.Manuel);
+				ucDessin = new ucZoneDessin(_gcpAnalyseEcriture.Format.X * CstApplication.HAUTEURTRAIT, _gcpAnalyseEcriture.Format.Y * CstApplication.LARGEURTRAIT);
             }
         }
 
@@ -176,6 +177,7 @@ namespace TPARCHIPERCEPTRON
             {
                 _typeEntrainement = TypeEntrainement.BD;
                 _gcpAnalyseEcriture = new GestionClassesPerceptrons(TypeEntrainement.BD);
+				ucDessin = new ucZoneDessin(_gcpAnalyseEcriture.Format.X * CstApplication.HAUTEURTRAIT, _gcpAnalyseEcriture.Format.Y * CstApplication.LARGEURTRAIT);
             }
         }
 
@@ -185,6 +187,7 @@ namespace TPARCHIPERCEPTRON
             {
                 _typeEntrainement = TypeEntrainement.MNIST;
                 _gcpAnalyseEcriture = new GestionClassesPerceptrons(TypeEntrainement.MNIST);
+				ucDessin = new ucZoneDessin(_gcpAnalyseEcriture.Format.X * CstApplication.HAUTEURTRAIT, _gcpAnalyseEcriture.Format.Y * CstApplication.LARGEURTRAIT);
             }
         }
 
@@ -212,6 +215,10 @@ namespace TPARCHIPERCEPTRON
                 fDialog.ShowDialog();
                 _gcpAnalyseEcriture.ChargerPerceptrons(fDialog.FileName);
             }
+			
+            rdManual.Enabled = false;
+            rdUseMNIST.Enabled = false;
+            rdUseBD.Enabled = false;
         }
         private void tsmLanguesItem_Click(object sender, EventArgs e)
         {

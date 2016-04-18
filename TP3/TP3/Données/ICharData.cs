@@ -10,8 +10,8 @@ namespace TPARCHIPERCEPTRON.Données
     interface ICharData
     {
         ImageFormat GetFormat();
-        List<CoordDessin> GetTrainData();
-        List<CoordDessin> GetTestData();
+        List<CoordDessin> GetTrainData(string chemin = "");
+        List<CoordDessin> GetTestData(string chemin = "");
         void SaveCharData(List<CoordDessin> lstCoords, string cheminAcces);
     }
 }

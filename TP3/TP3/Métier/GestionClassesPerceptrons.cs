@@ -19,9 +19,11 @@ namespace TPARCHIPERCEPTRON.Métier
         private Dictionary<string, Perceptron> _lstPerceptrons;
         private PerceptronTrainTest _perceptronTrainTest;
         private List<CoordDessin> _fichierEntrainement = new List<CoordDessin>();
-        private TypeEntrainement _typeEntrainement = TypeEntrainement.Manuel;
+        private ImageFormat _format;
         private IPerceptronData _gestionPerceptron;
         private ICharData _gestionSortie;
+
+        public ImageFormat Format { get { return _format; } }
 
         /// <summary>
         /// Constructeur
@@ -49,14 +51,14 @@ namespace TPARCHIPERCEPTRON.Métier
                     _gestionSortie = new GestionChiffresManuscripts();
                     break;
                 case TypeEntrainement.BD:
-                    _gestionSortie = new GestionCharFichiersSorties(true);
                     _fichierEntrainement = _gestionSortie.GetTrainData();
+                    _gestionSortie = new GestionCharBD();
                     break;
                 default:
                     throw new NotImplementedException(); // TODO: Find something to put here
                     break;
             }
-
+            _format = _gestionSortie.GetFormat();
         }
 
         /// <summary>
@@ -89,7 +91,7 @@ namespace TPARCHIPERCEPTRON.Métier
             }
 
             coordo.Reponse = reponse;
-
+            _fichierEntrainement.Add(coordo);
             _perceptronTrainTest.Entrainement(new List<CoordDessin>() { coordo }, ref _lstPerceptrons);
         }
 
@@ -108,7 +110,6 @@ namespace TPARCHIPERCEPTRON.Métier
                     _lstPerceptrons.Add(coord.Reponse, new Perceptron(coord.Reponse, 0.1, _gestionSortie.GetFormat()));
                 }
             }
-
             _perceptronTrainTest.Entrainement(_gestionSortie.GetTrainData(), ref _lstPerceptrons);
 
             return sConsole;

@@ -90,7 +90,7 @@ namespace TPARCHIPERCEPTRON.Données
             }
         }
 
-        public List<CoordDessin> GetTrainData()
+        public List<CoordDessin> GetTrainData(string s = "")
         {
             if (_lstTrainData.Count == 0)
                 _lstTrainData = LoadCharData("Fichiers/train-images.idx3-ubyte", "Fichiers/train-labels.idx1-ubyte", 6000);
@@ -98,7 +98,7 @@ namespace TPARCHIPERCEPTRON.Données
             return _lstTrainData;
         }
 
-        public List<CoordDessin> GetTestData()
+        public List<CoordDessin> GetTestData(string s ="")
         {
             if (_lstTestData.Count == 0)
                 _lstTestData = LoadCharData("Fichiers/t10k-images.idx3-ubyte", "Fichiers/t10k-labels.idx1-ubyte", 1000);

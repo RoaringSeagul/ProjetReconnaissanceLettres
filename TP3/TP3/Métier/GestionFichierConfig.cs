@@ -81,6 +81,20 @@ namespace TPARCHIPERCEPTRON.Métier
         }
 
         /// <summary>
+        /// Change le chemin d'accès pour la sauvegarde.
+        /// </summary>
+        /// <param name="savePath"></param>
+        public static void SetSavePath(string savePath)
+        {
+            AddOrUpdate("savePath", savePath);
+        }
+
+        public static void SetLoadPath(string loadPath)
+        {
+            AddOrUpdate("loadPath", loadPath);
+        }
+
+        /// <summary>
         /// Renvois la valeur de la clé dans le fichier de configuration
         /// </summary>
         /// <param name="Key">Clé à chercher</param>

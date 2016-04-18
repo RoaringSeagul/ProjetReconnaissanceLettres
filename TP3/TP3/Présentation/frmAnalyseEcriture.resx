@@ -186,21 +186,6 @@
   <data name="btnEntrainement.Text" xml:space="preserve">
     <value>Entrainement</value>
   </data>
-  <data name="rdUseBD.Text" xml:space="preserve">
-    <value>Utiliser données BD</value>
-  </data>
-  <data name="btnEffacer.Text" xml:space="preserve">
-    <value>Effacer</value>
-  </data>
-  <data name="grpDessinEntrainement.Text" xml:space="preserve">
-    <value>Zone de dessin</value>
-  </data>
-  <data name="rdUseMNIST.Text" xml:space="preserve">
-    <value>Utiliser données MNIST</value>
-  </data>
-  <data name="btnTestConf.Text" xml:space="preserve">
-    <value>TestConfFile</value>
-  </data>
   <data name="&gt;&gt;btnEntrainement.Name" xml:space="preserve">
     <value>btnEntrainement</value>
   </data>
@@ -438,15 +423,6 @@
   <data name="chkTestJeu.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="rdTesterJeuTest.Text" xml:space="preserve">
-    <value>Tester  avec un jeu de test</value>
-  </data>
-  <data name="&gt;&gt;rdTesterJeuTest.Name" xml:space="preserve">
-    <value>rdTesterJeuTest</value>
-  </data>
-  <data name="&gt;&gt;rdTesterJeuTest.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="chkTestJeu.Text" xml:space="preserve">
     <value>Tester avec un jeu de test</value>
   </data>
@@ -597,18 +573,6 @@
   <data name="tsmiFichier.Text" xml:space="preserve">
     <value>Fichier</value>
   </data>
-  <data name="tsmiSauvegarder.Text" xml:space="preserve">
-    <value>Sauvegarder</value>
-  </data>
-  <data name="mnuPrincipal.Text" xml:space="preserve">
-    <value>menuStrip1</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Analyse Écriture</value>
-  </data>
-  <data name="tsmiSauvegarder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>84, 20</value>
-  </data>
   <data name="tsmiSauvegarder.Size" type="System.Drawing.Size, System.Drawing">
     <value>84, 20</value>
   </data>
@@ -677,9 +641,6 @@
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>386, 547</value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Analyse Écriture</value>

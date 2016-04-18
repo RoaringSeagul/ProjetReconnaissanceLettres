@@ -39,7 +39,9 @@
             this.rdUseMNIST = new System.Windows.Forms.RadioButton();
             this.rdUseBD = new System.Windows.Forms.RadioButton();
             this.btnEffacer = new System.Windows.Forms.Button();
+            this.ucDessin = new TPARCHIPERCEPTRON.ucZoneDessin();
             this.grpTests = new System.Windows.Forms.GroupBox();
+            this.chkTestJeu = new System.Windows.Forms.CheckBox();
             this.lblValeurTestee = new System.Windows.Forms.Label();
             this.txtValeurTestee = new System.Windows.Forms.TextBox();
             this.btnTest = new System.Windows.Forms.Button();
@@ -53,8 +55,6 @@
             this.baseDeDonnéesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fichierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtConsole = new System.Windows.Forms.TextBox();
-            this.ucDessin = new TPARCHIPERCEPTRON.ucZoneDessin();
-            this.chkTestJeu = new System.Windows.Forms.CheckBox();
             this.grpEntrainement.SuspendLayout();
             this.grpDessinEntrainement.SuspendLayout();
             this.grpTests.SuspendLayout();
@@ -138,6 +138,13 @@
             this.btnEffacer.UseVisualStyleBackColor = true;
             this.btnEffacer.Click += new System.EventHandler(this.btnEffacer_Click);
             // 
+            // ucDessin
+            // 
+            this.ucDessin.BackColor = System.Drawing.Color.White;
+            this.ucDessin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.ucDessin, "ucDessin");
+            this.ucDessin.Name = "ucDessin";
+            // 
             // grpTests
             // 
             this.grpTests.Controls.Add(this.chkTestJeu);
@@ -147,6 +154,12 @@
             resources.ApplyResources(this.grpTests, "grpTests");
             this.grpTests.Name = "grpTests";
             this.grpTests.TabStop = false;
+            // 
+            // chkTestJeu
+            // 
+            resources.ApplyResources(this.chkTestJeu, "chkTestJeu");
+            this.chkTestJeu.Name = "chkTestJeu";
+            this.chkTestJeu.UseVisualStyleBackColor = true;
             // 
             // lblValeurTestee
             // 
@@ -227,18 +240,6 @@
             // 
             resources.ApplyResources(this.txtConsole, "txtConsole");
             this.txtConsole.Name = "txtConsole";
-            // ucDessin
-            // 
-            this.ucDessin.BackColor = System.Drawing.Color.White;
-            this.ucDessin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(this.ucDessin, "ucDessin");
-            this.ucDessin.Name = "ucDessin";
-            // 
-            // chkTestJeu
-            // 
-            resources.ApplyResources(this.chkTestJeu, "chkTestJeu");
-            this.chkTestJeu.Name = "chkTestJeu";
-            this.chkTestJeu.UseVisualStyleBackColor = true;
             // 
             // frmAnalyseEcriture
             // 

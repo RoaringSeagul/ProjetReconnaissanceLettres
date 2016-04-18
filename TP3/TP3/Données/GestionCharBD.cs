@@ -6,8 +6,6 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Data.Entity.Migrations;
 using TPARCHIPERCEPTRON.Utilitaires;
-using System.Collections;
-using System.Windows.Forms;
 
 namespace TPARCHIPERCEPTRON.Données
 {
@@ -15,56 +13,39 @@ namespace TPARCHIPERCEPTRON.Données
     /// Cette classe gère l'accès aux disques pour le fichiers d'apprentissages. 
     /// Permet de charger ou décharger dans la matrice d'apprentissage.
     /// </summary>
-    public class GestionCharFichiersSorties : ICharData
+    public class GestionCharBD : ICharData
     {
         private List<CoordDessin> _lstCoord = new List<CoordDessin>();
         private ImageFormat _imageFormat = new ImageFormat() { X = 16, Y = 16 }; // 16x16 est l'image par défaut que l'on utilise.
-		
+        Entities bd = new Entities();
+
         /// <summary>
         /// Permet d'extraire de la base de données dans une matrice les information d'un perceptron pour l'apprentissage automatique.
         /// </summary>
-        private List<CoordDessin> ChargerCoordonnees(string chemin)
+        private List<CoordDessin> ChargerCoordonnees()
         {
             _lstCoord = new List<CoordDessin>();
-            try {
-                using (StreamReader sr = new StreamReader(ConfigurationManager.AppSettings["loadPath"]))
+
+            foreach (var p in bd.Perceptrons)
+            {
+                CoordDessin c = new CoordDessin(16, 16, 1, 1);
+
+                foreach (var s in p.BitArray)
                 {
-                    string line;
-
-                    while ((line = sr.ReadLine()) != null)
+                    for (int y = 0; y <= 16; y++)
                     {
-                        ImageFormat format = new ImageFormat();
-                        BitArray bitArray;
-                        char c;
-
-                        var values = line.Split(',');
-                        c = values[0][0];
-                        format.X = Int32.Parse(values[1]);
-                        format.Y = Int32.Parse(values[2]);
-
-                        bitArray = new BitArray(format.X * format.Y);
-
-                        for (int i = 0; i < format.X; i++)
+                        for (int x = 0; x < 16; x++)
                         {
-                            line = sr.ReadLine();
-                            var ligneValeur = line.Split(',');
-                            for (int j = 0; j < format.Y; j++)
-                            {
-                                bitArray[i * format.X + j] = ligneValeur[j] == "1" ? true : false;
-                            }
+                            if (s != '0')
+                                c.AjouterCoordonnees(x, y, 1, 1);
                         }
-
-                        _lstCoord.Add(new CoordDessin(bitArray, c.ToString()));
                     }
                 }
-                return _lstCoord;
+
             }
-            catch
-            {
-                MessageBox.Show("Le fichier est utilisé par un autre programme.", "Erreur");
-                return _lstCoord;
-            }
-}
+
+            return _lstCoord;
+        }
 
         /// <summary>
         /// Permet de sauvegarder dans une base de données dans une matrice les informations des perceptrons pour l'apprentissage automatique
@@ -72,27 +53,9 @@ namespace TPARCHIPERCEPTRON.Données
         /// <param name="fichier">Fichier où extraire les données</param>
         private void SauvegarderCoordonnees(string fichier, List<CoordDessin> lstCoord)
         {
-            try
+            foreach (var c in lstCoord)
             {
-                using (StreamWriter sw = new StreamWriter(ConfigurationManager.AppSettings["loadPath"] + "\\Dessins.csv"))
-                {
-                    foreach (var coord in lstCoord)
-                    {
-                        sw.WriteLine(coord.Reponse + "," + (coord.Hauteur / 4) + "," + (coord.Largeur / 4));
-                        for (uint i = 0; i < (coord.Hauteur / 4); i++)
-                        {
-                            for (uint j = 0; j < (coord.Largeur / 4); j++)
-                            {
-                                sw.Write(coord.BitArrayDessin[(int)(i * coord.Largeur + j)] ? "1" : "0" + ',');
-                            }
-                            sw.WriteLine();
-                        }
-                    }
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Le fichier est utilisé par un autre programme.", "Erreur");
+                bd.Perceptrons.AddOrUpdate(p => p.LettresPerceptron, new PerceptronModel() { LettresPerceptron = c.Reponse, BitArray = c.BitArrayDessin.ToString() });
             }
         }
 
@@ -132,20 +95,18 @@ namespace TPARCHIPERCEPTRON.Données
         {
             return _imageFormat;
         }
-        
-
 
         public void SaveCharData(List<CoordDessin> lstCoords, string cheminAcces)
         {
             SauvegarderCoordonnees(cheminAcces, lstCoords);
         }
 
-        public List<CoordDessin> GetTrainData(string chemin = "")
+        public List<CoordDessin> GetTrainData(string s = "")
         {
-            return ChargerCoordonnees(chemin);
+            return _lstCoord;
         }
 
-        public List<CoordDessin> GetTestData(string chemin = "")
+        public List<CoordDessin> GetTestData(string s = "")
         {
             return new List<CoordDessin>();
         }

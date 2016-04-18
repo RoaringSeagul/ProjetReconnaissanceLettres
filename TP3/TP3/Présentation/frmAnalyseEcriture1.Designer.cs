@@ -267,6 +267,55 @@ namespace TPARCHIPERCEPTRON.Présentation {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Boolean similar to True.
+        /// </summary>
+        public static bool chkTestJeu_AutoSize {
+            get {
+                object obj = ResourceManager.GetObject("chkTestJeu.AutoSize", resourceCulture);
+                return ((bool)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Point similar to {X=103,Y=49}.
+        /// </summary>
+        public static System.Drawing.Point chkTestJeu_Location {
+            get {
+                object obj = ResourceManager.GetObject("chkTestJeu.Location", resourceCulture);
+                return ((System.Drawing.Point)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Size similar to {Width=150, Height=17}.
+        /// </summary>
+        public static System.Drawing.Size chkTestJeu_Size {
+            get {
+                object obj = ResourceManager.GetObject("chkTestJeu.Size", resourceCulture);
+                return ((System.Drawing.Size)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Int32 similar to 4.
+        /// </summary>
+        public static int chkTestJeu_TabIndex {
+            get {
+                object obj = ResourceManager.GetObject("chkTestJeu.TabIndex", resourceCulture);
+                return ((int)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tester avec un jeu de test.
+        /// </summary>
+        public static string chkTestJeu_Text {
+            get {
+                return ResourceManager.GetString("chkTestJeu.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Size similar to {Width=32, Height=19}.
         /// </summary>
         public static System.Drawing.Size fichierToolStripMenuItem_Size {
@@ -622,55 +671,6 @@ namespace TPARCHIPERCEPTRON.Présentation {
         /// <summary>
         ///   Looks up a localized resource of type System.Boolean similar to True.
         /// </summary>
-        public static bool rdTesterJeuTest_AutoSize {
-            get {
-                object obj = ResourceManager.GetObject("rdTesterJeuTest.AutoSize", resourceCulture);
-                return ((bool)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Point similar to {X=95,Y=46}.
-        /// </summary>
-        public static System.Drawing.Point rdTesterJeuTest_Location {
-            get {
-                object obj = ResourceManager.GetObject("rdTesterJeuTest.Location", resourceCulture);
-                return ((System.Drawing.Point)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Size similar to {Width=152, Height=17}.
-        /// </summary>
-        public static System.Drawing.Size rdTesterJeuTest_Size {
-            get {
-                object obj = ResourceManager.GetObject("rdTesterJeuTest.Size", resourceCulture);
-                return ((System.Drawing.Size)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Int32 similar to 4.
-        /// </summary>
-        public static int rdTesterJeuTest_TabIndex {
-            get {
-                object obj = ResourceManager.GetObject("rdTesterJeuTest.TabIndex", resourceCulture);
-                return ((int)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Tester  avec un jeu de test.
-        /// </summary>
-        public static string rdTesterJeuTest_Text {
-            get {
-                return ResourceManager.GetString("rdTesterJeuTest.Text", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Boolean similar to True.
-        /// </summary>
         public static bool rdUseBD_AutoSize {
             get {
                 object obj = ResourceManager.GetObject("rdUseBD.AutoSize", resourceCulture);
@@ -971,7 +971,7 @@ namespace TPARCHIPERCEPTRON.Présentation {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Point similar to {X=111,Y=20}.
+        ///   Looks up a localized resource of type System.Drawing.Point similar to {X=103,Y=20}.
         /// </summary>
         public static System.Drawing.Point txtValeurTestee_Location {
             get {
