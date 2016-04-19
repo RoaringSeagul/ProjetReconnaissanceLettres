@@ -62,7 +62,7 @@ namespace TPARCHIPERCEPTRON.Métier
                     resultatReponse = valeur;
                     reponse[0] = (perceptron.Reponse);
                 }
-                reponse.Add(perceptron.Reponse + " : " + (valeur < 0.001 ? 0 : valeur));
+                reponse.Add(perceptron.Reponse + " : " + (valeur < 0.001 ? "0.000 %" : ((valeur * 100.0d).ToString("0.000") + " %")));
             }
             return reponse;
         }

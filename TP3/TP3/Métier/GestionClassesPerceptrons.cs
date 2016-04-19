@@ -34,8 +34,11 @@ namespace TPARCHIPERCEPTRON.Métier
             _lstPerceptrons = new Dictionary<string, Perceptron>();
             _typeEntrainement = typeEntrainement;
             ChargerCoordonnees(typeEntrainement);
-            GestionFichierConfig.SetLoadPath("data.dat");
-            GestionFichierConfig.SetSavePath("data.dat");
+            if (GestionFichierConfig.GetSettingValue("loadPath") == "" || GestionFichierConfig.GetSettingValue("savePath") == "")
+            {
+                GestionFichierConfig.SetLoadPath("data.csv");
+                GestionFichierConfig.SetSavePath("data.csv");
+            }
         }
 
         /// <summary>
@@ -68,11 +71,9 @@ namespace TPARCHIPERCEPTRON.Métier
         /// Sauvegarde les échantillons d'apprentissage dans une base de données.
         /// </summary>
         /// <returns>En cas d'erreur retourne le code d'erreur</returns>
-        public int SauvegarderCoordonnees()
+        public void SauvegarderCoordonnees()
         {
-            int erreur = CstApplication.ERREUR;
-            //À COMPLÉTER
-            return erreur;
+            _gestionSortie.SaveCharData(_fichierEntrainement, GestionFichierConfig.GetSettingValue("savePath"));
         }
 
         /// <summary>

@@ -8,6 +8,7 @@ using System.Data.Entity.Migrations;
 using TPARCHIPERCEPTRON.Utilitaires;
 using System.Collections;
 using System.Windows.Forms;
+using TPARCHIPERCEPTRON.Métier;
 
 namespace TPARCHIPERCEPTRON.Données
 {
@@ -27,7 +28,7 @@ namespace TPARCHIPERCEPTRON.Données
         {
             _lstCoord = new List<CoordDessin>();
             try {
-                using (StreamReader sr = new StreamReader(ConfigurationManager.AppSettings["loadPath"]))
+                using (StreamReader sr = new StreamReader(GestionFichierConfig.GetSettingValue("loadPath")))
                 {
                     string line;
 
@@ -62,6 +63,7 @@ namespace TPARCHIPERCEPTRON.Données
             catch
             {
                 MessageBox.Show(Properties.Resources.ResourceManager.GetString("MessageErreurManuel"), Properties.Resources.ResourceManager.GetString("MessageErreurTitre"));
+
                 return _lstCoord;
             }
 }
@@ -74,7 +76,7 @@ namespace TPARCHIPERCEPTRON.Données
         {
             try
             {
-                using (StreamWriter sw = new StreamWriter(ConfigurationManager.AppSettings["loadPath"] + "\\Dessins.csv"))
+                using (StreamWriter sw = new StreamWriter(ConfigurationManager.AppSettings["savePath"]))
                 {
                     foreach (var coord in lstCoord)
                     {
@@ -83,7 +85,7 @@ namespace TPARCHIPERCEPTRON.Données
                         {
                             for (uint j = 0; j < (coord.Largeur / 4); j++)
                             {
-                                sw.Write(coord.BitArrayDessin[(int)(i * coord.Largeur + j)] ? "1" : "0" + ',');
+                                sw.Write(coord.BitArrayDessin[(int)(i + (coord.Largeur / 4) * j)] ? "1" + "," : "0" + ',');
                             }
                             sw.WriteLine();
                         }

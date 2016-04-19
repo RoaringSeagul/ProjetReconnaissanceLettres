@@ -35,7 +35,7 @@ namespace TPARCHIPERCEPTRON.Métier
                 {
                     settings[key].Value = value;
                 }
-                configFile.Save(ConfigurationSaveMode.Modified);
+                configFile.Save(ConfigurationSaveMode.Full);
                 ConfigurationManager.RefreshSection(configFile.AppSettings.SectionInformation.Name);
             }
             catch (ConfigurationErrorsException)
@@ -105,6 +105,5 @@ namespace TPARCHIPERCEPTRON.Métier
             var settings = configFile.AppSettings.Settings;
             return settings[Key].Value;
         }
-
     }
 }
