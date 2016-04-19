@@ -61,7 +61,7 @@ namespace TPARCHIPERCEPTRON.Données
             }
             catch
             {
-                MessageBox.Show("Le fichier est utilisé par un autre programme.", "Erreur");
+                MessageBox.Show(Properties.Resources.ResourceManager.GetString("MessageErreurManuel"), Properties.Resources.ResourceManager.GetString("MessageErreurTitre"));
                 return _lstCoord;
             }
 }
@@ -92,7 +92,7 @@ namespace TPARCHIPERCEPTRON.Données
             }
             catch
             {
-                MessageBox.Show("Le fichier est utilisé par un autre programme.", "Erreur");
+                MessageBox.Show(Properties.Resources.ResourceManager.GetString("MessageErreurManuel"), Properties.Resources.ResourceManager.GetString("MessageErreurTitre"));
             }
         }
 

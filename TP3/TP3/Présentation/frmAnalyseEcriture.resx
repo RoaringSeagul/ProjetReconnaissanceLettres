@@ -153,6 +153,9 @@
   <data name="txtValeurEntrainee.Location" type="System.Drawing.Point, System.Drawing">
     <value>103, 37</value>
   </data>
+  <data name="txtValeurEntrainee.MaxLength" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
   <data name="txtValeurEntrainee.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 20</value>
   </data>

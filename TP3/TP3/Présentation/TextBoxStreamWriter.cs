@@ -26,6 +26,11 @@ namespace TPARCHIPERCEPTRON.Présentation
 
         }
 
+        public void Clear()
+        {
+            _output.Text = "";
+        }
+
         public override Encoding Encoding
         {
             get { return System.Text.Encoding.UTF8; }

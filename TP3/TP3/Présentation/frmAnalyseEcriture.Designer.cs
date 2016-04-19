@@ -1,4 +1,6 @@
-﻿namespace TPARCHIPERCEPTRON
+﻿using TPARCHIPERCEPTRON.Utilitaires;
+
+namespace TPARCHIPERCEPTRON
 {
     partial class frmAnalyseEcriture
     {
@@ -30,6 +32,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAnalyseEcriture));
             this.grpEntrainement = new System.Windows.Forms.GroupBox();
+            this.ucDessin = new ucZoneDessin(CstApplication.TAILLEDESSINX, CstApplication.TAILLEDESSINY);
             this.lblValeurEntraine = new System.Windows.Forms.Label();
             this.txtValeurEntrainee = new System.Windows.Forms.TextBox();
             this.btnEntrainement = new System.Windows.Forms.Button();
@@ -39,7 +42,6 @@
             this.rdUseMNIST = new System.Windows.Forms.RadioButton();
             this.rdUseBD = new System.Windows.Forms.RadioButton();
             this.btnEffacer = new System.Windows.Forms.Button();
-            this.ucDessin = new TPARCHIPERCEPTRON.ucZoneDessin();
             this.grpTests = new System.Windows.Forms.GroupBox();
             this.chkTestJeu = new System.Windows.Forms.CheckBox();
             this.lblValeurTestee = new System.Windows.Forms.Label();

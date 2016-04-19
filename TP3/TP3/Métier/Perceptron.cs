@@ -80,7 +80,7 @@ namespace TPARCHIPERCEPTRON.Métier
                 {
                     int iEstBonneLettre = (coord.Reponse == this.Reponse ? 1 : 0);
                     double valeurEstime = ValeurEstime(_poidsSyn, coord.BitArrayDessin);
-                    int iBonneValeurSelonPerceptron = valeurEstime >= 0 ? 1 : 0;
+                    int iBonneValeurSelonPerceptron = valeurEstime > 0 ? 1 : 0;
                     int iErreurLocale = iEstBonneLettre - iBonneValeurSelonPerceptron;
 
                     if (iErreurLocale != 0)
@@ -118,9 +118,9 @@ namespace TPARCHIPERCEPTRON.Métier
         /// </summary>
         /// <param name="coord"></param>
         /// <returns></returns>
-        public int TesterNeurone(CoordDessin coord)
+        public double TesterNeurone(CoordDessin coord)
         {
-            return (int)ValeurEstime(_poidsSyn, coord.BitArrayDessin);
+            return LogSigmoid(ValeurEstime(_poidsSyn, coord.BitArrayDessin));
         }
 
         public double GetWeightAt(uint x, uint y)
@@ -131,5 +131,10 @@ namespace TPARCHIPERCEPTRON.Métier
                 return double.MaxValue;
         }
 
+        public double LogSigmoid(double x)
+        {
+            double thi = (1.0 + Math.Exp(-x));
+            return (1.0 / thi);
+        }
     }
 }

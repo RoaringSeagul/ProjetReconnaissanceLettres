@@ -32,10 +32,10 @@ namespace TPARCHIPERCEPTRON.Métier
             foreach (var coord in coords)
             {
                 string reponse = "";
-                int resultatReponse = Int32.MinValue;
+                double resultatReponse = double.MinValue;
                 foreach (var perceptron in perceptrons.Values)
                 {
-                    int valeur = perceptron.TesterNeurone(coord);
+                    double valeur = perceptron.TesterNeurone(coord);
                     if (valeur > resultatReponse)
                     {
                         resultatReponse = valeur;
@@ -50,20 +50,20 @@ namespace TPARCHIPERCEPTRON.Métier
             return "Resultat: " + nbBonneReponse + " / " + nbTest;
         }
 
-        public string Test(CoordDessin coord, ref Dictionary<string, Perceptron> perceptrons)
+        public List<string> Test(CoordDessin coord, ref Dictionary<string, Perceptron> perceptrons)
         {
-            string reponse = "";
-            int resultatReponse = Int32.MinValue;
+            List<string> reponse = new List<string>() { "" };
+            double resultatReponse = double.MinValue;
             foreach (var perceptron in perceptrons.Values)
             {
-                int valeur = perceptron.TesterNeurone(coord);
+                double valeur = perceptron.TesterNeurone(coord);
                 if (valeur > resultatReponse)
                 {
                     resultatReponse = valeur;
-                    reponse = perceptron.Reponse;
+                    reponse[0] = (perceptron.Reponse);
                 }
+                reponse.Add(perceptron.Reponse + " : " + (valeur < 0.001 ? 0 : valeur));
             }
-
             return reponse;
         }
     }

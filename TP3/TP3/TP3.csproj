@@ -92,6 +92,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PerceptronsEntities.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.fr.Designer.cs">
+      <DependentUpon>Resources.fr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Présentation\frmAffichageDessins.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +115,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>frmAnalyseEcriture.resx</DependentUpon>
     </Compile>-->
+    <Compile Include="Properties\Resources.en.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.en.resx</DependentUpon>
+    </Compile>
     <Compile Include="Présentation\frmAnalyseEcriture1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -130,6 +140,10 @@
     </Compile>
     <Compile Include="Utilitaires\DigitImage.cs" />
     <Compile Include="Utilitaires\ImageFormat.cs" />
+    <EmbeddedResource Include="Properties\Resources.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Présentation\frmAffichageDessins.en.resx">
       <DependentUpon>frmAffichageDessins.cs</DependentUpon>
     </EmbeddedResource>
@@ -163,6 +177,10 @@
     </Compile>
     <EmbeddedResource Include="Présentation\ucZoneDessin.resx">
       <DependentUpon>ucZoneDessin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.en.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="Fichiers\t10k-images.idx3-ubyte" />

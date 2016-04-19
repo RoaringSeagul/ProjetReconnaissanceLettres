@@ -34,6 +34,8 @@ namespace TPARCHIPERCEPTRON.Métier
             _lstPerceptrons = new Dictionary<string, Perceptron>();
             _typeEntrainement = typeEntrainement;
             ChargerCoordonnees(typeEntrainement);
+            GestionFichierConfig.SetLoadPath("data.dat");
+            GestionFichierConfig.SetSavePath("data.dat");
         }
 
         /// <summary>
@@ -81,8 +83,6 @@ namespace TPARCHIPERCEPTRON.Métier
         /// <returns>Le résultat de la console</returns>
         public void Entrainement(CoordDessin coordo, string reponse)
         {
-            _fichierEntrainement.Add(coordo);
-
             if (_lstPerceptrons.Count == 0 && _typeEntrainement != TypeEntrainement.Manuel)
                 Entrainement();
 
@@ -112,7 +112,7 @@ namespace TPARCHIPERCEPTRON.Métier
                 }
             }
             _perceptronTrainTest.Entrainement(_gestionSortie.GetTrainData(), ref _lstPerceptrons);
-
+            _fichierEntrainement.AddRange(_gestionSortie.GetTrainData());
             return sConsole;
         }
 
@@ -121,7 +121,7 @@ namespace TPARCHIPERCEPTRON.Métier
         /// </summary>
         /// <param name="coord">Les nouvelles coordonnées</param>
         /// <returns>Retourne la liste des valeurs possibles du perceptron</returns>
-        public string TesterPerceptron(CoordDessin coord)
+        public List<string> TesterPerceptron(CoordDessin coord)
         {
             return _perceptronTrainTest.Test(coord, ref _lstPerceptrons);
         }

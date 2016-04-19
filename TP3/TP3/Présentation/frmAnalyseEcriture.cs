@@ -12,6 +12,7 @@ using TPARCHIPERCEPTRON.Métier;
 using TPARCHIPERCEPTRON.Utilitaires;
 using System.Threading;
 using System.Collections.Specialized;
+using System.Resources;
 
 namespace TPARCHIPERCEPTRON
 {
@@ -71,8 +72,17 @@ namespace TPARCHIPERCEPTRON
         {
             if (_gcpAnalyseEcriture != null)
             {
+                txtConsole.Clear();
                 if (!chkTestJeu.Checked)
-                    txtValeurTestee.Text = _gcpAnalyseEcriture.TesterPerceptron(ucDessin.Coordonnees);
+                {
+                    var resultat = _gcpAnalyseEcriture.TesterPerceptron(ucDessin.Coordonnees);
+                    txtValeurTestee.Text = resultat[0];
+                    for (int i = 1; i < resultat.Count; i++)
+                    {
+                        Console.WriteLine(resultat[i]);
+                    }
+
+                }
                 else
                     Console.WriteLine(_gcpAnalyseEcriture.TesterPerceptron());
 
@@ -157,7 +167,7 @@ namespace TPARCHIPERCEPTRON
                 _instanceDessinsForm.BringToFront();
             }
             else if (rdUseMNIST.Checked)
-                MessageBox.Show("La création de la fenêtre avec les données du MNIST n'est pas faite à cause de la grosseur totale des données à montrer");
+                MessageBox.Show(Properties.Resources.ResourceManager.GetString("MessageErreurMNIST"), Properties.Resources.ResourceManager.GetString("MessageErreurTitre"));
         }
 
 
@@ -168,7 +178,7 @@ namespace TPARCHIPERCEPTRON
             {
                 _typeEntrainement = TypeEntrainement.Manuel;
                 _gcpAnalyseEcriture = new GestionClassesPerceptrons(TypeEntrainement.Manuel);
-				ucDessin = new ucZoneDessin(_gcpAnalyseEcriture.Format.X * CstApplication.HAUTEURTRAIT, _gcpAnalyseEcriture.Format.Y * CstApplication.LARGEURTRAIT);
+                ucDessin.Resize(_gcpAnalyseEcriture.Format.X * CstApplication.HAUTEURTRAIT, _gcpAnalyseEcriture.Format.Y * CstApplication.LARGEURTRAIT);
             }
         }
 
@@ -178,7 +188,7 @@ namespace TPARCHIPERCEPTRON
             {
                 _typeEntrainement = TypeEntrainement.BD;
                 _gcpAnalyseEcriture = new GestionClassesPerceptrons(TypeEntrainement.BD);
-				ucDessin = new ucZoneDessin(_gcpAnalyseEcriture.Format.X * CstApplication.HAUTEURTRAIT, _gcpAnalyseEcriture.Format.Y * CstApplication.LARGEURTRAIT);
+                ucDessin.Resize(_gcpAnalyseEcriture.Format.X * CstApplication.HAUTEURTRAIT, _gcpAnalyseEcriture.Format.Y * CstApplication.LARGEURTRAIT);
             }
         }
 
@@ -188,7 +198,7 @@ namespace TPARCHIPERCEPTRON
             {
                 _typeEntrainement = TypeEntrainement.MNIST;
                 _gcpAnalyseEcriture = new GestionClassesPerceptrons(TypeEntrainement.MNIST);
-				ucDessin = new ucZoneDessin(_gcpAnalyseEcriture.Format.X * CstApplication.HAUTEURTRAIT, _gcpAnalyseEcriture.Format.Y * CstApplication.LARGEURTRAIT);
+                ucDessin.Resize(_gcpAnalyseEcriture.Format.X * CstApplication.HAUTEURTRAIT, _gcpAnalyseEcriture.Format.Y * CstApplication.LARGEURTRAIT);
             }
         }
 

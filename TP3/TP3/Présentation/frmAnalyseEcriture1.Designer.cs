@@ -951,6 +951,16 @@ namespace TPARCHIPERCEPTRON.Présentation {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Int32 similar to 1.
+        /// </summary>
+        public static int txtValeurEntrainee_MaxLength {
+            get {
+                object obj = ResourceManager.GetObject("txtValeurEntrainee.MaxLength", resourceCulture);
+                return ((int)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Size similar to {Width=100, Height=20}.
         /// </summary>
         public static System.Drawing.Size txtValeurEntrainee_Size {

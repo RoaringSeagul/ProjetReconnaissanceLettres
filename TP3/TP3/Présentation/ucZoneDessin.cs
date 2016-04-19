@@ -75,7 +75,13 @@ namespace TPARCHIPERCEPTRON
             _objGraphics.Clear(pZoneDessin.BackColor);
             pZoneDessin.Refresh();
             _coordonnees = new CoordDessin(_largeur, _hauteur, CstApplication.LARGEURTRAIT, CstApplication.HAUTEURTRAIT);
+        }
 
+        public void Resize(int x, int y)
+        {
+            _largeur = x;
+            _hauteur = y;
+            this.EffacerDessin();
         }
 
         /// <summary>
