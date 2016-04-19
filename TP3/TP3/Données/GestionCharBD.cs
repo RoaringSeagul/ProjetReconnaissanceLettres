@@ -5,9 +5,9 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data.Entity.Migrations;
-using TPARCHIPERCEPTRON.Utilitaires;
 using System.Collections;
 using System.Text;
+using System.Windows.Forms;
 
 namespace TPARCHIPERCEPTRON.Données
 {
@@ -26,13 +26,17 @@ namespace TPARCHIPERCEPTRON.Données
         /// </summary>
         private void ChargerCoordonnees()
         {
-            int x = 0;
-            int y = 0;
-            foreach (var p in bd.DessinModels)
+            try
             {
-                _lstCoord.Add(new CoordDessin(p.DessinID, ToStringToBit(p.BitArray), p.Lettres, p.Largeur, p.Hauteur));
+                foreach (var p in bd.DessinModels)
+                {
+                    _lstCoord.Add(new CoordDessin(p.DessinID, ToStringToBit(p.BitArray), p.Lettres, p.Largeur, p.Hauteur));
+                }
             }
-
+            catch
+            {
+                MessageBox.Show(Properties.Resources.ResourceManager.GetString("MessageErreurBD"), Properties.Resources.ResourceManager.GetString("MessageErreurTitre"));
+            }
         }
 
         /// <summary>

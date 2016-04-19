@@ -24,11 +24,11 @@ namespace TPARCHIPERCEPTRON
         /// <summary>
         /// Constructeur par défaut.
         /// </summary>
-        public frmAffichageDessins()
+        public frmAffichageDessins(int x = CstApplication.TAILLEDESSINX, int y = CstApplication.TAILLEDESSINY)
         {
             InitializeComponent();
 
-            listeImage.ImageSize = new Size(CstApplication.TAILLEDESSINX, CstApplication.TAILLEDESSINY);
+            listeImage.ImageSize = new Size(x, y);
             listeImage.ColorDepth = ColorDepth.Depth8Bit;
         }
 
@@ -60,11 +60,11 @@ namespace TPARCHIPERCEPTRON
             // Allouer un buffer ayant la bonne stride pour être aligné sur un DWORD(4 octets), ce qui est demandé par le format bitmap.
             byte[] buffer = new byte[bitmapData.Stride * bitmapData.Height];
 
-            for (int y = 0; y < CstApplication.NOMBRE_BITS_Y; y++)
+            for (int y = 0; y < listeImage.ImageSize.Height / CstApplication.HAUTEURTRAIT; y++)
             {
-                for (int x = 0; x < CstApplication.NOMBRE_BITS_X; x++)
+                for (int x = 0; x < listeImage.ImageSize.Width / CstApplication.LARGEURTRAIT; x++)
                 {
-                    byte valeur = bitArray[x * CstApplication.NOMBRE_BITS_X + y] ? (byte)255 : (byte)0;
+                    byte valeur = bitArray[x + listeImage.ImageSize.Height / CstApplication.HAUTEURTRAIT * y] ? (byte)255 : (byte)0;
 
                     // Setter tous les pixels correspondant à la position dans le BitArray sur le bitmap.
                     // (16 * 16 pour le BitArray vers 64 * 64 pour le bitmap)

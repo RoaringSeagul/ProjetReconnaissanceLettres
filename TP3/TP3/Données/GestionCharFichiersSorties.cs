@@ -58,6 +58,8 @@ namespace TPARCHIPERCEPTRON.Données
                         _lstCoord.Add(new CoordDessin(bitArray, c.ToString(), format.X, format.Y));
                     }
                 }
+                _imageFormat.X = _lstCoord[0].Hauteur / CstApplication.HAUTEURTRAIT;
+                _imageFormat.Y = _lstCoord[0].Largeur / CstApplication.LARGEURTRAIT;
                 return _lstCoord;
             }
             catch

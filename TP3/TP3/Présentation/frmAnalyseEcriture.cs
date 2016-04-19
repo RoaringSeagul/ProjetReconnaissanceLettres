@@ -153,7 +153,7 @@ namespace TPARCHIPERCEPTRON
             // Si la fenêtre n'est pas encore ouverte, la créer.
             if (_instanceDessinsForm == null) // && !rdUseMNIST.Checked)
             {
-                frmAffichageDessins affichageDessin = new frmAffichageDessins();
+                frmAffichageDessins affichageDessin = new frmAffichageDessins(_gcpAnalyseEcriture.Format.X * CstApplication.HAUTEURTRAIT, _gcpAnalyseEcriture.Format.Y * CstApplication.LARGEURTRAIT);
                 affichageDessin.GestionnairePerceptron = _gcpAnalyseEcriture;
 
                 // Ajouter un événement qui met _instanceDessinsForm à null lorsque
@@ -178,6 +178,7 @@ namespace TPARCHIPERCEPTRON
             if (rdManual.Checked)
             {
                 _typeEntrainement = TypeEntrainement.Manuel;
+                chkTestJeu.Enabled = false;
                 _gcpAnalyseEcriture = new GestionClassesPerceptrons(TypeEntrainement.Manuel);
                 ucDessin.Resize(_gcpAnalyseEcriture.Format.X * CstApplication.HAUTEURTRAIT, _gcpAnalyseEcriture.Format.Y * CstApplication.LARGEURTRAIT);
             }
@@ -188,6 +189,7 @@ namespace TPARCHIPERCEPTRON
             if (rdUseBD.Checked)
             {
                 _typeEntrainement = TypeEntrainement.BD;
+                chkTestJeu.Enabled = false;
                 _gcpAnalyseEcriture = new GestionClassesPerceptrons(TypeEntrainement.BD);
                 ucDessin.Resize(_gcpAnalyseEcriture.Format.X * CstApplication.HAUTEURTRAIT, _gcpAnalyseEcriture.Format.Y * CstApplication.LARGEURTRAIT);
             }
@@ -198,6 +200,7 @@ namespace TPARCHIPERCEPTRON
             if (rdUseMNIST.Checked)
             {
                 _typeEntrainement = TypeEntrainement.MNIST;
+                chkTestJeu.Enabled = true;
                 _gcpAnalyseEcriture = new GestionClassesPerceptrons(TypeEntrainement.MNIST);
                 ucDessin.Resize(_gcpAnalyseEcriture.Format.X * CstApplication.HAUTEURTRAIT, _gcpAnalyseEcriture.Format.Y * CstApplication.LARGEURTRAIT);
             }

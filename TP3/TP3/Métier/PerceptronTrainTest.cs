@@ -52,8 +52,8 @@ namespace TPARCHIPERCEPTRON.Métier
 
         public List<string> Test(CoordDessin coord, ref Dictionary<string, Perceptron> perceptrons)
         {
-            List<string> reponse = new List<string>() { "" };
-            double resultatReponse = double.MinValue;
+            List<string> reponse = new List<string>() { "?" };
+            double resultatReponse = 0.001;
             foreach (var perceptron in perceptrons.Values)
             {
                 double valeur = perceptron.TesterNeurone(coord);
