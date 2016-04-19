@@ -126,4 +126,7 @@
   <data name="MessageErreurTitre" xml:space="preserve">
     <value>Erreur</value>
   </data>
+  <data name="MessageErreurChar" xml:space="preserve">
+    <value>Veuillez entrer un charactère pour l'entraînement.</value>
+  </data>
 </root>

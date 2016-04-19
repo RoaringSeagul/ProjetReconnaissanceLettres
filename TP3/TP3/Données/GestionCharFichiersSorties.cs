@@ -28,7 +28,7 @@ namespace TPARCHIPERCEPTRON.Données
         {
             _lstCoord = new List<CoordDessin>();
             try {
-                using (StreamReader sr = new StreamReader(GestionFichierConfig.GetSettingValue("loadPath")))
+                using (StreamReader sr = new StreamReader(ConfigurationManager.AppSettings["loadPath"] != "" ? ConfigurationManager.AppSettings["loadPath"] : "data.csv"))
                 {
                     string line;
 
@@ -51,11 +51,11 @@ namespace TPARCHIPERCEPTRON.Données
                             var ligneValeur = line.Split(',');
                             for (int j = 0; j < format.Y; j++)
                             {
-                                bitArray[i * format.X + j] = ligneValeur[j] == "1" ? true : false;
+                                bitArray[i + j * format.X] = ligneValeur[j] == "1" ? true : false;
                             }
                         }
 
-                        _lstCoord.Add(new CoordDessin(bitArray, c.ToString()));
+                        _lstCoord.Add(new CoordDessin(bitArray, c.ToString(), format.X, format.Y));
                     }
                 }
                 return _lstCoord;
@@ -76,7 +76,7 @@ namespace TPARCHIPERCEPTRON.Données
         {
             try
             {
-                using (StreamWriter sw = new StreamWriter(ConfigurationManager.AppSettings["savePath"]))
+                using (StreamWriter sw = new StreamWriter(ConfigurationManager.AppSettings["savePath"] != "" ? ConfigurationManager.AppSettings["savePath"] : "data.csv"))
                 {
                     foreach (var coord in lstCoord)
                     {

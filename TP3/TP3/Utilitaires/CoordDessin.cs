@@ -59,6 +59,14 @@ namespace TPARCHIPERCEPTRON.Utilitaires
             _reponse = reponse;
         }
 
+        public CoordDessin(BitArray bits, string reponse, int largeur, int hauteur)
+        {
+            _baDessin = bits;
+            _reponse = reponse;
+            _largeur = largeur * CstApplication.LARGEURTRAIT;
+            _hauteur = hauteur * CstApplication.HAUTEURTRAIT;
+        }
+
         /// <summary>
         /// Remplie le BitArray de l'objet CoordDessin à partir d'une string
         /// </summary>

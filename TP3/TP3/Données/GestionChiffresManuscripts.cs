@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Collections;
 using TPARCHIPERCEPTRON.Utilitaires;
+using System.Configuration;
+using System.Windows.Forms;
 
 namespace TPARCHIPERCEPTRON.Données
 {
@@ -26,7 +28,28 @@ namespace TPARCHIPERCEPTRON.Données
 
         public void SaveCharData(List<CoordDessin> lstCoords, string cheminAcces)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (StreamWriter sw = new StreamWriter(ConfigurationManager.AppSettings["savePath"] != "" ? ConfigurationManager.AppSettings["savePath"] : "data.csv"))
+                {
+                    foreach (var coord in lstCoords)
+                    {
+                        sw.WriteLine(coord.Reponse + "," + (coord.Hauteur / 4) + "," + (coord.Largeur / 4));
+                        for (uint i = 0; i < (coord.Hauteur / 4); i++)
+                        {
+                            for (uint j = 0; j < (coord.Largeur / 4); j++)
+                            {
+                                sw.Write(coord.BitArrayDessin[(int)(i + (coord.Largeur / 4) * j)] ? "1" + "," : "0" + ',');
+                            }
+                            sw.WriteLine();
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show(Properties.Resources.ResourceManager.GetString("MessageErreurManuel"), Properties.Resources.ResourceManager.GetString("MessageErreurTitre"));
+            }
         }
 
         private List<CoordDessin> LoadCharData(string images, string label, int nbImage)
@@ -73,7 +96,7 @@ namespace TPARCHIPERCEPTRON.Données
                 } // each image
 
                 foreach (var bitArray in bitArrays)
-                    lstCoords.Add(new CoordDessin(bitArray.Key, bitArray.Value.ToString()));
+                    lstCoords.Add(new CoordDessin(bitArray.Key, bitArray.Value.ToString(), 28, 28));
 
                 ifsImages.Close();
                 brImages.Close();

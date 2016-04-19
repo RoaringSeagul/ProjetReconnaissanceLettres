@@ -150,7 +150,7 @@ namespace TPARCHIPERCEPTRON
         private void tsmiAfficherDessins_Click(object sender, EventArgs e)
         {
             // Si la fenêtre n'est pas encore ouverte, la créer.
-            if (_instanceDessinsForm == null && !rdUseMNIST.Checked)
+            if (_instanceDessinsForm == null) // && !rdUseMNIST.Checked)
             {
                 frmAffichageDessins affichageDessin = new frmAffichageDessins();
                 affichageDessin.GestionnairePerceptron = _gcpAnalyseEcriture;
@@ -166,8 +166,8 @@ namespace TPARCHIPERCEPTRON
                 // en avant-plan.
                 _instanceDessinsForm.BringToFront();
             }
-            else if (rdUseMNIST.Checked)
-                MessageBox.Show(Properties.Resources.ResourceManager.GetString("MessageErreurMNIST"), Properties.Resources.ResourceManager.GetString("MessageErreurTitre"));
+            //else if (rdUseMNIST.Checked)
+                //MessageBox.Show(Properties.Resources.ResourceManager.GetString("MessageErreurMNIST"), Properties.Resources.ResourceManager.GetString("MessageErreurTitre"));
         }
 
 

@@ -51,20 +51,19 @@ namespace TPARCHIPERCEPTRON.Métier
             {
                 case TypeEntrainement.Manuel:
                     _gestionSortie = new GestionCharFichiersSorties();
-                    _fichierEntrainement = _gestionSortie.GetTrainData();
                     break;
                 case TypeEntrainement.MNIST:
                     _gestionSortie = new GestionChiffresManuscripts();
                     break;
                 case TypeEntrainement.BD:
                     _gestionSortie = new GestionCharBD();
-                    _fichierEntrainement = _gestionSortie.GetTrainData();
                     break;
                 default:
                     throw new NotImplementedException(); // TODO: Find something to put here
                     break;
             }
             _format = _gestionSortie.GetFormat();
+            EntrainementInitial(_gestionSortie.GetTrainData());
         }
 
         /// <summary>
@@ -84,37 +83,33 @@ namespace TPARCHIPERCEPTRON.Métier
         /// <returns>Le résultat de la console</returns>
         public void Entrainement(CoordDessin coordo, string reponse)
         {
-            if (_lstPerceptrons.Count == 0 && _typeEntrainement != TypeEntrainement.Manuel)
-                Entrainement();
-
-            if (!_lstPerceptrons.ContainsKey(reponse) && reponse != "")
+            if (coordo.Reponse == "")
             {
-                _lstPerceptrons.Add(reponse, new Perceptron(reponse, 0.1, _gestionSortie.GetFormat()));
+                MessageBox.Show(Properties.Resources.ResourceManager.GetString("MessageErreurChar"), Properties.Resources.ResourceManager.GetString("MessageErreurTitre"));
+                return;
+            }
+
+            if (!_lstPerceptrons.ContainsKey(coordo.Reponse))
+            {
+                _lstPerceptrons.Add(coordo.Reponse, new Perceptron(coordo.Reponse, 0.1, _gestionSortie.GetFormat()));
             }
 
             coordo.Reponse = reponse;
             _fichierEntrainement.Add(coordo);
-            _perceptronTrainTest.Entrainement(new List<CoordDessin>() { coordo }, ref _lstPerceptrons);
+            _perceptronTrainTest.Entrainement(_fichierEntrainement, ref _lstPerceptrons);
         }
 
-        /// <summary>
-        /// Entraine le perceptron avec les données de la source spécifiée dans le constructeur.
-        /// </summary>
-        /// <returns></returns>
-        public string Entrainement()
+        private void EntrainementInitial(List<CoordDessin> coords)
         {
-            string sConsole = "";
-
-            foreach (var coord in _gestionSortie.GetTrainData())
+            foreach (var coordo in coords)
             {
-                if (!_lstPerceptrons.ContainsKey(coord.Reponse) && coord.Reponse != null)
+                if (!_lstPerceptrons.ContainsKey(coordo.Reponse) && coordo.Reponse != null)
                 {
-                    _lstPerceptrons.Add(coord.Reponse, new Perceptron(coord.Reponse, 0.1, _gestionSortie.GetFormat()));
+                    _lstPerceptrons.Add(coordo.Reponse, new Perceptron(coordo.Reponse, 0.1, _gestionSortie.GetFormat()));
                 }
+                _fichierEntrainement.Add(coordo);
             }
-            _perceptronTrainTest.Entrainement(_gestionSortie.GetTrainData(), ref _lstPerceptrons);
-            _fichierEntrainement.AddRange(_gestionSortie.GetTrainData());
-            return sConsole;
+            _perceptronTrainTest.Entrainement(_fichierEntrainement, ref _lstPerceptrons);
         }
 
         /// <summary>
