@@ -14,10 +14,10 @@ namespace TPARCHIPERCEPTRON
     
     public partial class DessinModel
     {
-        public int PerceptronID { get; set; }
-        public string LettresPerceptron { get; set; }
         public string BitArray { get; set; }
         public int Hauteur { get; set; }
         public int Largeur { get; set; }
+        public int DessinID { get; set; }
+        public string Lettres { get; set; }
     }
 }

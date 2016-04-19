@@ -38,6 +38,20 @@ namespace TPARCHIPERCEPTRON
         }
 
         /// <summary>
+        /// Constructeur. Initialise la zone de dessin.
+        /// </summary>
+        public ucZoneDessin()
+        {
+            InitializeComponent();
+
+            _hauteur = CstApplication.TAILLEDESSINX;
+            _largeur = CstApplication.TAILLEDESSINY;
+            pZoneDessin.Image = new Bitmap(_largeur, _hauteur);
+            _objGraphics = Graphics.FromImage(pZoneDessin.Image);
+            _coordonnees = new CoordDessin(_largeur, _hauteur, CstApplication.LARGEURTRAIT, CstApplication.HAUTEURTRAIT);
+        }
+
+        /// <summary>
         /// Si l'utilisateur à cliqué, enclenché le processus de dessin pour le MouseMove.
         /// </summary>
         /// <param name="sender"></param>

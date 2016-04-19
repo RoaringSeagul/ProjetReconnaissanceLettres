@@ -7,10 +7,10 @@
     <Schema Namespace="Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="DessinModel">
           <Key>
-            <PropertyRef Name="PerceptronID" />
+            <PropertyRef Name="DessinID" />
           </Key>
-          <Property Name="PerceptronID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="LettresPerceptron" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="DessinID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Lettres" Type="nvarchar" MaxLength="1" Nullable="false" />
           <Property Name="BitArray" Type="text" Nullable="false" />
           <Property Name="Hauteur" Type="int" Nullable="false" />
           <Property Name="Largeur" Type="int" Nullable="false" />
@@ -27,13 +27,13 @@
         </EntityContainer>
         <EntityType Name="DessinModel">
           <Key>
-            <PropertyRef Name="PerceptronID" />
+            <PropertyRef Name="DessinID" />
           </Key>
-          <Property Name="PerceptronID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="LettresPerceptron" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
           <Property Name="BitArray" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Hauteur" Type="Int32" Nullable="false" />
           <Property Name="Largeur" Type="Int32" Nullable="false" />
+          <Property Name="DessinID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Lettres" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -44,12 +44,12 @@
           <EntitySetMapping Name="DessinModels">
             <EntityTypeMapping TypeName="Models.DessinModel">
               <MappingFragment StoreEntitySet="DessinModel">
+                <ScalarProperty Name="Lettres" ColumnName="Lettres" />
+                <ScalarProperty Name="DessinID" ColumnName="DessinID" />
                 <ScalarProperty Name="Largeur" ColumnName="Largeur" />
                 <ScalarProperty Name="Hauteur" ColumnName="Hauteur" />
                 <ScalarProperty Name="BitArray" ColumnName="BitArray" />
-                <ScalarProperty Name="LettresPerceptron" ColumnName="LettresPerceptron" />
-                <ScalarProperty Name="PerceptronID" ColumnName="PerceptronID" />
-              </MappingFragment>
+                </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
         </EntityContainerMapping>

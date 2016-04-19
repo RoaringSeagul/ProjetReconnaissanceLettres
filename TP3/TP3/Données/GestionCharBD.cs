@@ -43,7 +43,7 @@ namespace TPARCHIPERCEPTRON.Données
                     if (s != '0')
                         c.AjouterCoordonnees(x, y, CstApplication.LARGEURTRAIT, CstApplication.HAUTEURTRAIT);
                 }
-                c.Reponse = p.LettresPerceptron;
+                c.Reponse = p.Lettres;
                 _lstCoord.Add(c);
             }
 
@@ -57,7 +57,7 @@ namespace TPARCHIPERCEPTRON.Données
         {
             foreach (var c in lstCoord)
             {
-                bd.DessinModels.AddOrUpdate(p => p.LettresPerceptron, new DessinModel() { LettresPerceptron = c.Reponse, BitArray = c.BitArrayDessin.ToString() });
+                bd.DessinModels.AddOrUpdate(p => p.DessinID, new DessinModel() { DessinID = c.Id, Lettres = c.Reponse, BitArray = c.BitArrayDessin.ToString() });
             }
         }
 

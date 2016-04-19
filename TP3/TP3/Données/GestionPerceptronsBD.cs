@@ -42,15 +42,15 @@ namespace TPARCHIPERCEPTRON.Données
         /// </summary>
         private void ChargerCoordonnees()
         {
-            ImageFormat imgFrmt = new ImageFormat() { X = CstApplication.TAILLEDESSINX, Y = CstApplication.TAILLEDESSINY };
+            ImageFormat imgFrmt = new ImageFormat() { X = CstApplication.TAILLEDESSINX / CstApplication.LARGEURTRAIT, Y = CstApplication.TAILLEDESSINY / CstApplication.LARGEURTRAIT };
             var coords = new Double[16, 16];
             IEnumerable<DessinModel> lstPercept = bd.DessinModels;
 
             foreach (var p in lstPercept)
             {
-                CoordDessin c = new CoordDessin(p.Largeur, p.Hauteur, 1, 1);
-                c.Id = p.PerceptronID;
-                c.Reponse = p.LettresPerceptron;
+                CoordDessin c = new CoordDessin(p.Largeur, p.Hauteur, CstApplication.LARGEURTRAIT, CstApplication.LARGEURTRAIT);
+                c.Id = p.DessinID;
+                c.Reponse = p.Lettres;
                 c.CreerBitArrayString(p.BitArray);
                 _lstCoord.Add(c);
             }
@@ -67,7 +67,13 @@ namespace TPARCHIPERCEPTRON.Données
             {
                 Perceptron p = new Perceptron(c, 0.1, imgFrmt);
                 p.Entrainement(_lstCoord.Where(x => x.Reponse == c).ToList());
-                _lstPerceptrons.Add(c, p);
+                if (_lstPerceptrons == null)
+                {
+                    _lstPerceptrons = new Dictionary<string, Perceptron>();
+                    _lstPerceptrons.Add(c, p);
+                }
+                else
+                    _lstPerceptrons.Add(c, p);
             }
         }
 
@@ -120,7 +126,7 @@ namespace TPARCHIPERCEPTRON.Données
                 string bitString = ToBitString(cd.BitArrayDessin);
                 bd.DessinModels.Add(new DessinModel()
                 {
-                    LettresPerceptron = cd.Reponse,
+                    Lettres = cd.Reponse,
                     Hauteur = cd.Hauteur,
                     Largeur = cd.Largeur,
                     BitArray = bitString
