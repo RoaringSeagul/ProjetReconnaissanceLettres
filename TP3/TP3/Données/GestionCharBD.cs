@@ -22,29 +22,31 @@ namespace TPARCHIPERCEPTRON.Données
         /// <summary>
         /// Permet d'extraire de la base de données dans une matrice les information d'un perceptron pour l'apprentissage automatique.
         /// </summary>
-        private List<CoordDessin> ChargerCoordonnees()
+        private void ChargerCoordonnees()
         {
-            _lstCoord = new List<CoordDessin>();
-
-            foreach (var p in bd.PerceptronModels)
+            int x = 0;
+            int y = 0;
+            foreach (var p in bd.DessinModels)
             {
-                CoordDessin c = new CoordDessin(16, 16, 1, 1);
-
+                CoordDessin c = new CoordDessin(p.Largeur, p.Hauteur, CstApplication.LARGEURTRAIT, CstApplication.HAUTEURTRAIT);
+                x = 0;
+                y = 0;
                 foreach (var s in p.BitArray)
                 {
-                    for (int y = 0; y <= 16; y++)
+                    x++;
+                    if (x >= 15)
                     {
-                        for (int x = 0; x < 16; x++)
-                        {
-                            if (s != '0')
-                                c.AjouterCoordonnees(x, y, 1, 1);
-                        }
+                        y++;
+                        x = 0;
                     }
-                }
 
+                    if (s != '0')
+                        c.AjouterCoordonnees(x, y, CstApplication.LARGEURTRAIT, CstApplication.HAUTEURTRAIT);
+                }
+                c.Reponse = p.LettresPerceptron;
+                _lstCoord.Add(c);
             }
 
-            return _lstCoord;
         }
 
         /// <summary>
@@ -55,7 +57,7 @@ namespace TPARCHIPERCEPTRON.Données
         {
             foreach (var c in lstCoord)
             {
-                bd.PerceptronModels.AddOrUpdate(p => p.LettresPerceptron, new PerceptronModel() { LettresPerceptron = c.Reponse, BitArray = c.BitArrayDessin.ToString() });
+                bd.DessinModels.AddOrUpdate(p => p.LettresPerceptron, new DessinModel() { LettresPerceptron = c.Reponse, BitArray = c.BitArrayDessin.ToString() });
             }
         }
 
@@ -103,6 +105,7 @@ namespace TPARCHIPERCEPTRON.Données
 
         public List<CoordDessin> GetTrainData(string s = "")
         {
+            this.ChargerCoordonnees();
             return _lstCoord;
         }
 

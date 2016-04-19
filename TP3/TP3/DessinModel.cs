@@ -12,7 +12,7 @@ namespace TPARCHIPERCEPTRON
     using System;
     using System.Collections.Generic;
     
-    public partial class PerceptronModel
+    public partial class DessinModel
     {
         public int PerceptronID { get; set; }
         public string LettresPerceptron { get; set; }

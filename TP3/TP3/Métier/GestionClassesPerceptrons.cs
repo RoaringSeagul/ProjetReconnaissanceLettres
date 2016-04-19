@@ -106,7 +106,7 @@ namespace TPARCHIPERCEPTRON.Métier
 
             foreach (var coord in _gestionSortie.GetTrainData())
             {
-                if (!_lstPerceptrons.ContainsKey(coord.Reponse) && coord.Reponse != "")
+                if (!_lstPerceptrons.ContainsKey(coord.Reponse) && coord.Reponse != null)
                 {
                     _lstPerceptrons.Add(coord.Reponse, new Perceptron(coord.Reponse, 0.1, _gestionSortie.GetFormat()));
                 }

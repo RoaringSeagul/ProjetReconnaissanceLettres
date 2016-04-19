@@ -23,6 +23,7 @@ namespace TPARCHIPERCEPTRON.Données
     public class GestionPerceptronBD : IPerceptronData
     {
         private Dictionary<string, Perceptron> _lstPerceptrons;
+        private ICharData _gestionnaireChar = new GestionCharBD();
         private List<CoordDessin> _lstCoord;
         PerceptronBd bd = new PerceptronBd();
 
@@ -30,7 +31,10 @@ namespace TPARCHIPERCEPTRON.Données
 
         public GestionPerceptronBD(List<CoordDessin> lstCoord)
         {
-            _lstCoord = lstCoord;
+            if (_lstCoord != null)
+                _lstCoord.AddRange(lstCoord);
+            else
+                _lstCoord = lstCoord;
         }
 
         /// <summary>
@@ -38,9 +42,9 @@ namespace TPARCHIPERCEPTRON.Données
         /// </summary>
         private void ChargerCoordonnees()
         {
-            ImageFormat imgFrmt = new ImageFormat() { X = 112, Y = 112 };
+            ImageFormat imgFrmt = new ImageFormat() { X = CstApplication.TAILLEDESSINX, Y = CstApplication.TAILLEDESSINY };
             var coords = new Double[16, 16];
-            IEnumerable<PerceptronModel> lstPercept = bd.PerceptronModels;
+            IEnumerable<DessinModel> lstPercept = bd.DessinModels;
 
             foreach (var p in lstPercept)
             {
@@ -114,7 +118,7 @@ namespace TPARCHIPERCEPTRON.Données
             foreach (var cd in _lstCoord)
             {
                 string bitString = ToBitString(cd.BitArrayDessin);
-                bd.PerceptronModels.Add(new PerceptronModel()
+                bd.DessinModels.Add(new DessinModel()
                 {
                     LettresPerceptron = cd.Reponse,
                     Hauteur = cd.Hauteur,

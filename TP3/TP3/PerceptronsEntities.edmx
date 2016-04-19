@@ -4,8 +4,8 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="PerceptronModel">
+    <Schema Namespace="Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DessinModel">
           <Key>
             <PropertyRef Name="PerceptronID" />
           </Key>
@@ -16,40 +16,39 @@
           <Property Name="Largeur" Type="int" Nullable="false" />
         </EntityType>
         <EntityContainer Name="ModelsStoreContainer">
-          <EntitySet Name="PerceptronModel" EntityType="Self.PerceptronModel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DessinModel" EntityType="Self.DessinModel" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Models" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="PerceptronModel">
+        <EntityContainer Name="PerceptronBd" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DessinModels" EntityType="Models.DessinModel" />
+        </EntityContainer>
+        <EntityType Name="DessinModel">
           <Key>
             <PropertyRef Name="PerceptronID" />
           </Key>
           <Property Name="PerceptronID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="LettresPerceptron" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="BitArray" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LettresPerceptron" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="BitArray" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Hauteur" Type="Int32" Nullable="false" />
           <Property Name="Largeur" Type="Int32" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="PerceptronBd" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="PerceptronModels" EntityType="Self.PerceptronModel" />
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ModelsStoreContainer" CdmEntityContainer="PerceptronBd">
-          <EntitySetMapping Name="PerceptronModels">
-            <EntityTypeMapping TypeName="Models.PerceptronModel">
-              <MappingFragment StoreEntitySet="PerceptronModel">
-                <ScalarProperty Name="PerceptronID" ColumnName="PerceptronID" />
-                <ScalarProperty Name="LettresPerceptron" ColumnName="LettresPerceptron" />
-                <ScalarProperty Name="BitArray" ColumnName="BitArray" />
-                <ScalarProperty Name="Hauteur" ColumnName="Hauteur" />
+          <EntitySetMapping Name="DessinModels">
+            <EntityTypeMapping TypeName="Models.DessinModel">
+              <MappingFragment StoreEntitySet="DessinModel">
                 <ScalarProperty Name="Largeur" ColumnName="Largeur" />
+                <ScalarProperty Name="Hauteur" ColumnName="Hauteur" />
+                <ScalarProperty Name="BitArray" ColumnName="BitArray" />
+                <ScalarProperty Name="LettresPerceptron" ColumnName="LettresPerceptron" />
+                <ScalarProperty Name="PerceptronID" ColumnName="PerceptronID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

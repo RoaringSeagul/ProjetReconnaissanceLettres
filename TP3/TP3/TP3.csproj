@@ -65,6 +65,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DessinModel.cs">
+      <DependentUpon>PerceptronsEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Données\GestionCharBD.cs" />
     <Compile Include="Données\GestionPerceptronsBD.cs" />
     <Compile Include="Données\GestionPerceptronFichiersSorties.cs" />
@@ -74,9 +77,6 @@
     <Compile Include="Métier\GestionFichierConfig.cs" />
     <Compile Include="Métier\PerceptronTrainTest.cs" />
     <Compile Include="Métier\TypeEntrainement.cs" />
-    <Compile Include="PerceptronModel.cs">
-      <DependentUpon>PerceptronsEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="PerceptronsEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
