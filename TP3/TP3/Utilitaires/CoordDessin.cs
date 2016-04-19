@@ -107,8 +107,6 @@ namespace TPARCHIPERCEPTRON.Utilitaires
             if (y + tailleY >= CstApplication.TAILLEDESSINY)
                 y = CstApplication.TAILLEDESSINY - tailleY;
 
-            //for (int i = 0; i < tailleX; i++)
-            //    for (int j = 0; j < tailleY; j++)
             int j = ((x / tailleX) * (CstApplication.TAILLEDESSINX / tailleX) + (y / tailleY));
             _baDessin[j] = true;
         }

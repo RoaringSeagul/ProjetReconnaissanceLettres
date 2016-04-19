@@ -59,6 +59,7 @@ namespace TPARCHIPERCEPTRON
             rdUseMNIST.Enabled = false;
             rdUseBD.Enabled = false;
 
+
             ucDessin.Coordonnees.Reponse = txtValeurEntrainee.Text;
             _gcpAnalyseEcriture.Entrainement(ucDessin.Coordonnees, txtValeurEntrainee.Text);
         }

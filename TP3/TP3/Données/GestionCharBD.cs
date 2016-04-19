@@ -6,6 +6,8 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Data.Entity.Migrations;
 using TPARCHIPERCEPTRON.Utilitaires;
+using System.Collections;
+using System.Text;
 
 namespace TPARCHIPERCEPTRON.Données
 {
@@ -34,7 +36,7 @@ namespace TPARCHIPERCEPTRON.Données
                 foreach (var s in p.BitArray)
                 {
                     x++;
-                    if (x >= 15)
+                    if (x > 16)
                     {
                         y++;
                         x = 0;
@@ -44,6 +46,7 @@ namespace TPARCHIPERCEPTRON.Données
                         c.AjouterCoordonnees(x, y, CstApplication.LARGEURTRAIT, CstApplication.HAUTEURTRAIT);
                 }
                 c.Reponse = p.Lettres;
+                c.Id = p.DessinID;
                 _lstCoord.Add(c);
             }
 
@@ -57,8 +60,30 @@ namespace TPARCHIPERCEPTRON.Données
         {
             foreach (var c in lstCoord)
             {
-                bd.DessinModels.AddOrUpdate(p => p.DessinID, new DessinModel() { DessinID = c.Id, Lettres = c.Reponse, BitArray = c.BitArrayDessin.ToString() });
+                if (c.Id == 0)
+                    bd.DessinModels.Add(new DessinModel()
+                    {
+                        Lettres = c.Reponse,
+                        BitArray = ToBitString(c.BitArrayDessin),
+                        Hauteur = c.Hauteur,
+                        Largeur = c.Largeur
+                    });
             }
+
+            bd.SaveChanges();
+        }
+
+        private string ToBitString(BitArray bits)
+        {
+            var sb = new StringBuilder();
+
+            for (int i = 0; i < bits.Count; i++)
+            {
+                char c = bits[i] ? '1' : '0';
+                sb.Append(c);
+            }
+
+            return sb.ToString();
         }
 
         /// <summary>

@@ -42,18 +42,9 @@ namespace TPARCHIPERCEPTRON.Données
         /// </summary>
         private void ChargerCoordonnees()
         {
-            ImageFormat imgFrmt = new ImageFormat() { X = CstApplication.TAILLEDESSINX / CstApplication.LARGEURTRAIT, Y = CstApplication.TAILLEDESSINY / CstApplication.LARGEURTRAIT };
-            var coords = new Double[16, 16];
-            IEnumerable<DessinModel> lstPercept = bd.DessinModels;
+            ImageFormat imgFrmt = new ImageFormat() { X = 16, Y = 16 };
 
-            foreach (var p in lstPercept)
-            {
-                CoordDessin c = new CoordDessin(p.Largeur, p.Hauteur, CstApplication.LARGEURTRAIT, CstApplication.LARGEURTRAIT);
-                c.Id = p.DessinID;
-                c.Reponse = p.Lettres;
-                c.CreerBitArrayString(p.BitArray);
-                _lstCoord.Add(c);
-            }
+            _lstCoord = _gestionnaireChar.GetTrainData();
 
             List<string> lstKnownChar = new List<string>();
 
@@ -121,19 +112,7 @@ namespace TPARCHIPERCEPTRON.Données
 
         public void SavePerceptrons(Dictionary<string, Perceptron> lstPerceptrons, string cheminAcces)
         {
-            foreach (var cd in _lstCoord)
-            {
-                string bitString = ToBitString(cd.BitArrayDessin);
-                bd.DessinModels.Add(new DessinModel()
-                {
-                    Lettres = cd.Reponse,
-                    Hauteur = cd.Hauteur,
-                    Largeur = cd.Largeur,
-                    BitArray = bitString
-                });
-            }
-
-            bd.SaveChanges();
+            _gestionnaireChar.SaveCharData(_lstCoord, "");
         }
 
         public Dictionary<string, Perceptron> LoadPerceptrons(string cheminAcces)
