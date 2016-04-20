@@ -8,6 +8,7 @@ using System.Data.Entity.Migrations;
 using System.Collections;
 using System.Text;
 using System.Windows.Forms;
+using TPARCHIPERCEPTRON.Utilitaires;
 
 namespace TPARCHIPERCEPTRON.Données
 {

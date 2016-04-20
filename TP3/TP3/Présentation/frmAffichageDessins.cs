@@ -64,7 +64,7 @@ namespace TPARCHIPERCEPTRON
             {
                 for (int x = 0; x < listeImage.ImageSize.Width / CstApplication.LARGEURTRAIT; x++)
                 {
-                    byte valeur = bitArray[x + listeImage.ImageSize.Height / CstApplication.HAUTEURTRAIT * y] ? (byte)255 : (byte)0;
+                    byte valeur = bitArray[x * listeImage.ImageSize.Height / CstApplication.HAUTEURTRAIT + y] ? (byte)255 : (byte)0;
 
                     // Setter tous les pixels correspondant à la position dans le BitArray sur le bitmap.
                     // (16 * 16 pour le BitArray vers 64 * 64 pour le bitmap)

@@ -136,11 +136,7 @@ namespace TPARCHIPERCEPTRON.Métier
         /// </summary>
         public void SauvegarderPerceptrons(string cheminAcces, bool useBD = false)
         {
-            if (useBD)
-                _gestionPerceptron = new GestionPerceptronBD(_fichierEntrainement);
-            else
-                _gestionPerceptron = new GestionPerceptronFichiersSorties();
-
+            _gestionPerceptron = new GestionPerceptronFichiersSorties();
             _gestionPerceptron.SavePerceptrons(_lstPerceptrons, cheminAcces);
         }
 
@@ -157,8 +153,6 @@ namespace TPARCHIPERCEPTRON.Métier
                     _lstPerceptrons = _gestionPerceptron.LoadPerceptrons(cheminAcces);
                     break;
                 case TypeEntrainement.BD:
-                    _gestionPerceptron = new GestionPerceptronBD(_fichierEntrainement);
-                    _gestionPerceptron.LoadPerceptrons("");
                     break;
                 default:
                     break;

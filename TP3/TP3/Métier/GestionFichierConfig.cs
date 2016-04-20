@@ -103,7 +103,10 @@ namespace TPARCHIPERCEPTRON.Métier
         {
             var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.PerUserRoamingAndLocal);
             var settings = configFile.AppSettings.Settings;
-            return settings[Key].Value;
+            if (settings[Key] != null)
+                return settings[Key].Value;
+            else
+                return "";
         }
     }
 }

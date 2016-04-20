@@ -69,7 +69,6 @@
       <DependentUpon>PerceptronsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Données\GestionCharBD.cs" />
-    <Compile Include="Données\GestionPerceptronsBD.cs" />
     <Compile Include="Données\GestionPerceptronFichiersSorties.cs" />
     <Compile Include="Données\ICharData.cs" />
     <Compile Include="Données\IPerceptronData.cs" />
